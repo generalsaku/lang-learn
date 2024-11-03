@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "homepage": "https://generalsaku.github.io/lang-learn",
+  "description": "A app for learning language.",
+  "main": "src/main.ts",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
@@ -27,6 +30,7 @@
     "@vue/tsconfig": "^0.5.1",
     "eslint": "^9.13.0",
     "eslint-plugin-vue": "^9.29.0",
+    "gh-pages": "^6.2.0",
     "npm-run-all2": "^7.0.1",
     "prettier": "^3.3.3",
     "typescript": "~5.6.0",
