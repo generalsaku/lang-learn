@@ -17,8 +17,8 @@ defineProps<{ record: LLRecord, english: boolean }>()
 
 <style scoped>
 .card-wrapper {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   display: flex;
   flex-flow: column;
   box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 0px 1px;

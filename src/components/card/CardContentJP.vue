@@ -3,16 +3,18 @@
 
   <div class="reading">
     <span class="expression noto">{{ record.expression }}</span>
+    <template v-for="(reading, index) in readings" :key="`${reading}-${index}`">
     <table>
       <tbody>
-        <tr class="kana-row">
-          <td v-for="(char, index) in record.reading" :key="index" class="kana noto" @click="() => read(props.record.reading)">{{ char }}</td>
-        </tr>
-        <tr>
-          <td v-for="(char, index) in record.reading" :key="index" class="romaji">{{ kanaToRomaji[char] }}</td>
-        </tr>
-      </tbody>
-    </table>
+          <tr class="kana-row">
+            <td v-for="(char, index) in reading" :key="`${char}-${index}`" class="kana noto" @click="() => read(reading)">{{ char }}</td>
+          </tr>
+          <tr>
+            <td v-for="(char, index) in reading" :key="`${charmap[char]}-${index}`" class="romaji">{{ charmap[char] }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </template>
   </div>
 
   <div class="tags">
@@ -21,13 +23,16 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { LLRecord } from '@/types'
 
-import kanaToRomaji from '@/assets/kana-to-romaji.json'
+import { default as charmap } from '@/assets/kana-to-romaji.json'
 
 import { read } from '@/utils/speech'
 
 const props = defineProps<{ record: LLRecord }>()
+
+const readings = computed(() => props.record.reading.split(';'))
 
 </script>
 
@@ -47,7 +52,7 @@ const props = defineProps<{ record: LLRecord }>()
     flex-flow: column nowrap;
 
     .expression {
-      color: #FF6B6B;
+      color: #ff8686;
       position: absolute;
       top: 0;
       right: 4px;
@@ -56,7 +61,7 @@ const props = defineProps<{ record: LLRecord }>()
 
     .kana-row {
       &:hover {
-        border-bottom: 2px solid #f8f6f6;
+        outline: 2px solid #f8f6f6;
       }
     }
 

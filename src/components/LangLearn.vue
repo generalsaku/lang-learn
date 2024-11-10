@@ -1,6 +1,6 @@
 <template>
   <div class="records">
-    <CardWrapper :record="record" v-for="(record) in records.slice(0, 100)" :english="false" :key="record.sort_index"></CardWrapper>
+    <CardWrapper :record="record" v-for="(record) in records.slice(0, 5)" :english="false" :key="record.sort_index"></CardWrapper>
   </div>
 </template>
 

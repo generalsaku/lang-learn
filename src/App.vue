@@ -1,6 +1,6 @@
 <template>
   <div class="app-layout">
-    <header><span class="title">LEARN - BAKA!</span></header>
+    <header><span class="title">LEARN! BAKA! LEARN!</span></header>
     <section class="content">
       <RouterView />
     </section>
@@ -11,9 +11,10 @@
 <script lang="ts" setup>
 import { onMounted } from 'vue';
 import { RouterView } from 'vue-router'
+import { read } from '@/utils/speech';
 
 onMounted(() => {
-  window.speechSynthesis.cancel()
+  read('め', 0) // warm up the api
 })
 
 </script>
@@ -23,10 +24,6 @@ onMounted(() => {
   display: grid;
   grid-template-rows: auto 1fr auto;
   height: 100%;
-
-  header {
-    line-height: 1.5;
-  }
 
   header {
     display: flex;
