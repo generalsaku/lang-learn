@@ -5,18 +5,17 @@ export const read = (text: string) => new Promise<void>((resolve) => {
     return
   }
 
+  const voice = window.speechSynthesis.getVoices().find(voice => voice.lang === 'ja-JP' || voice.lang === 'ja_JP')!
+
   const msg = new SpeechSynthesisUtterance();
   msg.text = text
-  msg.voice = window.speechSynthesis.getVoices().find(voice => voice.lang === 'ja-JP')!
-  msg.lang = 'ja-JP'
+  msg.voice = voice
+  msg.lang = voice.lang
   msg.volume = 1
   msg.pitch = 0.9
   msg.rate = 0.8
   msg.onerror = (err) => console.log(err)
-
-  msg.onend = () => {
-    resolve()
-  }
+  msg.onend = () => { resolve() }
 
   window.speechSynthesis.cancel()
   window.speechSynthesis.speak(msg)
