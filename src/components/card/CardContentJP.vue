@@ -1,24 +1,22 @@
 <template>
-  <div class="ja-reading">
-    <span class="index"> {{ record.sort_index + 1 }}</span>
+  <span class="index">{{ record.sort_index + 1 }}</span>
 
-    <div class="reading">
-      <span class="expression noto">{{ record.expression }}</span>
-      <table>
-        <tbody>
-          <tr>
-            <td v-for="(char, index) in record.reading" :key="index" class="kana noto">{{ char }}</td>
-          </tr>
-          <tr>
-            <td v-for="(char, index) in record.reading" :key="index" class="romaji">{{ kanaToRomaji[char] }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div class="reading">
+    <span class="expression noto">{{ record.expression }}</span>
+    <table>
+      <tbody>
+        <tr class="kana-row">
+          <td v-for="(char, index) in record.reading" :key="index" class="kana noto" @click="() => read(props.record.reading)">{{ char }}</td>
+        </tr>
+        <tr>
+          <td v-for="(char, index) in record.reading" :key="index" class="romaji">{{ kanaToRomaji[char] }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-    <div class="tags">
-      <span v-for="(speech_part) in record.speech_parts" :key="speech_part" class="tag">{{ speech_part }}</span>
-    </div>
+  <div class="tags">
+    <span v-for="(speech_part) in record.speech_parts" :key="speech_part" class="tag">{{ speech_part }}</span>
   </div>
 </template>
 
@@ -27,20 +25,13 @@ import type { LLRecord } from '@/types'
 
 import kanaToRomaji from '@/assets/kana-to-romaji.json'
 
-defineProps<{ record: LLRecord, english: boolean }>()
+import { read } from '@/utils/speech'
+
+const props = defineProps<{ record: LLRecord }>()
+
 </script>
 
 <style scoped>
-.ja-reading {
-  width: 200px;
-  height: 200px;
-  display: flex;
-  flex-flow: column;
-  box-shadow: rgba(255, 255, 255, 0.236) 0px 0px 0px 1px;
-  border-left: 3px solid rgba(255, 255, 255, 0.5);
-  background-color: rgb(241 241 241 / 15%);
-  position: relative;
-
   .index {
     position: absolute;
     top: 2px;
@@ -63,9 +54,16 @@ defineProps<{ record: LLRecord, english: boolean }>()
       font-size: 20px;
     }
 
+    .kana-row {
+      &:hover {
+        border-bottom: 2px solid #f8f6f6;
+      }
+    }
+
     .kana {
       color: #4FD1C5;
       font-size: 22px;
+      cursor: pointer;
     }
 
     table {
@@ -90,7 +88,7 @@ defineProps<{ record: LLRecord, english: boolean }>()
 
     .tag {
       vertical-align: middle;
-      background: rgb(94, 94, 94);
+      background: rgb(255 255 255 / 20%);
       border-top-right-radius: 3px;
       border-bottom-right-radius: 3px;
       border-left: 3px solid #4FD1C5;
@@ -98,7 +96,7 @@ defineProps<{ record: LLRecord, english: boolean }>()
       font-size: 11px;
       min-height: 19px;
       font-weight: 500;
+      cursor: pointer;
     }
   }
-}
 </style>

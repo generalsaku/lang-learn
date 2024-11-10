@@ -1,12 +1,12 @@
 <template>
   <div class="records">
-    <JAReading :record="record" v-for="(record) in records.slice(0, 50)" :english="false" :key="record.sort_index"></JAReading>
+    <CardWrapper :record="record" v-for="(record) in records.slice(0, 100)" :english="false" :key="record.sort_index"></CardWrapper>
   </div>
 </template>
 
 <script setup lang="ts">
 import { default as records } from '@/assets/data.json'
-import JAReading from '@/components/JAReading.vue'
+import CardWrapper from '@/components/card/CardWrapper.vue';
 </script>
 
 <style scoped>
