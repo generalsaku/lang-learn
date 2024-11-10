@@ -11,14 +11,9 @@
 <script lang="ts" setup>
 import { onMounted } from 'vue';
 import { RouterView } from 'vue-router'
-import { read } from './utils/speech';
 
 onMounted(() => {
   window.speechSynthesis.cancel()
-
-  setInterval(() => {
-    read('ふたり')
-  }, 3000)
 })
 
 </script>
