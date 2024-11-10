@@ -1,8 +1,3 @@
-<script setup lang="ts">
-import { onMounted } from 'vue';
-import { RouterView } from 'vue-router'
-</script>
-
 <template>
   <div class="app-layout">
     <header><span class="title">LEARN - BAKA!</span></header>
@@ -13,9 +8,17 @@ import { RouterView } from 'vue-router'
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
+import { onMounted } from 'vue';
+import { RouterView } from 'vue-router'
+import { read } from './utils/speech';
+
 onMounted(() => {
   window.speechSynthesis.cancel()
+
+  setInterval(() => {
+    read('ふたり')
+  }, 3000)
 })
 
 </script>
