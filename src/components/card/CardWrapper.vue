@@ -1,7 +1,10 @@
 <template>
   <div class="card-wrapper">
-    <CardContentEN v-if="english" :record="record"></CardContentEN>
-    <CardContentJP v-else :record="record"></CardContentJP>
+    <slot name="stack"></slot>
+    <div class="card">
+      <CardContentEN v-if="english" :record="record"></CardContentEN>
+      <CardContentJP v-else :record="record"></CardContentJP>
+    </div>
   </div>
 </template>
 
@@ -17,13 +20,22 @@ defineProps<{ record: LLRecord, english: boolean }>()
 
 <style scoped>
 .card-wrapper {
-  width: 250px;
-  height: 250px;
   display: flex;
   flex-flow: column;
   box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 0px 1px;
   border-top: 1px solid rgba(255, 255, 255, 0.4);
   background-color: rgb(241 241 241 / 15%);
   position: relative;
+  width: 250px;
+  height: 250px;
+
+  .card {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: black;
+    z-index: 99999;
+  }
 }
 </style>

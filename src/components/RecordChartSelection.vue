@@ -5,7 +5,8 @@
       :key="set.level"
       :set="set"
       :class="{ disappear: jlptSetsStore.isSelectedSet(set) === false }"
-      @click="jlptSetsStore.selectSet(set)">
+      @click="jlptSetsStore.selectSet(set)"
+      :disabled="false">
     </RecordChartSingle>
   </div>
 </template>

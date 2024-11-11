@@ -33,13 +33,6 @@ const getFontSize = (text: string | null): string | undefined => {
 </script>
 
 <style scoped>
-  .index {
-    position: absolute;
-    top: 2px;
-    left: 4px;
-    font-size: 10px;
-  }
-
   .meanings {
     flex: 1;
     display: flex;

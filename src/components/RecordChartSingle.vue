@@ -1,7 +1,7 @@
 <template>
     <div class="jlpt-set">
       <div class="jlpt-header">JLPT {{ set.level }} ({{ set.entries.length }})</div>
-      <button class="jlpt-button" @click="emit('click')" >
+      <button class="jlpt-button" @click="() => emit('click')" :class="{ 'disabled': disabled }">
         <div class="jlpt-records" >
           <div v-for="(entry) of set.entries" :key="entry.sort_index" :title="`${entry.sort_index + 1}`" class="jlpt-record"></div>
         </div>
@@ -14,7 +14,7 @@ import type { JLPTSet } from '@/types'
 
 const emit = defineEmits(['click'])
 
-defineProps<{ set: JLPTSet }>()
+defineProps<{ set: JLPTSet; disabled: boolean }>()
 </script>
 
 <style scoped>
@@ -28,9 +28,33 @@ defineProps<{ set: JLPTSet }>()
     margin-bottom: 2px;
   }
 
-  button {
+  .jlpt-button {
     all: unset;
-    cursor: pointer;
+
+    .jlpt-button.disabled {
+      pointer-events: none;
+    }
+
+    &:not(.disabled) {
+      cursor: pointer;
+
+      &:hover {
+        .jlpt-records {
+          &::before {
+            content: '';
+            left: -4px;
+            height: 100%;
+            width: 2px;
+            background-color: #f8f6f6;
+            position: absolute;
+          }
+
+          .jlpt-record {
+            background-color: #fb6262;
+          }
+        }
+      }
+    }
 
     .jlpt-records {
       display: flex;
@@ -39,25 +63,10 @@ defineProps<{ set: JLPTSet }>()
       gap: 2px;
       position: relative;
 
-      .jlpt-button:hover & {
-        &::before {
-          content: '';
-          left: -4px;
-          height: 100%;
-          width: 2px;
-          background-color: #f8f6f6;
-          position: absolute;
-        }
-      }
-
       .jlpt-record {
         width: 6px;
         height: 6px;
         background-color: #ff3c3c;
-
-        .jlpt-button:hover & {
-          background-color: #fb6262;
-        }
       }
     }
   }
