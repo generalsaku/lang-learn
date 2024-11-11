@@ -13,6 +13,18 @@ import { onMounted } from 'vue';
 import { RouterView } from 'vue-router'
 import { read } from '@/utils/speech';
 
+window.addEventListener("load", () => {
+  const update = () => {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--app-vh", `${vh}px`);
+  };
+
+  window.addEventListener("resize", update);
+  window.addEventListener("orientationchange", update);
+
+  update();
+});
+
 onMounted(() => {
   read('め', 0) // warm up the api
 })

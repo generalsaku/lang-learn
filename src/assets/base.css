@@ -13,7 +13,6 @@ body {
   color: #f8f6f6;
   /* background: #e8e8e8;
   color: black; */
-  height: 100vh;
   margin: 0;
   overflow: hidden;
   line-height: 1.6;
@@ -34,4 +33,10 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+div[data-v-app] {
+  height: calc(100 * var(--app-vh, 10px));
 }
