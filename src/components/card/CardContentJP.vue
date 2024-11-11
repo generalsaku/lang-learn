@@ -61,7 +61,7 @@ const readings = computed(() => props.record.reading.split(';'))
 
     .kana-row {
       &:hover {
-        outline: 2px solid #f8f6f6;
+        outline: 2px solid var(--color-font);
       }
     }
 

@@ -12,7 +12,11 @@ export type LLRecord = {
   test: boolean
 }
 
-
 export type KanaToRomajiMap = {
   [key: string]: string;
+}
+
+export type JLPTSet = {
+  level: number
+  entries: LLRecord[]
 }

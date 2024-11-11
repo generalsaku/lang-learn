@@ -4,11 +4,13 @@ import {
   type RouteRecordRaw,
 } from 'vue-router'
 
-import LangLearn from '@/components/LangLearn.vue'
+import LangLearn from '@/components/views/LangLearn.vue'
 
 const routes: RouteRecordRaw[] = [
   { path: '/', redirect: '/lang-learn' },
-  { path: '/lang-learn', component: LangLearn },
+  {
+    path: '/lang-learn', component: LangLearn
+   },
   { path: '/:catchAll(.*)', redirect: '/' }, // Catch-all route
 ]
 

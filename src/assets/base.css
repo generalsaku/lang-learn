@@ -1,4 +1,10 @@
 :root {
+  --color-primary: #1c2c3f;
+  --color-shadow: #000000d1;
+  --color-font: #f8f6f6;
+
+  --color-bg-1: #1c2c3f;
+  --color-bg-2: #3d0f0f;
 }
 
 .noto {
@@ -9,10 +15,7 @@
 }
 
 body {
-  background: #1c2c3f;
-  color: #f8f6f6;
-  /* background: #e8e8e8;
-  color: black; */
+  color: var(--color-font);
   margin: 0;
   overflow: hidden;
   line-height: 1.6;
@@ -33,16 +36,21 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background: linear-gradient(
+    to right bottom,
+    var(--color-bg-1),
+    var(--color-bg-2)
+  )
 }
 
 html,
 body,
 div[data-v-app] {
   height: calc(100 * var(--app-vh, 10px));
+}
 
-  background: linear-gradient(
-    to right bottom,
-    #1c2c3f,
-    #3d0f0f
-  )
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
 }
