@@ -43,6 +43,9 @@ onMounted(() => {
     background: #ffffff2e;
     height: 30px;
     box-shadow: 0 0px 10px #000000d1;
+    position: relative;
+
+    background: transparent;
 
     .title {
       font-weight: 500;
