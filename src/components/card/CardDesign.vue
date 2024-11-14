@@ -1,25 +1,26 @@
 <template>
-  <div class="card-wrapper">
-    <slot name="stack"></slot>
+  <div class="card-design wrapper">
+    <div
+      v-for="index in stackCount"
+      :key="index"
+      :style="{ top: `${index * cardSpacing - stackCount * cardSpacing}px`, 'z-index': index }"
+      class="card-design stack-card">
+    </div>
     <div class="card">
-      <CardContentEN v-if="english" :record="record"></CardContentEN>
-      <CardContentJP v-else :record="record"></CardContentJP>
+      <slot></slot>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { LLRecord } from '@/types'
+const cardSpacing = 4
 
-import CardContentEN from '@/components/card/CardContentEN.vue'
-import CardContentJP from '@/components/card/CardContentJP.vue'
-
-defineProps<{ record: LLRecord, english: boolean }>()
+defineProps<{ stackCount: number }>()
 
 </script>
 
 <style scoped>
-.card-wrapper {
+.card-design {
   display: flex;
   flex-flow: column;
   box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 0px 1px;
@@ -28,6 +29,15 @@ defineProps<{ record: LLRecord, english: boolean }>()
   position: relative;
   width: 250px;
   height: 250px;
+}
+
+.wrapper {
+  .stack-card {
+    position: absolute;
+    background: black;
+    z-index: 0;
+    top: -2px;
+  }
 
   .card {
     display: flex;

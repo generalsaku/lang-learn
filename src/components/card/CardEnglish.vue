@@ -1,18 +1,21 @@
 <template>
-  <div class="meanings">
-    <table>
-      <tr v-for="(meaning) in meanings" :key="meaning!">
-        <td class="meaning" :style="{ 'font-size': getFontSize(meaning) }"><span>{{ meaning }}</span></td>
-      </tr>
-    </table>
-  </div>
+  <CardDesign :stack-count="stackCount">
+    <div class="meanings">
+      <table>
+        <tr v-for="(meaning) in meanings" :key="meaning!">
+          <td class="meaning" :style="{ 'font-size': getFontSize(meaning) }"><span>{{ meaning }}</span></td>
+        </tr>
+      </table>
+    </div>
+  </CardDesign>
 </template>
 
 <script setup lang="ts">
 import type { LLRecord } from '@/types'
-import { computed } from 'vue';
+import { computed } from 'vue'
+import CardDesign from '@/components/card/CardDesign.vue'
 
-const props = defineProps<{ record: LLRecord }>()
+const props = defineProps<{ record: LLRecord, stackCount: number }>()
 
 const meanings = computed(() => props.record.meaning.split(';').map(m => m.match(/(?:\([^()]*\)|[^,])+/g)).flat())
 

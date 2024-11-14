@@ -1,36 +1,40 @@
 <template>
-  <span class="index">{{ record.sort_index + 1 }}</span>
+  <CardDesign :stack-count="stackCount">
+    <span class="index">{{ record.sort_index + 1 }}</span>
 
-  <div class="reading">
-    <span class="expression noto">{{ record.expression }}</span>
-    <template v-for="(reading, index) in readings" :key="`${reading}-${index}`">
-    <table>
-      <tbody>
-          <tr class="kana-row">
-            <td v-for="(char, index) in reading" :key="`${char}-${index}`" class="kana noto" @click="() => read(reading)">{{ char }}</td>
-          </tr>
-          <tr>
-            <td v-for="(char, index) in reading" :key="`${charmap[char]}-${index}`" class="romaji">{{ charmap[char] }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </template>
-  </div>
+    <div class="reading">
+      <span class="expression noto">{{ record.expression }}</span>
+      <template v-for="(reading, index) in readings" :key="`${reading}-${index}`">
+      <table>
+        <tbody>
+            <tr class="kana-row">
+              <td v-for="(char, index) in reading" :key="`${char}-${index}`" class="kana noto" @click="() => read(reading)">{{ char }}</td>
+            </tr>
+            <tr>
+              <td v-for="(char, index) in reading" :key="`${charmap[char]}-${index}`" class="romaji">{{ charmap[char] }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </template>
+    </div>
 
-  <div class="tags">
-    <span v-for="(speech_part) in record.speech_parts" :key="speech_part" class="tag">{{ speech_part }}</span>
-  </div>
+    <div class="tags">
+      <span v-for="(speech_part) in record.speech_parts" :key="speech_part" class="tag">{{ speech_part }}</span>
+    </div>
+  </CardDesign>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { LLRecord } from '@/types'
 
+import CardDesign from '@/components/card/CardDesign.vue'
+
 import { default as charmap } from '@/assets/kana-to-romaji.json'
 
 import { read } from '@/utils/speech'
 
-const props = defineProps<{ record: LLRecord }>()
+const props = defineProps<{ record: LLRecord, stackCount: number }>()
 
 const readings = computed(() => props.record.reading.split(';'))
 
