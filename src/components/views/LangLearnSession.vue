@@ -1,12 +1,13 @@
 <template>
   <div class="layout">
     <div class="layout-span">
-      <div v-if="!askedCardCount" class="ask-card-count">
+      <div v-if="askForNumberOfCards" class="ask-card-count">
         <span>How many cards?</span>
 
-        <label for="volume">Practice on {{askedCardCountTotal}} cards</label>
+        <label for="volume">Practice on {{playWithNumberOfCards}} cards</label>
         <div class="ask-card-count-input">
-          <input v-model="askedCardCountTotal" type="range" id="ask-card-count" name="ask-card-count" min="0" max="200" />
+          <input v-model="playWithNumberOfCards" type="range" id="ask-card-count" name="ask-card-count" min="0" max="200" />
+          <button @click="start">Let's play!</button>
         </div>
       </div>
       <div v-else class="playarea">
@@ -25,18 +26,25 @@ import { useCardStackStore } from '@/stores/useCardStackStore';
 
 import CardStack from '@/components/card/CardStack.vue';
 import RecordChartSingle from '@/components/RecordChartSingle.vue';
+import { shuffle } from '@/utils/shuffle';
 
 const jlptSetsStore = useJLPTSetsStore()
 const cardStackStore = useCardStackStore()
 
 const set = computed(() => jlptSetsStore.selectedSet!)
-const askedCardCount = ref(false)
-const askedCardCountTotal = ref(10)
+const askForNumberOfCards = ref(true)
+const playWithNumberOfCards = ref(10)
 
 onMounted(() => {
 
-  cardStackStore.setCards(set.value.entries.slice(0, 50))
 })
+
+const start = () => {
+  const entries = shuffle(set.value.entries)
+  // [prio array, the count that cant be contained with prio array]
+  cardStackStore.setCards(entries.slice(0, playWithNumberOfCards.value))
+  askForNumberOfCards.value = false
+}
 </script>
 
 <style scoped>
@@ -82,7 +90,12 @@ onMounted(() => {
       input {
         width: 100%;
         accent-color: var(--color-font);
-        margin-top: 16px;
+        margin-top: 32px;
+        margin-bottom: 32px;
+      }
+
+      button {
+        font-size: 20px;
       }
     }
   }

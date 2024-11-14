@@ -54,3 +54,19 @@ div[data-v-app] {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
 }
+
+button {
+  all: unset;
+  background: var(--color-font);
+  color: var(--color-shadow);
+  box-shadow: 0 0px 2px 0px var(--color-shadow);
+  width: 120px;
+  padding: 4px;
+  border-radius: 3px;
+  font-weight: 500;
+  cursor: pointer;
+
+  &:hover {
+      opacity: 0.8;
+  }
+}
