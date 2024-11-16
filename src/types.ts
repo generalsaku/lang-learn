@@ -2,6 +2,7 @@ export type LLRecord = {
   original_index: number
   expression: string
   reading: string,
+  hiragana: string,
   romaji: string,
   meaning: string,
   frequency_ja: number,

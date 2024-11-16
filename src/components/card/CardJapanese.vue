@@ -8,7 +8,7 @@
       <table>
         <tbody>
             <tr class="kana-row">
-              <td v-for="(char, index) in reading" :key="`${char}-${index}`" class="kana noto" @click="() => read(reading)">{{ char }}</td>
+              <td v-for="(char, index) in reading" :key="`${char}-${index}`" class="kana noto" @click="() => utter(reading)">{{ char }}</td>
             </tr>
             <tr>
               <td v-for="(char, index) in reading" :key="`${charmap[char]}-${index}`" class="romaji">{{ charmap[char] }}</td>
@@ -32,7 +32,7 @@ import CardDesign from '@/components/card/CardDesign.vue'
 
 import { default as charmap } from '@/assets/kana-to-romaji.json'
 
-import { read } from '@/utils/speech'
+import { utter } from '@/utils/speech/utter'
 
 const props = defineProps<{ record: LLRecord, stackCount: number }>()
 

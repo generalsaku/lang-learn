@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
 import type { LLRecord } from '@/types'
 
@@ -14,6 +14,8 @@ export const useCardStackStore = defineStore('cardStack', () => {
 
   const currentCard = ref<cardStackCard | null>(null)
 
+  const isFinished = computed(() => stack.value.every(card => card.answered))
+
   const setCards = (records: LLRecord[]) => {
     stack.value = records.map((record) => ({
       record,
@@ -24,17 +26,24 @@ export const useCardStackStore = defineStore('cardStack', () => {
     currentCard.value = stack.value[0]
   }
 
-  const answerCard = (record: LLRecord, correct: boolean) => {
-    const card = stack.value.find(r => r.record.sort_index === record.sort_index)
-    if (card) {
-      card.correct = correct
-      card.answered = true
+  const answerCurrentCard = (isCorrect: boolean) => {
+    if (!currentCard.value) {
+      return
+    }
+
+    currentCard.value.correct = isCorrect
+    currentCard.value.answered = true
+  }
+
+  const queueNextCard = () => {
+    if (currentCard.value) {
+      const currentIndex = stack.value.indexOf(currentCard.value)
+      const nextCard = stack.value[currentIndex + 1]
+      if (nextCard) {
+        currentCard.value = nextCard
+      }
     }
   }
 
-  // const reportCard = (record: LLRecord) => {
-  //   currentCard.value = records[0]
-  // }
-
-  return { stack, currentCard, setCards, answerCard }
+  return { stack, currentCard, setCards, answerCurrentCard, queueNextCard, isFinished }
 })

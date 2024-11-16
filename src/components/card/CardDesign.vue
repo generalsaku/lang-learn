@@ -29,6 +29,7 @@ defineProps<{ stackCount: number }>()
   position: relative;
   width: 250px;
   height: 250px;
+  margin: 0 auto;
 }
 
 .wrapper {

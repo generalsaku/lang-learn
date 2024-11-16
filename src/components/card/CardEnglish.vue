@@ -7,6 +7,7 @@
         </tr>
       </table>
     </div>
+    <slot></slot>
   </CardDesign>
 </template>
 

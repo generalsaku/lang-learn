@@ -5,6 +5,10 @@
 
   --color-bg-1: #1c2c3f;
   --color-bg-2: #3d0f0f;
+
+  --color-red-hover: #fb6262;
+  --color-red: #ff3c3c;
+  --color-green: #39c13d;
 }
 
 .noto {

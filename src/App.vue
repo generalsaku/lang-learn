@@ -11,7 +11,7 @@
 <script lang="ts" setup>
 import { onMounted } from 'vue';
 import { RouterView } from 'vue-router'
-import { read } from '@/utils/speech';
+import { utter } from '@/utils/speech/utter';
 
 window.addEventListener("load", () => {
   const update = () => {
@@ -26,7 +26,7 @@ window.addEventListener("load", () => {
 });
 
 onMounted(() => {
-  read('め', 0) // warm up the api
+  utter('め', 0) // warm up the api
 })
 
 </script>

@@ -50,7 +50,7 @@ defineProps<{ set: JLPTSet; disabled: boolean }>()
           }
 
           .jlpt-record {
-            background-color: #fb6262;
+            background-color: var(--color-red-hover);
           }
         }
       }
@@ -66,7 +66,7 @@ defineProps<{ set: JLPTSet; disabled: boolean }>()
       .jlpt-record {
         width: 6px;
         height: 6px;
-        background-color: #ff3c3c;
+        background-color: var(--color-red);
       }
     }
   }

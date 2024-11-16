@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 import { useJLPTSetsStore } from '@/stores/useJLPTSetsStore';
-import RecordChartSingle from '@/components/RecordChartSingle.vue';
+import RecordChartSingle from '@/components/record/RecordChartSingle.vue';
 
 const jlptSetsStore = useJLPTSetsStore()
 
@@ -24,5 +24,6 @@ const jlptSetsStore = useJLPTSetsStore()
   display: flex;
   flex-flow: column nowrap;
   gap: 8px;
+  padding: 16px 32px;
 }
 </style>
