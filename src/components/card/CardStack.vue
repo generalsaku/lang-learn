@@ -52,6 +52,7 @@ const startInput = async () => {
   currentRecognize = new RecognizeSession()
   isRecording.value = true
   await currentRecognize.start((results) => {
+    console.log('translations', results)
     if (isTranslationCorrect(results)) {
       cardStackStore.answerCurrentCard(true)
       currentRecognize.stop()
