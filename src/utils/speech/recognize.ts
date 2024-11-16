@@ -31,13 +31,14 @@ export class RecognizeSession {
     }
 
     return new Promise(async (resolve) => {
-      const grammar = `#JSGF V1.0; grammar japanese; public <command> = ${this.#record.hiragana};`
+      const grammar = `#JSGF V1.0; grammar japaneseup; public <command> = ${this.#record.expression} | ${this.#record.reading} | ${this.#record.hiragana};`
       this.#grammarList.addFromString(grammar, 1)
 
       this.#recognition.continuous = true
       this.#recognition.lang = 'ja-JP'
       this.#recognition.interimResults = false
       this.#recognition.grammars = this.#grammarList
+      this.#recognition.maxAlternatives = 3
 
       this.#recognition.onerror = (e) => {
         console.log('RecognizeSession - onerror', e)
@@ -50,7 +51,6 @@ export class RecognizeSession {
       }
 
       this.#recognition.onresult = (event) => {
-        console.log(event.results)
         let changed =  false
         const translations: string[] = []
         for (const result of event.results) {

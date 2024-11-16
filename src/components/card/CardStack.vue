@@ -11,7 +11,7 @@
         @pointerdown="startInput"
         @pointerup="currentRecognize?.stop()"
         :class="{ 'card-interface': true, 'is-recording': isRecording }">
-          <PulseAnimation v-if="isRecording" :valid="currentCard.correct"></PulseAnimation>
+          <PulseAnimation v-if="animate" :valid="currentCard.correct"></PulseAnimation>
       </div>
     </component>
 
@@ -42,6 +42,7 @@ const cardComponent =  computed(() => {
 })
 
 const isRecording = ref(false)
+const animate = ref(false)
 
 let currentRecognize: RecognizeSession
 const startInput = async () => {
@@ -51,6 +52,7 @@ const startInput = async () => {
 
   currentRecognize = new RecognizeSession(currentCard.value.record)
   isRecording.value = true
+  animate.value = true
   await currentRecognize.start(async (results) => {
     if (isTranslationCorrect(results)) {
       cardStackStore.answerCurrentCard(true)
@@ -58,6 +60,7 @@ const startInput = async () => {
     }
   })
   isRecording.value = false
+  animate.value = false
 }
 
 const isTranslationCorrect = (translations: string[]) => {

@@ -9,17 +9,17 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, toRefs, watchEffect } from 'vue';
+import { computed, ref, watchEffect } from 'vue';
 
 
 const $el = ref<HTMLElement>()
 
 const props = defineProps<{ valid: boolean }>()
-const { valid } = toRefs(props)
+
+const valid = computed(() => props.valid)
 
 watchEffect(() => {
   if (valid.value) {
-    console.log('effect')
     $el.value?.style.setProperty("--pulse-color", "var(--color-green)")
   }
 })
@@ -29,6 +29,8 @@ watchEffect(() => {
 .pulse {
   --pulse-color: var(--color-font);
   --pulse-size: 70px;
+  --pulse-base-speed: 700ms;
+  --pulse-offset-speed: 300ms;
 
   i {
     position: absolute;
@@ -38,7 +40,7 @@ watchEffect(() => {
     height: var(--pulse-size);
     margin-top: calc(var(--pulse-size) / -2);
     margin-left: calc(var(--pulse-size) / -2);
-    border: 1px solid var(--color-font);
+    border: 2px solid var(--pulse-color);
     border-radius: 50%;
     animation: pulsed 3000ms ease-out 1s infinite;
     opacity: 0;
@@ -47,19 +49,19 @@ watchEffect(() => {
 }
 
 .pulse i:nth-child(2) {
-  animation-delay: 700ms;
+  animation-delay: var(--pulse-base-speed);
 }
 
 .pulse i:nth-child(3) {
-  animation-delay: 1000ms;
+  animation-delay: calc(var(--pulse-base-speed) + var(--pulse-offset-speed));
 }
 
 .pulse i:nth-child(4) {
-  animation-delay: 1300ms;
+  animation-delay: calc(var(--pulse-base-speed) + var(--pulse-offset-speed) * 2);
 }
 
 .pulse i:nth-child(5) {
-  animation-delay: 1800ms;
+  animation-delay: calc(var(--pulse-base-speed) + var(--pulse-offset-speed) * 3);
 }
 
 @keyframes pulsed {
