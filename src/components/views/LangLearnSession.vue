@@ -96,6 +96,7 @@ onMounted(() => {})
     justify-content: center;
     align-items: start;
     gap: 8px;
+    height: 250px;
 
     .playarea-results {
       display: flex;

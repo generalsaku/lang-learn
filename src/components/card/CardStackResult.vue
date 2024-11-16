@@ -12,8 +12,6 @@ const props = defineProps<{ positive: boolean }>()
 
 const cardStackStore  = useCardStackStore()
 const cards = computed(() => cardStackStore.stack.filter(card => card.answered && card.correct === props.positive))
-
-
 </script>
 
 <style scoped>
@@ -27,7 +25,7 @@ const cards = computed(() => cardStackStore.stack.filter(card => card.answered &
   gap: var(--gap-size);
   position: relative;
   box-sizing: border-box;
-  height: 400px;
+  height: 100%;
 
   .card-stack-result-record {
     width: var(--legend-size);
