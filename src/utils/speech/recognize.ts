@@ -6,7 +6,6 @@ const _SpeechRecognizition = () => 'SpeechRecognition' in window ? window.Speech
 
 export class RecognizeSession {
   #recognition: SpeechRecognition | null = null
-  #stopped = false
 
   constructor() {
     if (!isSpeechRecognitionSupported()) {
@@ -28,19 +27,18 @@ export class RecognizeSession {
     return new Promise(async (resolve) => {
       const voice = await getSupportedJapaneseVoice()
 
-      this.#stopped = false
-
       this.#recognition!.continuous = true
       this.#recognition!.lang = voice.lang
       this.#recognition!.interimResults = false
       this.#recognition!.maxAlternatives = 3
 
       this.#recognition!.onerror = (e) => {
-        console.log(e)
+        console.log('RecognizeSession - onerror', e)
         resolve(undefined)
       }
 
-      this.#recognition!.onend = () => {
+      this.#recognition!.onend = (e) => {
+        console.log('RecognizeSession - onend', e)
         resolve(undefined)
       }
 
@@ -52,6 +50,7 @@ export class RecognizeSession {
             translations.push(transcript)
           }
         }
+        console.log('RecognizeSession - onresult', translations)
         onResult(translations)
       }
 
