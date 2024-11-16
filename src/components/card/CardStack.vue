@@ -11,7 +11,7 @@
         @pointerdown="startInput"
         @pointerup="currentRecognize?.stop()"
         :class="{ 'card-interface': true, 'is-recording': isRecording }">
-          <PulseAnimation v-if="isRecording"></PulseAnimation>
+          <PulseAnimation v-if="isRecording" :valid="currentCard.correct"></PulseAnimation>
       </div>
     </component>
 
@@ -29,7 +29,7 @@ import PulseAnimation from '@/components/animations/PulseAnimation.vue'
 
 import { useCardStackStore } from '@/stores/useCardStackStore'
 import { RecognizeSession } from '@/utils/speech/recognize'
-import { toHiragana } from 'wanakana'
+import { isTranslationValid } from '@/utils/translation'
 
 const cardStackStore  = useCardStackStore()
 
@@ -49,9 +49,9 @@ const startInput = async () => {
     return
   }
 
-  currentRecognize = new RecognizeSession()
+  currentRecognize = new RecognizeSession(currentCard.value.record)
   isRecording.value = true
-  await currentRecognize.start((results) => {
+  await currentRecognize.start(async (results) => {
     if (isTranslationCorrect(results)) {
       cardStackStore.answerCurrentCard(true)
       currentRecognize.stop()
@@ -64,9 +64,7 @@ const isTranslationCorrect = (translations: string[]) => {
   if (!currentCard.value) {
     return
   }
-
-  const { hiragana, reading, expression } = currentCard.value.record
-  return translations.some((translation) => translation === expression || translation === reading || toHiragana(translation) === hiragana)
+  return translations.some((t) => isTranslationValid(currentCard.value.record, t))
 }
 
 const toggleLanguage = () => {

@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
-import type { JLPTSet } from '@/types'
+import type { JLPTSet, LLRecord } from '@/types'
 import records from '@/assets/data.json'
 
 export const useJLPTSetsStore = defineStore('jlptSets', () => {
@@ -18,7 +18,9 @@ export const useJLPTSetsStore = defineStore('jlptSets', () => {
     return selectedSet.value === set
   }
 
-  return { sets, selectedSet, selectSet, isSelectedSet }
+  const findRecordFromWord = (word: string): LLRecord | null => records.find(r => r.expression === word || r.reading === word || r.hiragana === word || r.romaji === word)
+
+  return { sets, selectedSet, selectSet, isSelectedSet, findRecordFromWord }
 })
 
 const buildSets = () => {

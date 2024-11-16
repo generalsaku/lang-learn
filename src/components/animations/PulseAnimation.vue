@@ -1,5 +1,5 @@
 <template>
-  <div class="pulse">
+  <div class="pulse" ref="$el">
     <i></i>
     <i></i>
     <i></i>
@@ -8,22 +8,42 @@
   </div>
 </template>
 
-<style scoped>
-.pulse i {
-  --size: 70px;
+<script lang="ts" setup>
+import { ref, toRefs, watchEffect } from 'vue';
 
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: var(--size);
-  height: var(--size);
-  margin-top: calc(var(--size) / -2);
-  margin-left: calc(var(--size) / -2);
-  border: 1px solid var(--color-font);
-  border-radius: 50%;
-  animation: pulsed 3000ms ease-out 1s infinite;
-  opacity: 0;
-  pointer-events: none;
+
+const $el = ref<HTMLElement>()
+
+const props = defineProps<{ valid: boolean }>()
+const { valid } = toRefs(props)
+
+watchEffect(() => {
+  if (valid.value) {
+    console.log('effect')
+    $el.value?.style.setProperty("--pulse-color", "var(--color-green)")
+  }
+})
+</script>
+
+<style scoped>
+.pulse {
+  --pulse-color: var(--color-font);
+  --pulse-size: 70px;
+
+  i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: var(--pulse-size);
+    height: var(--pulse-size);
+    margin-top: calc(var(--pulse-size) / -2);
+    margin-left: calc(var(--pulse-size) / -2);
+    border: 1px solid var(--color-font);
+    border-radius: 50%;
+    animation: pulsed 3000ms ease-out 1s infinite;
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
 .pulse i:nth-child(2) {
