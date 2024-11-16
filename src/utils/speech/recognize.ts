@@ -28,7 +28,8 @@ export class RecognizeSession {
       const voice = await getSupportedJapaneseVoice()
 
       this.#recognition!.continuous = true
-      this.#recognition!.lang = voice.lang
+      // this.#recognition!.lang = voice.lang
+      this.#recognition!.lang = 'ja-JP'
       this.#recognition!.interimResults = false
       this.#recognition!.maxAlternatives = 3
 
