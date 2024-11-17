@@ -31,7 +31,7 @@ export class RecognizeSession {
     }
 
     return new Promise(async (resolve) => {
-      const grammar = `#JSGF V1.0; grammar japaneseup; public <command> = ${this.#record.expression} | ${this.#record.reading} | ${this.#record.hiragana};`
+      const grammar = `#JSGF V1.0; grammar japaneseup; public <command> = ${this.#record.expression};`
       this.#grammarList.addFromString(grammar, 1)
 
       this.#recognition.continuous = true

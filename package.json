@@ -18,7 +18,9 @@
   "dependencies": {
     "@types/dom-speech-recognition": "^0.0.4",
     "pinia": "^2.2.4",
+    "text-sound-similarity": "^1.0.2",
     "vue": "^3.5.12",
+    "vue-icons-plus": "^0.1.7",
     "vue-router": "^4.4.5",
     "wanakana": "^5.3.1"
   },

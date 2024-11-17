@@ -1,20 +1,17 @@
 <template>
   <div class="layout">
+    <div class="layout-top">
+      <RecordChartSingle :set="set" :disabled="true"></RecordChartSingle>
+    </div>
+    <hr />
     <div class="layout-span">
       <SessionSetup v-if="askForNumberOfCards" @completed="askForNumberOfCards = false"></SessionSetup>
       <div v-else class="playarea">
-        <div class="playarea-results negative">
-          <CardStackResult :positive="false"></CardStackResult>
-        </div>
         <CardStack></CardStack>
-        <div class="playarea-results positive">
-          <CardStackResult :positive="true"></CardStackResult>
-        </div>
       </div>
     </div>
-    <hr />
     <div class="layout-bottom">
-      <RecordChartSingle :set="set" :disabled="true"></RecordChartSingle>
+      <CardStackResult></CardStackResult>
     </div>
   </div>
 </template>
@@ -42,11 +39,26 @@ onMounted(() => {})
   flex-flow: column nowrap;
   gap: 16px;
 
+  .layout-top {
+    padding-top: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
   .layout-span {
     display: flex;
+    flex-flow: column;
     align-items: center;
     justify-content: center;
     flex: 1;
+  }
+
+  .layout-bottom {
+    display: flex;
+    box-sizing: border-box;
+    width: calc(100% - 32px);
+    min-height: 28px;
+    padding: 8px;
   }
 
   .ask-card-count {
@@ -94,21 +106,13 @@ onMounted(() => {})
     flex: 1;
     text-align: center;
     justify-content: center;
-    align-items: start;
+    align-items: center;
     gap: 8px;
     height: 250px;
 
     .playarea-results {
       display: flex;
       flex: 1;
-
-      &.negative {
-        justify-content: end;
-      }
-
-      &.positive {
-        justify-content: start;
-      }
     }
   }
 
@@ -118,12 +122,6 @@ onMounted(() => {})
     border-bottom: 1px solid var(--color-font);
     margin: 0 auto;
     box-sizing: border-box;
-  }
-
-  .layout-bottom {
-    padding-bottom: 16px;
-    margin-left: 16px;
-    margin-right: 16px;
   }
 }
 </style>

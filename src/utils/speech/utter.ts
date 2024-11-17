@@ -1,6 +1,6 @@
 import { getSupportedJapaneseVoice } from "@/utils/speech/getSupportedVoices"
 
-export const utter = (text: string, volume = 1) => new Promise<void>(async (resolve) => {
+export const utter = (text: string, volume = 1, rate = 0.8) => new Promise<void>(async (resolve) => {
   if (!('speechSynthesis' in window)) {
     console.warn('speechSynthesis is not supported.')
     resolve()
@@ -15,7 +15,7 @@ export const utter = (text: string, volume = 1) => new Promise<void>(async (reso
   msg.lang = voice.lang
   msg.volume = volume
   msg.pitch = 0.9
-  msg.rate = 0.8
+  msg.rate = rate
   msg.onerror = (err) => {
     console.log(err)
     resolve()
@@ -23,5 +23,7 @@ export const utter = (text: string, volume = 1) => new Promise<void>(async (reso
   msg.onend = () => { resolve() }
 
   window.speechSynthesis.cancel()
-  window.speechSynthesis.speak(msg)
+  setTimeout(() => {
+    window.speechSynthesis.speak(msg)
+  }, 100)
 })

@@ -1,31 +1,25 @@
 <template>
   <div class="card-design wrapper">
-    <div
+    <!-- <div
       v-for="index in stackCount"
       :key="index"
-      :style="{ top: `${index * cardSpacing - stackCount * cardSpacing}px`, 'z-index': index }"
+      :style="{ top: `${calculateStackOffset(index)}px`, 'z-index': index }"
       class="card-design stack-card">
-    </div>
+    </div> -->
     <div class="card">
       <slot></slot>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
-const cardSpacing = 4
-
-defineProps<{ stackCount: number }>()
-
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 .card-design {
   display: flex;
   flex-flow: column;
-  box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 0px 1px;
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-  background-color: rgb(241 241 241 / 15%);
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
   position: relative;
   width: 250px;
   height: 250px;
@@ -35,7 +29,6 @@ defineProps<{ stackCount: number }>()
 .wrapper {
   .stack-card {
     position: absolute;
-    background: black;
     z-index: 0;
     top: -2px;
   }
@@ -45,8 +38,16 @@ defineProps<{ stackCount: number }>()
     height: 100%;
     width: 100%;
     position: relative;
-    background: black;
     z-index: 99999;
+
+    &::before {
+      content: '';
+      background: linear-gradient(to left top, var(--color-bg-1), var(--color-bg-2));
+      filter: blur(90px);
+      inset: 0;
+      position: absolute;
+      z-index: -1;
+    }
   }
 }
 </style>

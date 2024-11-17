@@ -1,6 +1,10 @@
 <template>
-  <div :class="{'card-stack-result': true, 'positive': props.positive}">
-    <div v-for="(card) of cards" :key="card.record.sort_index" :title="`${card.record.sort_index + 1}`" class="card-stack-result-record"></div>
+  <div :class="{'card-stack-result': true }">
+    <div
+      v-for="(card) of cards"
+      :key="card.record.sort_index"
+      :title="`${card.record.sort_index + 1}`"
+      :class="{ 'card-stack-result-record': true, positive: card.answered && card.correct, negative: card.answered && !card.correct }"></div>
   </div>
 </template>
 
@@ -8,10 +12,8 @@
 import { computed } from 'vue'
 import { useCardStackStore } from '@/stores/useCardStackStore'
 
-const props = defineProps<{ positive: boolean }>()
-
 const cardStackStore  = useCardStackStore()
-const cards = computed(() => cardStackStore.stack.filter(card => card.answered && card.correct === props.positive))
+const cards = computed(() => cardStackStore.stack.filter(card => card))
 </script>
 
 <style scoped>
@@ -20,7 +22,7 @@ const cards = computed(() => cardStackStore.stack.filter(card => card.answered &
   --legend-size: 12px;
 
   display: inline-flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   align-items: end;
   gap: var(--gap-size);
   position: relative;
@@ -31,9 +33,15 @@ const cards = computed(() => cardStackStore.stack.filter(card => card.answered &
     width: var(--legend-size);
     height: var(--legend-size);
     border-radius: 2px;
-    background-color: var(--color-red);
 
-    .positive & {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
+
+    &.negative {
+      background-color: var(--color-red);
+    }
+
+    &.positive {
       background-color: var(--color-green);
     }
   }

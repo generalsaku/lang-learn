@@ -5,10 +5,10 @@
     <div class="reading">
       <span class="expression noto">{{ record.expression }}</span>
       <template v-for="(reading, index) in readings" :key="`${reading}-${index}`">
-      <table>
+      <table @click="cardStackStore.queueNextCard()">
         <tbody>
             <tr class="kana-row">
-              <td v-for="(char, index) in reading" :key="`${char}-${index}`" class="kana noto" @click="() => utter(reading)">{{ char }}</td>
+              <td v-for="(char, index) in reading" :key="`${char}-${index}`" class="kana noto">{{ char }}</td>
             </tr>
             <tr>
               <td v-for="(char, index) in reading" :key="`${charmap[char]}-${index}`" class="romaji">{{ charmap[char] }}</td>
@@ -21,6 +21,8 @@
     <div class="tags">
       <span v-for="(speech_part) in record.speech_parts" :key="speech_part" class="tag">{{ speech_part }}</span>
     </div>
+
+    <BsSoundwave class="soundwave" @click="() => utter(record.reading)"></BsSoundwave>
   </CardDesign>
 </template>
 
@@ -34,9 +36,14 @@ import { default as charmap } from '@/assets/kana-to-romaji.json'
 
 import { utter } from '@/utils/speech/utter'
 
+import { BsSoundwave } from 'vue-icons-plus/bs'
+import { useCardStackStore } from '@/stores/useCardStackStore'
+
 const props = defineProps<{ record: LLRecord, stackCount: number }>()
 
 const readings = computed(() => props.record.reading.split(';'))
+
+const cardStackStore  = useCardStackStore()
 
 </script>
 
@@ -63,16 +70,9 @@ const readings = computed(() => props.record.reading.split(';'))
       font-size: 20px;
     }
 
-    .kana-row {
-      &:hover {
-        outline: 2px solid var(--color-font);
-      }
-    }
-
     .kana {
       color: #4FD1C5;
       font-size: 22px;
-      cursor: pointer;
     }
 
     table {
@@ -107,5 +107,14 @@ const readings = computed(() => props.record.reading.split(';'))
       font-weight: 500;
       cursor: pointer;
     }
+  }
+
+  .soundwave {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
   }
 </style>

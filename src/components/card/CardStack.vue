@@ -5,19 +5,16 @@
       :is="cardComponent"
       :key="currentCard.record.sort_index"
       :record="currentCard.record"
-      :stack-count>
+      :stack-count
+      :class="{ 'pulsate-outline-success': currentCard.answered && currentCard.correct }">
       <div
         v-if="currentCard.english"
         @pointerdown="startInput"
         @pointerup="currentRecognize?.stop()"
         :class="{ 'card-interface': true, 'is-recording': isRecording }">
-          <PulseAnimation v-if="animate" :valid="currentCard.correct"></PulseAnimation>
+          <PulseAnimation :animate="isRecording" :valid="currentCard.correct" :success-delay="1500" @completed="handleCompleted"></PulseAnimation>
       </div>
     </component>
-
-    <div style="display: flex;">
-      <button @click="toggleLanguage">toggle lang</button>
-    </div>
   </div>
 </template>
 
@@ -29,7 +26,7 @@ import PulseAnimation from '@/components/animations/PulseAnimation.vue'
 
 import { useCardStackStore } from '@/stores/useCardStackStore'
 import { RecognizeSession } from '@/utils/speech/recognize'
-import { isTranslationValid } from '@/utils/translation'
+import { isTranslationOK } from '@/utils/translation/isTranslationOK'
 
 const cardStackStore  = useCardStackStore()
 
@@ -42,7 +39,6 @@ const cardComponent =  computed(() => {
 })
 
 const isRecording = ref(false)
-const animate = ref(false)
 
 let currentRecognize: RecognizeSession
 const startInput = async () => {
@@ -52,7 +48,6 @@ const startInput = async () => {
 
   currentRecognize = new RecognizeSession(currentCard.value.record)
   isRecording.value = true
-  animate.value = true
   await currentRecognize.start(async (results) => {
     if (isTranslationCorrect(results)) {
       cardStackStore.answerCurrentCard(true)
@@ -60,18 +55,19 @@ const startInput = async () => {
     }
   })
   isRecording.value = false
-  animate.value = false
 }
 
 const isTranslationCorrect = (translations: string[]) => {
   if (!currentCard.value) {
     return
   }
-  return translations.some((t) => isTranslationValid(currentCard.value.record, t))
+  return translations.some((t) => isTranslationOK(currentCard.value.record, t))
 }
 
-const toggleLanguage = () => {
-  currentCard.value.english = !currentCard.value.english
+const handleCompleted = () => {
+  if (currentCard.value.correct) {
+    currentCard.value.english = false
+  }
 }
 
 </script>
