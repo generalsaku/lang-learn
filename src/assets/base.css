@@ -12,6 +12,8 @@
 
   --color-card-bg: rgb(241 241 241 / 15%);
   --color-card-border: rgba(255, 255, 255, 0.4);
+  --color-card-bg-active: rgb(241 241 241 / 30%);
+  --color-card-border-active: rgba(255, 255, 255, 0.8);
 }
 
 .noto {

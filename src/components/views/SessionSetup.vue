@@ -29,6 +29,7 @@ const playWithNumberOfCards = ref(10)
 
 const start = () => {
   const entries = shuffle(set.value.entries.filter(x => x.expression === '知る' || x.expression === 'ゼロ' || x.expression === 'つける'))
+  // const entries = shuffle(set.value.entries)
   // [prio array, the count that cant be contained with prio array]
   cardStackStore.setCards(entries.slice(0, playWithNumberOfCards.value))
 

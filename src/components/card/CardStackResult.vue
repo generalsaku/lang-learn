@@ -4,7 +4,12 @@
       v-for="(card) of cards"
       :key="card.record.sort_index"
       :title="`${card.record.sort_index + 1}`"
-      :class="{ 'card-stack-result-record': true, positive: card.answered && card.correct, negative: card.answered && !card.correct }"></div>
+      :class="{
+        'card-stack-result-record': true,
+        positive: card.answered && card.correct,
+        negative: card.answered && !card.correct,
+        current: cardStackStore.currentCard === card,
+      }"></div>
   </div>
 </template>
 
@@ -43,6 +48,11 @@ const cards = computed(() => cardStackStore.stack.filter(card => card))
 
     &.positive {
       background-color: var(--color-green);
+    }
+
+    &.current {
+      background-color: var(--color-card-bg-active);
+      border: 1px solid var(--color-card-border-active);
     }
   }
 }
