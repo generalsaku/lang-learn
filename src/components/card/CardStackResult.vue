@@ -43,11 +43,11 @@ const cards = computed(() => cardStackStore.stack.filter(card => card))
     border: 1px solid var(--color-card-border);
 
     &.negative {
-      background-color: var(--color-red);
+      background-color: var(--color-red) !important;
     }
 
     &.positive {
-      background-color: var(--color-green);
+      background-color: var(--color-green) !important;
     }
 
     &.current {
