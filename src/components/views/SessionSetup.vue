@@ -5,7 +5,7 @@
 
       <label for="volume">Practice on {{playWithNumberOfCards}} cards</label>
       <div class="ask-card-count-input">
-        <input v-model="playWithNumberOfCards" type="range" id="ask-card-count" name="ask-card-count" min="0" max="200" />
+        <input v-model="playWithNumberOfCards" type="range" id="ask-card-count" name="ask-card-count" min="0" max="20" />
         <button @click="start">Let's play!</button>
       </div>
     </div>

@@ -5,7 +5,7 @@
     <div class="reading">
       <span class="expression noto">{{ record.expression }}</span>
       <template v-for="(reading, index) in readings" :key="`${reading}-${index}`">
-      <table @click="cardStackStore.queueNextCard()">
+      <table>
         <tbody>
             <tr class="kana-row">
               <td v-for="(char, index) in reading" :key="`${char}-${index}`" class="kana noto">{{ char }}</td>
@@ -22,7 +22,7 @@
       <span v-for="(speech_part) in record.speech_parts" :key="speech_part" class="tag">{{ speech_part }}</span>
     </div>
 
-    <BsSoundwave class="soundwave" @click="() => utter(record.reading)"></BsSoundwave>
+    <slot></slot>
   </CardDesign>
 </template>
 
@@ -34,9 +34,6 @@ import CardDesign from '@/components/card/CardDesign.vue'
 
 import { default as charmap } from '@/assets/kana-to-romaji.json'
 
-import { utter } from '@/utils/speech/utter'
-
-import { BsSoundwave } from 'vue-icons-plus/bs'
 import { useCardStackStore } from '@/stores/useCardStackStore'
 
 const props = defineProps<{ record: LLRecord, stackCount: number }>()

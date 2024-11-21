@@ -25,6 +25,8 @@ import CardStackResult from '@/components/card/CardStackResult.vue'
 import SessionSetup from '@/components/views/SessionSetup.vue'
 import RecordChartSingle from '@/components/record/RecordChartSingle.vue'
 
+import { BsEmojiAstonished, BsArrowLeftRight } from 'vue-icons-plus/bs'
+
 const jlptSetsStore = useJLPTSetsStore()
 
 const set = computed(() => jlptSetsStore.selectedSet!)
@@ -103,6 +105,7 @@ onMounted(() => {})
 
   .playarea {
     display: flex;
+    flex-flow: column nowrap;
     flex: 1;
     text-align: center;
     justify-content: center;

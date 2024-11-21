@@ -74,6 +74,24 @@ button {
   border-radius: 3px;
   font-weight: 500;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.control {
+    display: flex; 
+    width: 48px; 
+    height: 48px; 
+    flex-flow: column nowrap; 
+    font-size: 12px; 
+    background-color: var(--color-card-bg); 
+    color: var(--color-font);
+    text-transform: uppercase;
+
+    svg {
+      width: 18px;  
+    }
+  }
 
   &:hover {
       opacity: 0.8;

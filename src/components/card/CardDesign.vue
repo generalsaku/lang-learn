@@ -1,11 +1,5 @@
 <template>
   <div class="card-design wrapper">
-    <!-- <div
-      v-for="index in stackCount"
-      :key="index"
-      :style="{ top: `${calculateStackOffset(index)}px`, 'z-index': index }"
-      class="card-design stack-card">
-    </div> -->
     <div class="card">
       <slot></slot>
     </div>
@@ -39,6 +33,7 @@
     width: 100%;
     position: relative;
     z-index: 99999;
+    overflow: hidden;
 
     &::before {
       content: '';

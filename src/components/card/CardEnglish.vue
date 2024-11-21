@@ -37,17 +37,17 @@ const getFontSize = (text: string | null): string | undefined => {
 </script>
 
 <style scoped>
-  .meanings {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column nowrap;
+.meanings {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
 
-    .meaning {
-      text-align: center;
-      white-space: nowrap;
-      font-weight: 500;
-    }
+  .meaning {
+    text-align: center;
+    white-space: nowrap;
+    font-weight: 500;
   }
+}
 </style>

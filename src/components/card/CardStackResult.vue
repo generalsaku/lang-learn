@@ -6,8 +6,8 @@
       :title="`${card.record.sort_index + 1}`"
       :class="{
         'card-stack-result-record': true,
-        positive: card.answered && card.correct,
-        negative: card.answered && !card.correct,
+        'positive': card.answered && card.correct,
+        'negative': card.answered && !card.correct,
         current: cardStackStore.currentCard === card,
       }"></div>
   </div>
