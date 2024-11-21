@@ -53,7 +53,7 @@ const isRecording = ref(false)
 
 let currentRecognize: RecognizeSession
 const startInput = async () => {
-  if (isRecording.value || currentCard.value.correct) {
+  if (isRecording.value || currentCard.value.correct || !currentCard.value.english) {
     return
   }
 
@@ -102,7 +102,7 @@ const isTranslationCorrect = (translations: string[]) => {
   .controls {
     display: flex;
     gap: 8px;
-    justify-content: center;
+    justify-content: start;
     padding: 8px;
     box-sizing: border-box;
     border-bottom-right-radius: 4px;
