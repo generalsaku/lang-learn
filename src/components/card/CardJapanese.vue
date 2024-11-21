@@ -34,13 +34,9 @@ import CardDesign from '@/components/card/CardDesign.vue'
 
 import { default as charmap } from '@/assets/kana-to-romaji.json'
 
-import { useCardStackStore } from '@/stores/useCardStackStore'
-
 const props = defineProps<{ record: LLRecord, stackCount: number }>()
 
 const readings = computed(() => props.record.reading.split(';'))
-
-const cardStackStore  = useCardStackStore()
 
 </script>
 

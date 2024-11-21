@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <div class="layout-top">
-      <RecordChartSingle :set="set" :disabled="true"></RecordChartSingle>
+      <RecordChartSingle :set="set" :disabled="true" :scrollable="true"></RecordChartSingle>
     </div>
     <hr />
     <div class="layout-span">
@@ -25,7 +25,7 @@ import CardStackResult from '@/components/card/CardStackResult.vue'
 import SessionSetup from '@/components/views/SessionSetup.vue'
 import RecordChartSingle from '@/components/record/RecordChartSingle.vue'
 
-import { BsEmojiAstonished, BsArrowLeftRight } from 'vue-icons-plus/bs'
+// import { BsEmojiAstonished, BsArrowLeftRight } from 'vue-icons-plus/bs'
 
 const jlptSetsStore = useJLPTSetsStore()
 

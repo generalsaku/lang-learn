@@ -1,5 +1,5 @@
 <template>
-    <div class="jlpt-set">
+    <div class="jlpt-set" :class="{ scrollable: scrollable }">
       <div class="jlpt-header">JLPT {{ set.level }} ({{ set.entries.length }})</div>
       <button class="jlpt-button" @click="() => emit('click')" :class="{ 'disabled': disabled }">
         <div class="jlpt-records" >
@@ -14,13 +14,20 @@ import type { JLPTSet } from '@/types'
 
 const emit = defineEmits(['click'])
 
-defineProps<{ set: JLPTSet; disabled: boolean }>()
+defineProps<{ set: JLPTSet; disabled: boolean; scrollable: boolean }>()
 </script>
 
 <style scoped>
 .jlpt-set {
   display: flex;
   flex-flow: column nowrap;
+
+  &.scrollable {
+    .jlpt-records {
+      max-height: 128px;
+      overflow: auto;
+    }
+  }
 
   .jlpt-header {
     font-weight: 700;
@@ -45,7 +52,7 @@ defineProps<{ set: JLPTSet; disabled: boolean }>()
             left: -4px;
             height: 100%;
             width: 2px;
-            background-color: #f8f6f6;
+            background-color: var(--color-font);
             position: absolute;
           }
 

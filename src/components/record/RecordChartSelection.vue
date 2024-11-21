@@ -6,7 +6,8 @@
       :set="set"
       :class="{ disappear: jlptSetsStore.isSelectedSet(set) === false }"
       @click="jlptSetsStore.selectSet(set)"
-      :disabled="false">
+      :disabled="false"
+      :scrollable="false">
     </RecordChartSingle>
   </div>
 </template>
