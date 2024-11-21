@@ -13,7 +13,11 @@
         @pointerdown="startInput"
         @pointerup="currentRecognize?.stop()"
         :class="{ 'card-interface': true, 'is-recording': isRecording }">
-        <PulseAnimation :animate="isRecording" :valid="currentCard.correct" :success-delay="2000" @completed="cardStackStore.flipCard()"></PulseAnimation>
+        <PulseAnimation :animate="isRecording" :valid="currentCard.correct" :success-delay="2000" @completed="() => {
+          if (currentCard.answered && currentCard.correct) {
+            cardStackStore.flipCard()
+          }
+        }"></PulseAnimation>
       </div>
     </component>
     <div v-if="!currentCard.answered && currentCard.english" style="position: absolute; inset: -24px 0px auto; font-size: 12px; z-index: 100000;">(tap card to record)</div>
