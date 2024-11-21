@@ -7,7 +7,7 @@ type cardStackCard = {
   english: boolean
   correct: boolean
   answered: boolean
-  animate: boolean
+  animateSuccess: boolean
 }
 
 export const useCardStackStore = defineStore('cardStack', () => {
@@ -23,7 +23,7 @@ export const useCardStackStore = defineStore('cardStack', () => {
       english: true,
       correct: false,
       answered: false,
-      animate: false
+      animateSuccess: false
     }))
     currentCard.value = stack.value[0]
   }
@@ -44,12 +44,17 @@ export const useCardStackStore = defineStore('cardStack', () => {
 
     currentCard.value.correct = true
     currentCard.value.answered = true
-    currentCard.value.animate = true
-    setTimeout(() => {
-      if (currentCard.value) {
-        currentCard.value.animate = false
-      }
-    }, 4000)
+    currentCard.value.animateSuccess = true
+  }
+
+  const answerIncorrect = () => {
+    if (!currentCard.value) {
+      return
+    }
+
+    currentCard.value.correct = false
+    currentCard.value.answered = true
+    currentCard.value.animateSuccess = false
   }
 
   const flipCard = () => {
@@ -58,10 +63,15 @@ export const useCardStackStore = defineStore('cardStack', () => {
     }
 
     currentCard.value.english = !currentCard.value.english
+    currentCard.value.animateSuccess = false
   }
 
   const queueNextCard = () => {
     if (currentCard.value) {
+      if (!currentCard.value.answered) {
+        answerIncorrect()
+      }
+
       const currentIndex = stack.value.indexOf(currentCard.value)
       const nextCard = stack.value[currentIndex + 1]
       if (nextCard) {

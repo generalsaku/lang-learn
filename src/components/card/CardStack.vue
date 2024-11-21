@@ -6,25 +6,21 @@
       :record="currentCard.record"
       :stack-count
       :class="{
-        'pulsate-outline-success': currentCard.answered && currentCard.correct && currentCard.english && currentCard.animate
+        'pulsate-outline-success': currentCard.answered && currentCard.correct && currentCard.english && currentCard.animateSuccess,
+        'correct': currentCard.answered && currentCard.correct && currentCard.english
       }">
       <div
         @pointerdown="startInput"
         @pointerup="currentRecognize?.stop()"
         :class="{ 'card-interface': true, 'is-recording': isRecording }">
-        <PulseAnimation :animate="isRecording" :valid="currentCard.correct" :success-delay="1500" @completed="handleCompleted"></PulseAnimation>
-      </div>
-      <div
-        v-if="!currentCard.english"
-        @pointerup="cardStackStore.queueNextCard()"
-        :class="{ 'card-interface': true }">
+        <PulseAnimation :animate="isRecording" :valid="currentCard.correct" :success-delay="2000" @completed="cardStackStore.flipCard()"></PulseAnimation>
       </div>
     </component>
-    <div v-if="!currentCard.english" style="position: absolute; inset: -24px 0px auto; font-size: 12px; z-index: 100000;">(tap card for next one)</div>
-    <!-- <hr style="padding: 8px; width: calc(100% - 32px);" /> -->
+    <div v-if="!currentCard.answered && currentCard.english" style="position: absolute; inset: -24px 0px auto; font-size: 12px; z-index: 100000;">(tap card to record)</div>
     <div class="controls" :class="{ 'hide-controls': hideControls }">
-      <button class="control" @pointerup="cardStackStore.flipCard()"><BsArrowLeftRight />FLIP</button>
-      <button v-if="!currentCard.english" class="control" @pointerup="() => utter(currentCard.record.reading)"><BsSoundwave />LISTEN</button>
+      <button class="control flip" @pointerup="cardStackStore.flipCard()"><BsArrowLeftRight />FLIP</button>
+      <button v-if="!currentCard.english" class="control listen" @pointerup="() => utter(currentCard.record.reading)"><BsSoundwave />LISTEN</button>
+      <button v-if="!currentCard.english" class="control next" :class="[currentCard.correct ? 'success' : 'failure']" @pointerup="() => cardStackStore.queueNextCard()"><BsArrowRight />NEXT</button>
     </div>
   </div>
 </template>
@@ -40,13 +36,13 @@ import { RecognizeSession } from '@/utils/speech/recognize'
 import { utter } from '@/utils/speech/utter'
 import { isTranslationOK } from '@/utils/translation/isTranslationOK'
 
-import { BsEmojiAstonished, BsSoundwave, BsArrowLeftRight } from 'vue-icons-plus/bs'
+import { BsSoundwave, BsArrowLeftRight, BsArrowRight } from 'vue-icons-plus/bs'
 
 const cardStackStore  = useCardStackStore()
 
 const currentCard = computed(() => cardStackStore.currentCard!)
 const stackCount = computed(() => cardStackStore.stack.slice(0, 10).filter(s => s != currentCard.value).length)
-const hideControls = computed(() => currentCard.value.animate || isRecording.value)
+const hideControls = computed(() => currentCard.value.animateSuccess || isRecording.value)
 
 const cardComponent =  computed(() => {
   if (!currentCard.value) return undefined
@@ -79,12 +75,6 @@ const isTranslationCorrect = (translations: string[]) => {
   return translations.some((t) => isTranslationOK(currentCard.value.record, t))
 }
 
-const handleCompleted = () => {
-  if (currentCard.value.correct) {
-    currentCard.value.english = false
-  }
-}
-
 </script>
 
 <style scoped>
@@ -94,10 +84,8 @@ const handleCompleted = () => {
   justify-content: center;
   position: relative;
 
-  .pulsate-outline-success {
-    :deep(.card-design)  {
-      background: #00ff083d !important;
-    }
+  &:deep(.card-design.correct)  {
+    background: #345d36 !important;
   }
 
   .card-interface {
@@ -117,10 +105,32 @@ const handleCompleted = () => {
     justify-content: center;
     padding: 8px;
     box-sizing: border-box;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background-color: #ffffff05;
 
     &.hide-controls {
       opacity: 0;
       pointer-events: none;
+    }
+
+    .flip {
+      color: rgb(179, 198, 231);
+    }
+
+    .listen {
+      color: rgb(196, 196, 61);
+    }
+
+    .next {
+      margin-left: auto;
+
+      &.success {
+        color: rgb(116, 254, 106);
+      }
+      &.failure {
+        color: rgb(254, 106, 106);
+      }
     }
   }
 }
