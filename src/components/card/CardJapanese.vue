@@ -56,7 +56,7 @@ const readings = computed(() => props.record.reading.split(';'))
     flex-flow: column nowrap;
 
     .expression {
-      color: #ff8686;
+      color: var(--color-font);
       position: absolute;
       top: 0;
       right: 4px;
@@ -90,15 +90,13 @@ const readings = computed(() => props.record.reading.split(';'))
 
     .tag {
       vertical-align: middle;
-      background: rgb(255 255 255 / 20%);
-      border-top-right-radius: 3px;
-      border-bottom-right-radius: 3px;
-      border-left: 3px solid #4FD1C5;
       padding: 0px 4px;
       font-size: 11px;
       min-height: 19px;
       font-weight: 500;
-      cursor: pointer;
+      cursor: default;
+      background: #5f5059;
+      border-radius: 3px;
     }
   }
 
