@@ -24,7 +24,7 @@ defineProps<{ set: JLPTSet; disabled: boolean; scrollable: boolean }>()
 
   &.scrollable {
     .jlpt-records {
-      max-height: 128px;
+      max-height: 96px;
       overflow: auto;
     }
   }
