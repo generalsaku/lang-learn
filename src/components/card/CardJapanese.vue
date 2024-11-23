@@ -1,5 +1,5 @@
 <template>
-  <CardDesign :stack-count="stackCount">
+  <CardDesign class="card">
     <span class="index">{{ record.sort_index + 1 }}</span>
 
     <div class="reading">
@@ -34,13 +34,17 @@ import CardDesign from '@/components/card/CardDesign.vue'
 
 import { default as charmap } from '@/assets/kana-to-romaji.json'
 
-const props = defineProps<{ record: LLRecord, stackCount: number }>()
+const props = defineProps<{ record: LLRecord }>()
 
 const readings = computed(() => props.record.reading.split(';'))
 
 </script>
 
 <style scoped>
+  .card-design {
+    background: #00000040;
+  }
+
   .index {
     position: absolute;
     top: 2px;

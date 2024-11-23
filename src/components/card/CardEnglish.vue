@@ -1,5 +1,5 @@
 <template>
-  <CardDesign :stack-count="stackCount">
+  <CardDesign>
     <div class="meanings">
       <table>
         <tr v-for="(meaning) in meanings" :key="meaning!">
@@ -16,7 +16,7 @@ import type { LLRecord } from '@/types'
 import { computed } from 'vue'
 import CardDesign from '@/components/card/CardDesign.vue'
 
-const props = defineProps<{ record: LLRecord, stackCount: number }>()
+const props = defineProps<{ record: LLRecord }>()
 
 const meanings = computed(() => props.record.meaning.split(';').map(m => m.match(/(?:\([^()]*\)|[^,])+/g)).flat())
 

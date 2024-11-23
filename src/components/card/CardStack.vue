@@ -1,38 +1,35 @@
 <template>
   <div class="card-stack" :class="{ 'is-recording': isRecording }">
-    <component
-      :is="cardComponent"
-      :key="currentCard.record.sort_index"
-      :record="currentCard.record"
-      :stack-count
-      :class="{
-        'pulsate-outline-success': currentCard.answered && currentCard.correct && currentCard.english && currentCard.animateSuccess,
-        'correct': currentCard.answered && currentCard.correct && currentCard.english
-      }">
-      <div
-        @pointerdown="startInput"
-        @pointerup="currentRecognize?.stop()"
-        :class="{ 'card-interface': true, 'is-recording': isRecording }">
-        <PulseAnimation :animate="isRecording" :valid="currentCard.correct" :success-delay="2000" @completed="() => {
-          if (currentCard.answered && currentCard.correct) {
-            cardStackStore.flipCard()
-          }
-        }"></PulseAnimation>
-      </div>
-    </component>
-    <div v-if="!currentCard.answered && currentCard.english" style="position: absolute; inset: -24px 0px auto; font-size: 12px; z-index: 100000;">(tap card to record)</div>
+    <CardCombined :stack-card="currentCard">
+      <template v-slot:english>
+        <div
+          :class="{ 'card-interface': true, 'is-recording': isRecording }"
+          @pointerdown="startInput"
+          @pointerup="currentRecognize?.stop()">
+          <PulseAnimation :animate="isRecording" :valid="currentCard.correct" :success-delay="2000"></PulseAnimation>
+        </div>
+      </template>
+
+      <template v-slot:japanese>
+        <div
+          :class="{ 'card-interface': true }"
+          @pointerup="cardStackStore.queueNextCard()">
+        </div>
+      </template>
+    </CardCombined>
+
+    <div v-if="!currentCard.answered && currentCard.english" class="card-message">(tap card to record)</div>
+    <div v-if="!currentCard.english" class="card-message">(tap for next card)</div>
+
     <div class="controls" :class="{ 'hide-controls': hideControls }">
       <button class="control flip" @pointerup="cardStackStore.flipCard()"><BsArrowLeftRight />FLIP</button>
       <button v-if="!currentCard.english" class="control listen" @pointerup="() => utter(currentCard.record.reading)"><BsSoundwave />LISTEN</button>
-      <button v-if="!currentCard.english" class="control next" :class="[currentCard.correct ? 'success' : 'failure']" @pointerup="() => cardStackStore.queueNextCard()"><BsArrowRight />NEXT</button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import CardEnglish from '@/components/card/CardEnglish.vue'
-import CardJapanese from '@/components/card/CardJapanese.vue'
 import PulseAnimation from '@/components/animations/PulseAnimation.vue'
 
 import { useCardStackStore } from '@/stores/useCardStackStore'
@@ -40,18 +37,13 @@ import { RecognizeSession } from '@/utils/speech/recognize'
 import { utter } from '@/utils/speech/utter'
 import { isTranslationOK } from '@/utils/translation/isTranslationOK'
 
-import { BsSoundwave, BsArrowLeftRight, BsArrowRight } from 'vue-icons-plus/bs'
+import { BsSoundwave, BsArrowLeftRight } from 'vue-icons-plus/bs'
+import CardCombined from './CardCombined.vue'
 
 const cardStackStore  = useCardStackStore()
 
 const currentCard = computed(() => cardStackStore.currentCard!)
-const stackCount = computed(() => cardStackStore.stack.slice(0, 10).filter(s => s != currentCard.value).length)
-const hideControls = computed(() => currentCard.value.animateSuccess || isRecording.value)
-
-const cardComponent =  computed(() => {
-  if (!currentCard.value) return undefined
-  return currentCard.value.english ? CardEnglish : CardJapanese
-})
+const hideControls = computed(() => currentCard.value.animateSuccess || currentCard.value.animateExit || isRecording.value)
 
 const isRecording = ref(false)
 
@@ -87,10 +79,7 @@ const isTranslationCorrect = (translations: string[]) => {
   flex-flow: column nowrap;
   justify-content: center;
   position: relative;
-
-  &:deep(.card-design.correct)  {
-    background: #345d36 !important;
-  }
+  perspective: 1200px;
 
   .card-interface {
     position: absolute;
@@ -103,15 +92,28 @@ const isTranslationCorrect = (translations: string[]) => {
     }
   }
 
+  .card-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    inset: -24px 0px auto;
+    font-size: 12px;
+    z-index: 100000;
+
+    svg {
+      width: 12px;
+    }
+  }
+
   .controls {
     display: flex;
     gap: 8px;
-    justify-content: start;
-    padding: 8px;
+    justify-content: space-between;
+    padding: 8px 0;
+    margin-top: 4px;
     box-sizing: border-box;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-    background-color: #ffffff05;
+    border-radius: 4px;
 
     &.hide-controls {
       opacity: 0;
@@ -138,4 +140,6 @@ const isTranslationCorrect = (translations: string[]) => {
     }
   }
 }
+
+
 </style>

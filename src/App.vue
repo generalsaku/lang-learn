@@ -1,6 +1,13 @@
 <template>
   <div class="app-layout">
-    <header><span class="title">LEARN! BAKA! LEARN!</span></header>
+    <header>
+      <span class="title">LEARN! BAKA! LEARN!</span>
+      <div class="controls">
+        <button class="home-control" @pointerup="jlptSetsStore.reset()">
+          <BsFillHouseFill style="width: 20px;" />
+        </button>
+      </div>
+    </header>
     <section class="content">
       <RouterView />
     </section>
@@ -10,6 +17,10 @@
 
 <script lang="ts" setup>
 import { RouterView } from 'vue-router'
+import { BsFillHouseFill } from 'vue-icons-plus/bs'
+import { useJLPTSetsStore } from '@/stores/useJLPTSetsStore';
+
+const jlptSetsStore = useJLPTSetsStore()
 
 window.addEventListener("load", () => {
   const update = () => {
@@ -35,16 +46,29 @@ window.addEventListener("load", () => {
   header {
     display: flex;
     align-items: center;
-    background: #ffffff2e;
-    height: 30px;
+    height: 48px;
     box-shadow: 0 0px 10px #000000d1;
     position: relative;
-
     background: transparent;
+    justify-content: center;
+    gap: 8px;
+    background: #ffffff0d;
 
     .title {
       font-weight: 500;
       margin-left: 8px;
+    }
+
+    .controls {
+      .home-control {
+        background-color: transparent;
+        box-shadow: none;
+        color: var(--color-font);
+        width: 47px;
+        border-radius: 9999999px;
+        border: 1px solid #b4b4b452;
+        justify-content: center;
+      }
     }
   }
 

@@ -7,11 +7,12 @@
     <div class="layout-span">
       <SessionSetup v-if="askForNumberOfCards" @completed="askForNumberOfCards = false"></SessionSetup>
       <div v-else class="playarea">
-        <CardStack></CardStack>
+        <CardStack v-if="!cardStackStore.isFinished"></CardStack>
+        <CardStackResult v-else></CardStackResult>
       </div>
     </div>
-    <div class="layout-bottom">
-      <CardStackResult></CardStackResult>
+    <div v-if="!cardStackStore.isFinished" class="layout-bottom">
+      <CardStackLegend></CardStackLegend>
     </div>
   </div>
 </template>
@@ -21,13 +22,16 @@ import { computed, onMounted, ref } from 'vue';
 import { useJLPTSetsStore } from '@/stores/useJLPTSetsStore'
 
 import CardStack from '@/components/card/CardStack.vue'
+import CardStackLegend from '@/components/card/CardStackLegend.vue'
 import CardStackResult from '@/components/card/CardStackResult.vue'
 import SessionSetup from '@/components/views/SessionSetup.vue'
 import RecordChartSingle from '@/components/record/RecordChartSingle.vue'
+import { useCardStackStore } from '@/stores/useCardStackStore';
 
 // import { BsEmojiAstonished, BsArrowLeftRight } from 'vue-icons-plus/bs'
 
 const jlptSetsStore = useJLPTSetsStore()
+const cardStackStore = useCardStackStore()
 
 const set = computed(() => jlptSetsStore.selectedSet!)
 const askForNumberOfCards = ref(true)

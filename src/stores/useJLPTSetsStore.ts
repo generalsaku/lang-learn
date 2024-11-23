@@ -13,6 +13,10 @@ export const useJLPTSetsStore = defineStore('jlptSets', () => {
     selectedSet.value = set
   }
 
+  const reset = () => {
+    selectedSet.value = null
+  }
+
   const isSelectedSet = (set: JLPTSet): boolean | null => {
     if (selectedSet.value === null) return null
     return selectedSet.value === set
@@ -20,7 +24,7 @@ export const useJLPTSetsStore = defineStore('jlptSets', () => {
 
   const findRecordFromWord = (word: string): LLRecord | null => records.find(r => r.expression === word || r.reading === word || r.hiragana === word || r.romaji === word)
 
-  return { sets, selectedSet, selectSet, isSelectedSet, findRecordFromWord }
+  return { sets, selectedSet, selectSet, reset, isSelectedSet, findRecordFromWord }
 })
 
 const buildSets = () => {

@@ -15,9 +15,12 @@
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-card-border);
   position: relative;
-  width: 250px;
-  height: 250px;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  border-radius: var(--card-border-radius);
 }
 
 .wrapper {

@@ -14,6 +14,8 @@
   --color-card-border: rgba(255, 255, 255, 0.4);
   --color-card-bg-active: rgb(241 241 241 / 30%);
   --color-card-border-active: rgba(255, 255, 255, 0.8);
+
+  --card-border-radius: 5px;
 }
 
 .noto {
@@ -101,11 +103,13 @@ button {
 .pulsate-outline-success {
   outline: 2px solid;
   animation: outline-pulsate-success 2s infinite ease-in-out;
+  border-radius: var(--card-border-radius);
 }
 
 .pulsate-outline-failure {
   outline: 2px solid;
   animation: outline-pulsate-failure 2s infinite ease-in-out;
+  border-radius: var(--card-border-radius);
 }
 
 hr {
