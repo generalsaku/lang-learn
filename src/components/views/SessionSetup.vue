@@ -5,7 +5,7 @@
 
       <label for="volume">Practice on {{playWithNumberOfCards}} cards</label>
       <div class="ask-card-count-input">
-        <input v-model="playWithNumberOfCards" type="range" id="ask-card-count" name="ask-card-count" min="0" max="20" />
+        <input v-model="playWithNumberOfCards" type="range" id="ask-card-count" name="ask-card-count" min="1" max="20" />
         <button @click="start">Let's play!</button>
       </div>
     </div>
@@ -71,7 +71,7 @@ const start = () => {
       margin-top: 4px;
 
       input {
-        width: 100%;
+        width: 225px;
         accent-color: var(--color-font);
         margin-top: 32px;
         margin-bottom: 32px;

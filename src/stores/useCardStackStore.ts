@@ -2,6 +2,9 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import type { LLRecord } from '@/types'
 
+
+import { useRecordStatistics } from '@/stores/useRecordStatistics'
+
 export type cardStackCard = {
   record: LLRecord
   english: boolean
@@ -14,6 +17,8 @@ export type cardStackCard = {
 
 export const useCardStackStore = defineStore('cardStack', () => {
   const audio = new Audio('/lang-learn/success.wav')
+
+  const recordStatistics = useRecordStatistics()
 
   const stack = ref<cardStackCard[]>([])
 
@@ -37,23 +42,28 @@ export const useCardStackStore = defineStore('cardStack', () => {
   }
 
   const answerCorrect = async () => {
-    if (!currentCard.value) {
-      return
-    }
-
-    await audio.play()
-
-    setTimeout(() => {
-      if (currentCard.value) {
-        currentCard.value.correct = true
-        currentCard.value.answered = true
-        currentCard.value.animateSuccess = true
+    return new Promise(async (resolve) => {
+      if (!currentCard.value) {
+        return
       }
-    }, 50)
 
-    setTimeout(() => {
-      flipCard()
-    }, 2000)
+      await audio.play()
+
+      recordStatistics.report(currentCard.value.record, true)
+
+      setTimeout(() => {
+        if (currentCard.value) {
+          currentCard.value.correct = true
+          currentCard.value.answered = true
+          currentCard.value.animateSuccess = true
+        }
+      }, 50)
+
+      setTimeout(() => {
+        flipCard()
+        resolve(undefined)
+      }, 2000)
+    })
   }
 
   const answerIncorrect = () => {
@@ -61,6 +71,7 @@ export const useCardStackStore = defineStore('cardStack', () => {
       return
     }
 
+    recordStatistics.report(currentCard.value.record, false)
     currentCard.value.correct = false
     currentCard.value.answered = true
     currentCard.value.animateSuccess = false

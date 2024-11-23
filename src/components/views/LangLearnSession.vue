@@ -7,28 +7,27 @@
     <div class="layout-span">
       <SessionSetup v-if="askForNumberOfCards" @completed="askForNumberOfCards = false"></SessionSetup>
       <div v-else class="playarea">
-        <CardStack v-if="!cardStackStore.isFinished"></CardStack>
-        <CardStackResult v-else></CardStackResult>
+        <CardSession v-if="!cardStackStore.isFinished"></CardSession>
+        <CardSessionResult v-else></CardSessionResult>
       </div>
     </div>
     <div v-if="!cardStackStore.isFinished" class="layout-bottom">
-      <CardStackLegend></CardStackLegend>
+      <CardSessionLegend></CardSessionLegend>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue';
-import { useJLPTSetsStore } from '@/stores/useJLPTSetsStore'
 
-import CardStack from '@/components/card/CardStack.vue'
-import CardStackLegend from '@/components/card/CardStackLegend.vue'
-import CardStackResult from '@/components/card/CardStackResult.vue'
+import CardSession from '@/components/cardsession/CardSession.vue'
+import CardSessionLegend from '@/components/cardsession/CardSessionLegend.vue'
+import CardSessionResult from '@/components/cardsession/CardSessionResult.vue'
 import SessionSetup from '@/components/views/SessionSetup.vue'
 import RecordChartSingle from '@/components/record/RecordChartSingle.vue'
-import { useCardStackStore } from '@/stores/useCardStackStore';
 
-// import { BsEmojiAstonished, BsArrowLeftRight } from 'vue-icons-plus/bs'
+import { useJLPTSetsStore } from '@/stores/useJLPTSetsStore'
+import { useCardStackStore } from '@/stores/useCardStackStore'
 
 const jlptSetsStore = useJLPTSetsStore()
 const cardStackStore = useCardStackStore()

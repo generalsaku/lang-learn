@@ -1,11 +1,11 @@
 <template>
-  <div :class="{'card-stack-result': true }">
+  <div :class="{'card-session-result': true }">
     <div
       v-for="(card) of cards"
       :key="card.record.sort_index"
       :title="`${card.record.sort_index + 1}`"
       :class="{
-        'card-stack-result-record': true,
+        'card-session-result-record': true,
         'positive': card.answered && card.correct,
         'negative': card.answered && !card.correct,
         current: cardStackStore.currentCard === card,
@@ -22,7 +22,7 @@ const cards = computed(() => cardStackStore.stack.filter(card => card))
 </script>
 
 <style scoped>
-.card-stack-result {
+.card-session-result {
   --gap-size: 4px;
   --legend-size: 12px;
 
@@ -34,7 +34,7 @@ const cards = computed(() => cardStackStore.stack.filter(card => card))
   box-sizing: border-box;
   height: 100%;
 
-  .card-stack-result-record {
+  .card-session-result-record {
     width: var(--legend-size);
     height: var(--legend-size);
     border-radius: 2px;

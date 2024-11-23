@@ -1,6 +1,6 @@
 <template>
 
-  <div class="card-stack-result">
+  <div class="card-session-result">
     <CardCombined v-for="(card) of cardStackStore.stack" :key="card.record.sort_index" :stack-card="card" :class="{ 'pulsate-outline-success correct': card.correct && card.english }">
       <template v-slot:english>
         <div :class="{ 'card-interface': true }" @pointerup="flip(card)">
@@ -10,7 +10,7 @@
         <div :class="{ 'card-interface': true }" @pointerup="() => flip(card)"></div>
       </template>
     </CardCombined>
-    <div style="margin-top: -8px"><span style="text-transform: uppercase;">{{cardStackStore.stack.filter(x => x.correct).length}} / {{ cardStackStore.stack.length }} completed</span></div>
+    <div style="margin-top: -8px"><span style="text-transform: uppercase; font-weight: 700;">{{cardStackStore.stack.filter(x => x.correct).length}} / {{ cardStackStore.stack.length }} completed</span></div>
 
     <div class="card-message">(tap to flip card)</div>
     <div><span style="text-transform: uppercase;">Press the <BsFillHouseFill style="width: 16px; vertical-align: middle; margin-top: -4px;" /> button to go back.</span></div>
@@ -22,7 +22,7 @@ import { onMounted } from 'vue';
 import { BsFillHouseFill } from 'vue-icons-plus/bs'
 import { useCardStackStore } from '@/stores/useCardStackStore'
 import type { cardStackCard } from '@/stores/useCardStackStore'
-import CardCombined from './CardCombined.vue'
+import CardCombined from '@/components/card/CardCombined.vue'
 
 const cardStackStore = useCardStackStore()
 
@@ -39,7 +39,7 @@ const flip = (card: cardStackCard) => {
 </script>
 
 <style scoped>
-.card-stack-result {
+.card-session-result {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;

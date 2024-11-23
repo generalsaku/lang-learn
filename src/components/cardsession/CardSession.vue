@@ -1,5 +1,5 @@
 <template>
-  <div class="card-stack" :class="{ 'is-recording': isRecording }">
+  <div class="card-session" :class="{ 'is-recording': isRecording }">
     <CardCombined :stack-card="currentCard">
       <template v-slot:english>
         <div
@@ -33,12 +33,13 @@ import { computed, ref } from 'vue'
 import PulseAnimation from '@/components/animations/PulseAnimation.vue'
 
 import { useCardStackStore } from '@/stores/useCardStackStore'
+
 import { RecognizeSession } from '@/utils/speech/recognize'
 import { utter } from '@/utils/speech/utter'
 import { isTranslationOK } from '@/utils/translation/isTranslationOK'
 
 import { BsSoundwave, BsArrowLeftRight } from 'vue-icons-plus/bs'
-import CardCombined from './CardCombined.vue'
+import CardCombined from '@/components/card/CardCombined.vue'
 
 const cardStackStore  = useCardStackStore()
 
@@ -57,8 +58,8 @@ const startInput = async () => {
   isRecording.value = true
   await currentRecognize.start(async (results) => {
     if (isTranslationCorrect(results)) {
-      cardStackStore.answerCorrect()
       currentRecognize.stop()
+      await cardStackStore.answerCorrect()
     }
   })
   isRecording.value = false
@@ -74,7 +75,7 @@ const isTranslationCorrect = (translations: string[]) => {
 </script>
 
 <style scoped>
-.card-stack {
+.card-session {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
