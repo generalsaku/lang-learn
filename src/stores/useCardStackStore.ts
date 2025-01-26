@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import type { LLRecord } from '@/types'
 
 
-import { useRecordStatistics } from '@/stores/useRecordStatistics'
+import { useStatisticsRecordedStore } from '@/stores/useStatisticsRecordedStore'
 
 export type cardStackCard = {
   record: LLRecord
@@ -18,7 +18,7 @@ export type cardStackCard = {
 export const useCardStackStore = defineStore('cardStack', () => {
   const audio = new Audio('/lang-learn/success.wav')
 
-  const recordStatistics = useRecordStatistics()
+  const statisticsRecordedStore = useStatisticsRecordedStore()
 
   const stack = ref<cardStackCard[]>([])
 
@@ -49,7 +49,7 @@ export const useCardStackStore = defineStore('cardStack', () => {
 
       await audio.play()
 
-      recordStatistics.report(currentCard.value.record, true)
+      statisticsRecordedStore.report(currentCard.value.record, true)
 
       setTimeout(() => {
         if (currentCard.value) {
@@ -71,7 +71,7 @@ export const useCardStackStore = defineStore('cardStack', () => {
       return
     }
 
-    recordStatistics.report(currentCard.value.record, false)
+    statisticsRecordedStore.report(currentCard.value.record, false)
     currentCard.value.correct = false
     currentCard.value.answered = true
     currentCard.value.animateSuccess = false

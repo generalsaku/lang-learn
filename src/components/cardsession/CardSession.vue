@@ -24,6 +24,7 @@
     <div class="controls" :class="{ 'hide-controls': hideControls }">
       <button class="control flip" @pointerup="cardStackStore.flipCard()"><BsArrowLeftRight />FLIP</button>
       <button v-if="!currentCard.english" class="control listen" @pointerup="() => utter(currentCard.record.reading)"><BsSoundwave />LISTEN</button>
+      <button v-if="!currentCard.english" class="control force" @pointerup="() => forceCorrectAnswer()"><BsEmojiDizzyFill /> <span>i was correct</span></button>
     </div>
   </div>
 </template>
@@ -38,7 +39,7 @@ import { RecognizeSession } from '@/utils/speech/recognize'
 import { utter } from '@/utils/speech/utter'
 import { isTranslationOK } from '@/utils/translation/isTranslationOK'
 
-import { BsSoundwave, BsArrowLeftRight } from 'vue-icons-plus/bs'
+import { BsSoundwave, BsArrowLeftRight, BsEmojiDizzyFill } from 'vue-icons-plus/bs'
 import CardCombined from '@/components/card/CardCombined.vue'
 
 const cardStackStore  = useCardStackStore()
@@ -70,6 +71,13 @@ const isTranslationCorrect = (translations: string[]) => {
     return
   }
   return translations.some((t) => isTranslationOK(currentCard.value.record, t))
+}
+
+const forceCorrectAnswer = async () => {
+  await cardStackStore.answerCorrect()
+  setTimeout(async () => {
+    await cardStackStore.queueNextCard()
+  }, 500)
 }
 
 </script>
@@ -127,6 +135,12 @@ const isTranslationCorrect = (translations: string[]) => {
 
     .listen {
       color: rgb(196, 196, 61);
+    }
+
+    .force {
+      span {
+        font-size: 9px;
+      }
     }
 
     .next {

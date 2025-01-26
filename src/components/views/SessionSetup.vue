@@ -17,20 +17,20 @@ import { computed, ref } from 'vue';
 import { useJLPTSetsStore } from '@/stores/useJLPTSetsStore'
 import { useCardStackStore } from '@/stores/useCardStackStore'
 
-import { shuffle } from '@/utils/shuffle'
+import { useStatisticsEvaluatedStore } from '@/stores/useStatisticsEvaluatedStore';
 
 const emit = defineEmits(['completed'])
 
 const jlptSetsStore = useJLPTSetsStore()
 const cardStackStore = useCardStackStore()
+const statisticsEvaluatedStore = useStatisticsEvaluatedStore()
 
 const set = computed(() => jlptSetsStore.selectedSet!)
 const playWithNumberOfCards = ref(10)
 
 const start = () => {
-  const entries = shuffle(set.value.entries.filter(x => x.expression === '知る' || x.expression === 'ゼロ' || x.expression === 'つける'))
-  // const entries = shuffle(set.value.entries)
-  // [prio array, the count that cant be contained with prio array]
+
+  const entries = statisticsEvaluatedStore.getPriority(set.value.entries)
   cardStackStore.setCards(entries.slice(0, playWithNumberOfCards.value))
 
   emit('completed')
