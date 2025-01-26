@@ -81,7 +81,7 @@ const getEvaluatedStats = () => {
     if (historyCount === 0) {
       evaluateditem.status = 'none'
     } else if (isStreak) {
-      const daysUntilNextTrial = Math.floor(Math.pow(Math.abs(consecutiveSuccess - 2), 1.2))
+      const daysUntilNextTrial = Math.floor(Math.pow(Math.max(0, consecutiveSuccess - 2), 1.2))
       const nextTrialIsoDate = addDaysToIsoDate(lastSuccessIsoDate, daysUntilNextTrial)
       const expireIsoDate = addDaysToIsoDate(nextTrialIsoDate, daysUntilNextTrial)
 

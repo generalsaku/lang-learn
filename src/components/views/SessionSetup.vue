@@ -18,6 +18,7 @@ import { useJLPTSetsStore } from '@/stores/useJLPTSetsStore'
 import { useCardStackStore } from '@/stores/useCardStackStore'
 
 import { useStatisticsEvaluatedStore } from '@/stores/useStatisticsEvaluatedStore';
+import { shuffle } from '@/utils/shuffle';
 
 const emit = defineEmits(['completed'])
 
@@ -29,10 +30,8 @@ const set = computed(() => jlptSetsStore.selectedSet!)
 const playWithNumberOfCards = ref(10)
 
 const start = () => {
-
-  const entries = statisticsEvaluatedStore.getPriority(set.value.entries)
-  cardStackStore.setCards(entries.slice(0, playWithNumberOfCards.value))
-
+  const selectedEntries = shuffle(statisticsEvaluatedStore.getPriority(set.value.entries).slice(0, playWithNumberOfCards.value))
+  cardStackStore.setCards(selectedEntries)
   emit('completed')
 }
 </script>

@@ -21,10 +21,6 @@ export const generateTestData = (): recordedStats => {
     {
       isoDate: todayDate.toISOString(),
       success: true
-    },
-    {
-      isoDate: todayDate.toISOString(),
-      success: true
     }
   ]
 

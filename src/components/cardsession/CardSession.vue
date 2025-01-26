@@ -24,7 +24,7 @@
     <div class="controls" :class="{ 'hide-controls': hideControls }">
       <button class="control flip" @pointerup="cardStackStore.flipCard()"><BsArrowLeftRight />FLIP</button>
       <button v-if="!currentCard.english" class="control listen" @pointerup="() => utter(currentCard.record.reading)"><BsSoundwave />LISTEN</button>
-      <button v-if="!currentCard.english" class="control force" @pointerup="() => forceCorrectAnswer()"><BsEmojiDizzyFill /> <span>i was correct</span></button>
+      <button v-if="!currentCard.english && !currentCard.correct" class="control force" @pointerup="() => forceCorrectAnswer()"><BsEmojiDizzyFill /> <span>I WAS CORRECT</span></button>
     </div>
   </div>
 </template>
