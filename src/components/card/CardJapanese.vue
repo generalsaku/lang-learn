@@ -65,6 +65,8 @@ const toggleShowEdit = () => {
 const updateNote = (e: Event) => {
   const value = (e.target as HTMLTextAreaElement).value
   statisticsRecordedStore.updateNote(props.record, value)
+  note.value = value
+  console.log('updated called: ' + value)
 }
 
 onMounted(() => {
@@ -76,6 +78,7 @@ watch(() => props.record, () => {
 })
 
 const fetchNote = () => {
+  showEdit.value = false
   note.value = statisticsRecordedStore.getNote(props.record)
 }
 </script>
