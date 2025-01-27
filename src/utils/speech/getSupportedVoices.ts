@@ -3,6 +3,7 @@ export const getSupportedVoices = new Promise<SpeechSynthesisVoice[]>((resolve) 
     const voices = window.speechSynthesis.getVoices()
     resolve(voices)
   })
+  window.speechSynthesis.getVoices()
 })
 
 export const getSupportedJapaneseVoice = async () =>  (await getSupportedVoices).find(voice => voice.lang === 'ja-JP' || voice.lang === 'ja_JP')
