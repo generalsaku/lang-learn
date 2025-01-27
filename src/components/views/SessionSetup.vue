@@ -27,7 +27,7 @@ const cardStackStore = useCardStackStore()
 const statisticsEvaluatedStore = useStatisticsEvaluatedStore()
 
 const set = computed(() => jlptSetsStore.selectedSet!)
-const playWithNumberOfCards = ref(10)
+const playWithNumberOfCards = ref(5)
 
 const start = () => {
   const selectedEntries = shuffle(statisticsEvaluatedStore.getPriority(set.value.entries).slice(0, playWithNumberOfCards.value))
