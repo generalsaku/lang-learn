@@ -11,6 +11,7 @@ type recordedStatsItem = {
 
 export type recordedStats = {
   history: Record<number, recordedStatsItem[]> // expression => statsItem
+  notes: Record<number, string>
   language: 'japanese'
 }
 
@@ -43,6 +44,24 @@ export const useStatisticsRecordedStore = defineStore('statisticsRecorded', () =
     statisticsEvaluatedStore.update()
   }
 
+  const updateNote = (record: LLRecord, text: string) => {
+    if (!stats.value.notes[record.original_index]) {
+      stats.value.notes[record.original_index] = ''
+    }
+
+    stats.value.notes[record.original_index] = text
+
+    localStorage.setItem(getKey(), JSON.stringify(stats.value))
+  }
+
+  const getNote = (record: LLRecord) => {
+    if (stats.value.notes[record.original_index]) {
+      return stats.value.notes[record.original_index]
+    }
+
+    return ''
+  }
+
   const getHistory = (record: LLRecord): recordedStatsItem[] => {
     if (stats.value.history[record.original_index]) {
       return stats.value.history[record.original_index]
@@ -50,7 +69,7 @@ export const useStatisticsRecordedStore = defineStore('statisticsRecorded', () =
     return []
   }
 
-  return { report, stats, getHistory }
+  return { report, updateNote, getNote, stats, getHistory }
 })
 
 
@@ -62,6 +81,7 @@ const readStatistics = (): recordedStats => {
 
   return {
     history: {},
+    notes: {},
     language: 'japanese'
   } as recordedStats
 }

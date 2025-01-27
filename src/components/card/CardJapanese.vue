@@ -1,12 +1,17 @@
 <template>
   <CardDesign class="card">
     <span class="index">{{ record.sort_index + 1 }}</span>
+    <button class="btn edit-note noto" @click.prevent.stop="toggleShowEdit()">
+      <BsPencilSquare style="width: 20px;" />
+    </button>
 
-    <div class="reading">
-      <span class="expression noto">{{ record.expression }}</span>
+    <div v-if="!showEdit" class="reading">
       <template v-for="(reading, index) in readings" :key="`${reading}-${index}`">
-      <table>
-        <tbody>
+        <table>
+          <tbody>
+            <tr>
+              <td colspan="100%" class="expression noto">{{ record.expression }}</td>
+            </tr>
             <tr class="kana-row">
               <td v-for="(char, index) in reading" :key="`${char}-${index}`" class="kana noto">{{ char }}</td>
             </tr>
@@ -18,6 +23,15 @@
       </template>
     </div>
 
+    <textarea
+      v-if="showEdit"
+      v-text="note"
+      @input="updateNote"
+      @click.prevent.stop
+      placeholder="Write notes. Mnemonics. Anything associated to this word."
+      class="noto"
+      ></textarea>
+
     <div class="tags">
       <span v-for="(speech_part) in record.speech_parts" :key="speech_part" class="tag">{{ speech_part }}</span>
     </div>
@@ -27,17 +41,43 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import type { LLRecord } from '@/types'
 
 import CardDesign from '@/components/card/CardDesign.vue'
-
+import { BsPencilSquare } from 'vue-icons-plus/bs'
 import { default as charmap } from '@/assets/kana-to-romaji.json'
+import { useStatisticsRecordedStore } from '@/stores/useStatisticsRecordedStore'
 
 const props = defineProps<{ record: LLRecord }>()
 
 const readings = computed(() => props.record.reading.split(';'))
 
+const showEdit = ref(false)
+const note = ref('')
+
+const statisticsRecordedStore = useStatisticsRecordedStore()
+
+const toggleShowEdit = () => {
+  showEdit.value = !showEdit.value
+}
+
+const updateNote = (e: Event) => {
+  const value = (e.target as HTMLTextAreaElement).value
+  statisticsRecordedStore.updateNote(props.record, value)
+}
+
+onMounted(() => {
+  fetchNote()
+})
+
+watch(() => props.record, () => {
+  fetchNote()
+})
+
+const fetchNote = () => {
+  note.value = statisticsRecordedStore.getNote(props.record)
+}
 </script>
 
 <style scoped>
@@ -52,6 +92,35 @@ const readings = computed(() => props.record.reading.split(';'))
     font-size: 10px;
   }
 
+  .edit-note {
+    position: absolute;
+    top: 0;
+    right: 2px;
+    width: auto;
+    background: transparent;
+    box-shadow: none;
+    color: var(--color-font);
+    cursor: pointer;
+    z-index: 2;
+
+    svg {
+      width: 16px;
+      pointer-events: none;
+    }
+  }
+
+  textarea {
+    all: unset;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: calc(100% - 64px);
+    padding-left: 6px;
+    padding-right: 12px;
+    margin-top: 32px;
+    text-align: left;
+  }
+
   .reading {
     flex: 1;
     display: flex;
@@ -59,7 +128,7 @@ const readings = computed(() => props.record.reading.split(';'))
     align-items: center;
     flex-flow: column nowrap;
 
-    .expression {
+    .reading {
       color: var(--color-font);
       position: absolute;
       top: 0;
