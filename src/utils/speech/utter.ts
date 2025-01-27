@@ -8,6 +8,11 @@ export const utter = (text: string, volume = 1, rate = 0.8) => new Promise<void>
   }
 
   const voice = await getSupportedJapaneseVoice()
+  if (!voice) {
+    console.warn('japanese voice is not available.')
+    resolve()
+    return
+  }
 
   const msg = new SpeechSynthesisUtterance()
   msg.text = text
