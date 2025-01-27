@@ -2,7 +2,9 @@ export const getSupportedVoices = new Promise<SpeechSynthesisVoice[]>((resolve) 
   window.addEventListener('load', () => {
     window.speechSynthesis.addEventListener('voiceschanged', () => {
       const voices = window.speechSynthesis.getVoices()
-      resolve(voices)
+      if (voices.length) {
+        resolve(voices)
+      }
     })
     window.speechSynthesis.getVoices()
   }, false)
