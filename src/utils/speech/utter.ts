@@ -1,4 +1,4 @@
-import { getSupportedJapaneseVoice } from "@/utils/speech/getSupportedVoices"
+import { getVoice } from "@/utils/speech/getVoice"
 
 export const utter = (text: string, volume = 1, rate = 0.8) => new Promise<void>(async (resolve) => {
   if (!('speechSynthesis' in window)) {
@@ -7,7 +7,7 @@ export const utter = (text: string, volume = 1, rate = 0.8) => new Promise<void>
     return
   }
 
-  const voice = await getSupportedJapaneseVoice()
+  const voice = getVoice()
   if (!voice) {
     console.warn('japanese voice is not available.')
     resolve()

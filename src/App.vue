@@ -11,7 +11,7 @@
     <section class="content">
       <RouterView />
     </section>
-    <footer><span class="copyright">Copyright © LL {{new Date().getFullYear()}}. All rights reserved.</span></footer>
+    <AppFooter></AppFooter>
   </div>
 </template>
 
@@ -19,6 +19,7 @@
 import { RouterView } from 'vue-router'
 import { BsFillHouseFill } from 'vue-icons-plus/bs'
 import { useJLPTSetsStore } from '@/stores/useJLPTSetsStore';
+import AppFooter from '@/AppFooter.vue';
 
 const jlptSetsStore = useJLPTSetsStore()
 
@@ -50,40 +51,29 @@ window.addEventListener("load", () => {
     box-shadow: 0 0px 10px #000000d1;
     position: relative;
     background: transparent;
-    justify-content: center;
+    justify-content: space-between;
     gap: 8px;
     background: #ffffff0d;
 
     .title {
       font-weight: 500;
-      margin-left: 8px;
+      margin: 0 auto;
     }
 
     .controls {
+      position: absolute;
+      right: 8px;
+
       .home-control {
         background-color: transparent;
         box-shadow: none;
         color: var(--color-font);
-        width: 47px;
-        border-radius: 9999999px;
+        width: 28px;
+        border-radius: 6px;
         border: 1px solid #b4b4b452;
         justify-content: center;
+        height: 26px;
       }
-    }
-  }
-
-  footer {
-    display: flex;
-    align-items: center;
-    position: relative;
-    border-top: 1px solid #ffffff2e;
-    box-shadow: 0 -1px 1px #000000;
-
-    .copyright {
-      font-size: 10px;
-      margin-left: 4px;
-      padding: 2px;
-      margin: 4px 0 4px 4px;
     }
   }
 
