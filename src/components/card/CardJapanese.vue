@@ -1,7 +1,7 @@
 <template>
   <CardDesign class="card">
     <span class="index">{{ record.sort_index + 1 }}</span>
-    <button class="btn edit-note noto" @click.prevent.stop="toggleShowEdit()">
+    <button class="btn edit-note noto" :class="{ 'has-note': note.length > 0 }" @click.prevent.stop="toggleShowEdit()">
       <BsPencilSquare style="width: 20px;" />
     </button>
 
@@ -105,6 +105,10 @@ const fetchNote = () => {
     color: var(--color-font);
     cursor: pointer;
     z-index: 2;
+
+    &.has-note {
+      color: var(--color-green)
+    }
 
     svg {
       width: 16px;

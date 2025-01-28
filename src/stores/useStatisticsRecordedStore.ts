@@ -22,7 +22,7 @@ const isTest = false
 
 const getKey = () => isTest ? keyTest : keyProd
 
-export const useStatisticsRecordedStore = defineStore('statisticsRecorded', () => {
+export const useStatisticsRecordedStore = defineStore('statistics-recorded-store', () => {
   const stats = ref(isTest ? generateTestData() : readStatistics())
 
   const report = (record: LLRecord, success: boolean) => {

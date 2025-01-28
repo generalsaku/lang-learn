@@ -19,10 +19,13 @@ import { useCardStackStore } from '@/stores/useCardStackStore'
 
 import { useStatisticsEvaluatedStore } from '@/stores/useStatisticsEvaluatedStore';
 import { shuffle } from '@/utils/shuffle';
+import { useFiltersStore } from '@/stores/useFiltersStore';
+import type { LLRecord } from '@/types';
 
 const emit = defineEmits(['completed'])
 
 const jlptSetsStore = useJLPTSetsStore()
+const recordFiltersStore = useFiltersStore()
 const cardStackStore = useCardStackStore()
 const statisticsEvaluatedStore = useStatisticsEvaluatedStore()
 
@@ -30,9 +33,14 @@ const set = computed(() => jlptSetsStore.selectedSet!)
 const playWithNumberOfCards = ref(5)
 
 const start = () => {
-  const selectedEntries = shuffle(statisticsEvaluatedStore.getPriority(set.value.entries).slice(0, playWithNumberOfCards.value))
+  const selectedEntries = shuffle(statisticsEvaluatedStore.getPriority(filter(set.value.entries)).slice(0, playWithNumberOfCards.value))
   cardStackStore.setCards(selectedEntries)
   emit('completed')
+}
+
+const filter = (entries: LLRecord[]) => {
+  const selectedSpeechParts = recordFiltersStore.getSelectedSpeechParts()
+  return entries.filter(entry => entry.speech_parts.some(esp => selectedSpeechParts.includes(esp)))
 }
 </script>
 

@@ -21,3 +21,10 @@ export type JLPTSet = {
   level: number
   entries: LLRecord[]
 }
+
+export type filterCategory = {
+  name: string;
+  description: string;
+  examples: string,
+  speechParts: string[]
+}

@@ -1,16 +1,18 @@
 <template>
   <div class="learn">
-    <LangLearnSession v-if="jlptSetsStore.selectedSet"></LangLearnSession>
-    <RecordChartSelection v-else></RecordChartSelection>
+    <LangLearnSession v-if="viewStateStore.currentPage === 'session'"></LangLearnSession>
+    <FilterSelection v-if="viewStateStore.currentPage === 'filters'"></FilterSelection>
+    <RecordChartSelection v-if="viewStateStore.currentPage === 'default'"></RecordChartSelection>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useJLPTSetsStore } from '@/stores/useJLPTSetsStore';
+import { useViewStateStore } from '@/stores/useViewStateStore';
 import LangLearnSession from '@/components/views/LangLearnSession.vue';
+import FilterSelection from '@/components/filters/FilterSelection.vue';
 import RecordChartSelection from '@/components/record/RecordChartSelection.vue';
 
-const jlptSetsStore = useJLPTSetsStore()
+const viewStateStore = useViewStateStore()
 </script>
 
 <style scoped>

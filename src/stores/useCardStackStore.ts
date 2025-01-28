@@ -15,7 +15,7 @@ export type cardStackCard = {
   animateExit: boolean
 }
 
-export const useCardStackStore = defineStore('cardStack', () => {
+export const useCardStackStore = defineStore('card-stack-store', () => {
   const audio = new Audio('/lang-learn/success.wav')
 
   const statisticsRecordedStore = useStatisticsRecordedStore()

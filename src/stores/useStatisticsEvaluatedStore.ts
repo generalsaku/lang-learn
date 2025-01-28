@@ -12,7 +12,7 @@ type evaluatedStatsRecordItem = {
 
 type evaluatedStats = Record<number, evaluatedStatsRecordItem> // expression => statsItem
 
-export const useStatisticsEvaluatedStore = defineStore('statisticsEvaluated', () => {
+export const useStatisticsEvaluatedStore = defineStore('statistics-evaluated-store', () => {
     const stats = ref<evaluatedStats>(getEvaluatedStats())
 
   const update = () => {
