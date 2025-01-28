@@ -3,7 +3,6 @@
     <div class="layout-top">
       <RecordChartSingle :set="set" :disabled="true" :scrollable="true"></RecordChartSingle>
     </div>
-    <hr />
     <div class="layout-span">
       <SessionSetup v-if="askForNumberOfCards" @completed="askForNumberOfCards = false"></SessionSetup>
       <div v-else class="playarea">
