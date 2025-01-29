@@ -30,9 +30,6 @@ export const useStatisticsRecordedStore = defineStore('statistics-recorded-store
       stats.value.history[record.original_index] = []
     }
 
-    const todayDate = new Date()
-    todayDate.setHours(0, 0, 0, 0)
-
     stats.value.history[record.original_index].push({
       isoDate: new Date().toISOString(),
       success
