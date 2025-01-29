@@ -27,7 +27,7 @@ import IndentContainer from '@/components/helpers/IndentContainer.vue';
 const statisticsRecordedStore = useStatisticsRecordedStore()
 const statisticsEvaluatedStore = useStatisticsEvaluatedStore()
 
-const todayDateString = new Date().toISOString().slice(0,10)
+const todayDateString = new Date().toDateString().slice(0,10)
 
 const todaysHistoryIds = computed(() => {
   const result: number[] = []
