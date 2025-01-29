@@ -6,6 +6,11 @@ export const useViewStateStore = defineStore('view-state-store', () => {
   const jlptSetsStore  = useJLPTSetsStore()
 
   const showFilters = ref(false)
+  const showSplash = ref(import.meta.env.DEV)
+
+  setTimeout(() => {
+    showSplash.value = false
+  }, 1400)
 
   const currentPage = computed(() => {
     if (jlptSetsStore.selectedSet) {
@@ -33,6 +38,6 @@ export const useViewStateStore = defineStore('view-state-store', () => {
     return !jlptSetsStore.selectedSet
   })
 
-  return { showFilters, currentPage, goToHome, goToFilters, canGoToFilters }
+  return { showSplash, showFilters, currentPage, goToHome, goToFilters, canGoToFilters }
 })
 

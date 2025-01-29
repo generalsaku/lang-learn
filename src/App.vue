@@ -1,5 +1,8 @@
 <template>
-  <div class="app-layout">
+  <transition name="fade">
+    <SplashScreen v-if="viewStateStore.showSplash"></SplashScreen>
+  </transition>
+  <div v-if="!viewStateStore.showSplash" class="app-layout">
     <AppHeader></AppHeader>
     <section class="content">
       <RouterView />
@@ -12,6 +15,10 @@
 import { RouterView } from 'vue-router'
 import AppFooter from '@/AppFooter.vue';
 import AppHeader from '@/AppHeader.vue';
+import SplashScreen from './components/splash/SplashScreen.vue';
+import { useViewStateStore } from '@/stores/useViewStateStore';
+
+const viewStateStore = useViewStateStore()
 
 window.addEventListener("load", () => {
   const update = () => {
@@ -37,6 +44,16 @@ window.addEventListener("load", () => {
   .content {
     overflow: auto;
   }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .4s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
 
