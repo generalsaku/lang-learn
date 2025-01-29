@@ -6,7 +6,7 @@ export const useViewStateStore = defineStore('view-state-store', () => {
   const jlptSetsStore  = useJLPTSetsStore()
 
   const showFilters = ref(false)
-  const showSplash = ref(import.meta.env.DEV)
+  const showSplash = ref(import.meta.env.PROD)
 
   setTimeout(() => {
     showSplash.value = false
