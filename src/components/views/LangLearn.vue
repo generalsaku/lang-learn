@@ -2,6 +2,7 @@
   <div class="learn">
     <LangLearnSession v-if="viewStateStore.currentPage === 'session'"></LangLearnSession>
     <FilterSelection v-if="viewStateStore.currentPage === 'filters'"></FilterSelection>
+    <DailyProgress v-if="viewStateStore.currentPage === 'default'"></DailyProgress>
     <RecordChartSelection v-if="viewStateStore.currentPage === 'default'"></RecordChartSelection>
   </div>
 </template>
@@ -10,6 +11,7 @@
 import { useViewStateStore } from '@/stores/useViewStateStore';
 import LangLearnSession from '@/components/views/LangLearnSession.vue';
 import FilterSelection from '@/components/filters/FilterSelection.vue';
+import DailyProgress from '@/components/daily-progress/DailyProgress.vue';
 import RecordChartSelection from '@/components/record/RecordChartSelection.vue';
 
 const viewStateStore = useViewStateStore()

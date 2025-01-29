@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import type { JLPTSet, LLRecord } from '@/types'
+import type { JLPTSet } from '@/types'
 import { useStatisticsEvaluatedStore } from '@/stores/useStatisticsEvaluatedStore'
 import { useFiltersStore } from '@/stores/useFiltersStore'
 import { computed } from 'vue'
@@ -44,16 +44,11 @@ const emit = defineEmits(['click'])
 
 const props = defineProps<{ set: JLPTSet; disabled: boolean; scrollable: boolean }>()
 
-const filteredEntries = computed(() => filter(props.set.entries))
+const filteredEntries = computed(() => filtersStore.filterEntries(props.set.entries))
 const totalSuccess = computed(() => filteredEntries.value.filter(e => statisticsEvaluatedStore.stats[e.original_index].status === 'success').length)
 const totalFailed = computed(() => filteredEntries.value.filter(e => statisticsEvaluatedStore.stats[e.original_index].status === 'failed').length)
 const totalIntermediate = computed(() => filteredEntries.value.filter(e => statisticsEvaluatedStore.stats[e.original_index].status === 'intermediate').length)
 const totalNone = computed(() => filteredEntries.value.filter(e => statisticsEvaluatedStore.stats[e.original_index].status === 'none').length)
-
-const filter = (entries: LLRecord[]) => {
-  const selectedSpeechParts = filtersStore.getSelectedSpeechParts()
-  return entries.filter(entry => entry.speech_parts.some(esp => selectedSpeechParts.includes(esp)))
-}
 
 </script>
 

@@ -1,7 +1,7 @@
 import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
 import records from '@/assets/data.json'
-import type { filterCategory } from '@/types'
+import type { filterCategory, LLRecord } from '@/types'
 
 export const useFiltersStore = defineStore('record-filters-store', () => {
   const speechParts = computed(() => {
@@ -79,7 +79,12 @@ export const useFiltersStore = defineStore('record-filters-store', () => {
     return categories.value.filter(c => selectedFilterCategories.value.includes(c.name)).map(x => x.speechParts).flat()
   }
 
-  return { speechParts, categories, selectedFilterCategories, updateSelectedFilterCategories, getSelectedSpeechParts, hasSelectedFilters }
+  const filterEntries = (entries: LLRecord[]) => {
+    const selectedSpeechParts = getSelectedSpeechParts()
+    return entries.filter(entry => entry.speech_parts.some(esp => selectedSpeechParts.includes(esp)))
+  }
+
+  return { speechParts, categories, selectedFilterCategories, updateSelectedFilterCategories, getSelectedSpeechParts, hasSelectedFilters, filterEntries }
 })
 
 const keyProd = 'filters-japanese-prod'

@@ -4,7 +4,7 @@
 
     <div v-if="viewStateStore.canGoToFilters" class="controls-left">
       <button class="control" :class="{ 'has-selected-filters': filtersStore.hasSelectedFilters }" @pointerup="viewStateStore.goToFilters()">
-        <BsFilter style="width: 20px;" />
+        <BsFilter style="width: 100%;" />
       </button>
     </div>
 
