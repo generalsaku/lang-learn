@@ -51,6 +51,7 @@ const totalIntermediate = computed(() => todaysHistoryIds.value.filter(id => sta
   align-items: center;
   justify-content: center;
   gap: 8px;
+  background: #ffffff0d;
 
   .jlpt-stats-title {
     font-size: 12px;
