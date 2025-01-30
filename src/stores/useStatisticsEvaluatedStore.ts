@@ -64,8 +64,8 @@ export const useStatisticsEvaluatedStore = defineStore('statistics-evaluated-sto
 })
 
 const getEvaluatedStats = () => {
-  const todayDate = new Date()
-  todayDate.setHours(0, 0, 0, 0)
+  const date = new Date()
+  const todayDate = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds()))
 
   const evaluatedStats: evaluatedStats = {}
 
