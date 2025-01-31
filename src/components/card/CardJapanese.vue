@@ -1,9 +1,10 @@
 <template>
   <CardDesign class="card">
     <span class="index">{{ record.sort_index + 1 }}</span>
-    <button class="btn edit-note noto" :class="{ 'has-note': note.length > 0 }" @click.prevent.stop="toggleShowEdit()">
+    <button class="btn edit-note" :class="{ 'has-note': note.length > 0 }" @pointerup.prevent.stop="toggleShowEdit()">
       <BsPencilSquare style="width: 20px;" />
     </button>
+    <button class="btn listen" @pointerup.prevent.stop="listen()"><BsSoundwave /></button>
 
     <div v-if="!showEdit" class="reading">
       <template v-for="(reading, index) in readings" :key="`${reading}-${index}`">
@@ -45,9 +46,10 @@ import { computed, onMounted, ref, watch } from 'vue'
 import type { LLRecord } from '@/types'
 
 import CardDesign from '@/components/card/CardDesign.vue'
-import { BsPencilSquare } from 'vue-icons-plus/bs'
+import { BsPencilSquare, BsSoundwave } from 'vue-icons-plus/bs'
 import { default as charmap } from '@/assets/kana-to-romaji.json'
 import { useStatisticsRecordedStore } from '@/stores/useStatisticsRecordedStore'
+import { utter } from '@/utils/speech/utter'
 
 const props = defineProps<{ record: LLRecord }>()
 
@@ -67,6 +69,10 @@ const updateNote = (e: Event) => {
   statisticsRecordedStore.updateNote(props.record, value)
   note.value = value
   console.log('updated called: ' + value)
+}
+
+const listen = () => {
+  utter(props.record.reading)
 }
 
 onMounted(() => {
@@ -107,11 +113,32 @@ const fetchNote = () => {
     z-index: 2;
 
     &.has-note {
-      color: var(--color-green)
+      color: var(--color-green);
     }
 
     svg {
       width: 16px;
+      pointer-events: none;
+    }
+  }
+
+  .listen {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    width: auto;
+    background: transparent;
+    box-shadow: none;
+    color: var(--color-font);
+    cursor: pointer;
+    z-index: 2;
+    color: rgb(196, 196, 61);
+    border: 1px solid var(--color-card-border);
+    background-color: rgba(196, 196, 61, 0.05);
+
+    svg {
+      width: 32px;
+      height: 32px;
       pointer-events: none;
     }
   }
@@ -145,7 +172,7 @@ const fetchNote = () => {
 
     .kana {
       color: #4FD1C5;
-      font-size: 22px;
+      font-size: 28px;
     }
 
     table {
@@ -164,6 +191,7 @@ const fetchNote = () => {
     flex-flow: row wrap;
     gap: 6px 4px;
     padding-left: 6px;
+    padding-right: 48px;
     padding-bottom: 6px;
     position: absolute;
     bottom: 0;
@@ -178,14 +206,5 @@ const fetchNote = () => {
       background: #5f5059;
       border-radius: 3px;
     }
-  }
-
-  .soundwave {
-    position: absolute;
-    bottom: 6px;
-    right: 6px;
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
   }
 </style>

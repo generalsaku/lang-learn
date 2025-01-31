@@ -23,7 +23,6 @@
 
     <div class="controls" :class="{ 'hide-controls': hideControls }">
       <button class="control flip" @pointerup="cardStackStore.flipCard()"><BsArrowLeftRight />FLIP</button>
-      <button v-if="!currentCard.english" class="control listen" @pointerup="() => utter(currentCard.record.reading)"><BsSoundwave />LISTEN</button>
       <button v-if="!currentCard.english && !currentCard.correct" class="control force" @pointerup="() => forceCorrectAnswer()"><BsEmojiDizzyFill /> <span>I WAS CORRECT</span></button>
     </div>
   </div>
@@ -36,10 +35,9 @@ import PulseAnimation from '@/components/animations/PulseAnimation.vue'
 import { useCardStackStore } from '@/stores/useCardStackStore'
 
 import { RecognizeSession } from '@/utils/speech/recognize'
-import { utter } from '@/utils/speech/utter'
 import { isTranslationOK } from '@/utils/translation/isTranslationOK'
 
-import { BsSoundwave, BsArrowLeftRight, BsEmojiDizzyFill } from 'vue-icons-plus/bs'
+import { BsArrowLeftRight, BsEmojiDizzyFill } from 'vue-icons-plus/bs'
 import CardCombined from '@/components/card/CardCombined.vue'
 
 const cardStackStore  = useCardStackStore()
@@ -131,10 +129,6 @@ const forceCorrectAnswer = async () => {
 
     .flip {
       color: rgb(179, 198, 231);
-    }
-
-    .listen {
-      color: rgb(196, 196, 61);
     }
 
     .force {
