@@ -18,7 +18,7 @@ export type recordedStats = {
 const keyTest = 'record-statistics-japanese-test'
 const keyProd = 'record-statistics-japanese-prod'
 
-const isTest = true
+const isTest = false
 
 const getKey = () => isTest ? keyTest : keyProd
 
