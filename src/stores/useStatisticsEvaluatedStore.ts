@@ -3,11 +3,13 @@ import { ref } from 'vue'
 import records from '@/assets/data.json'
 import { useStatisticsRecordedStore } from './useStatisticsRecordedStore'
 import type { LLRecord } from '@/types'
+import { consecutiveSuccessFormula } from '@/utils/math'
 
 type evaluatedStatsRecordItem = {
   status: 'none' | 'failed' | 'success' | 'intermediate';
-  timeSinceLastSuccess: number
-  timeSinceLastSeen: number
+  consecutiveSuccess: number;
+  timeSinceLastSuccess: number;
+  timeSinceLastSeen: number;
 }
 
 type evaluatedStats = Record<number, evaluatedStatsRecordItem> // expression => statsItem
@@ -73,6 +75,8 @@ const getEvaluatedStats = () => {
     const evaluateditem = getOrCreateRecord(evaluatedStats, record.original_index)
 
     const { lastSuccessIsoDate, lastSeenIsoDate, consecutiveSuccess, historyCount, isStreak } = getSummarizedHistory(record)
+    evaluateditem.consecutiveSuccess = consecutiveSuccess
+
     if (lastSuccessIsoDate !== '') {
       evaluateditem.timeSinceLastSuccess = todayDate.getTime() - new Date(lastSuccessIsoDate).getTime()
       evaluateditem.timeSinceLastSeen = todayDate.getTime() - new Date(lastSeenIsoDate).getTime()
@@ -81,7 +85,7 @@ const getEvaluatedStats = () => {
     if (historyCount === 0) {
       evaluateditem.status = 'none'
     } else if (isStreak) {
-      const daysUntilNextTrial = Math.floor(Math.pow(Math.max(0, consecutiveSuccess - 2), 1.2))
+      const daysUntilNextTrial = consecutiveSuccessFormula(consecutiveSuccess)
       const nextTrialIsoDate = addDaysToIsoDate(lastSuccessIsoDate, daysUntilNextTrial)
       const expireIsoDate = addDaysToIsoDate(nextTrialIsoDate, daysUntilNextTrial)
 
@@ -156,6 +160,7 @@ const getOrCreateRecord = (evaluatedStats: evaluatedStats, id: number) => {
   if (!evaluatedStats[id]) {
     evaluatedStats[id] = {
       status: 'none',
+      consecutiveSuccess: 0,
       timeSinceLastSuccess: -1,
       timeSinceLastSeen: -1
     }

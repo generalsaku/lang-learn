@@ -1,28 +1,25 @@
 <template>
-  <IndentContainer>
-    <div class="jlpt-stats">
-      <span class="jlpt-stats-title">DAILY PROGRESS</span>
-      <div class="jlpt-stats-entry">
-        <div class="jlpt-stats-legend status-success"></div>
-        <span>{{totalSuccess}}</span>
-      </div>
-      <div class="jlpt-stats-entry">
-        <div class="jlpt-stats-legend status-failed"></div>
-        <span>{{totalFailed}}</span>
-      </div>
-      <div class="jlpt-stats-entry">
-        <div class="jlpt-stats-legend status-intermediate"></div>
-        <span>{{totalIntermediate}}</span>
-      </div>
+  <div class="jlpt-stats">
+    <span class="jlpt-stats-title">DAILY PROGRESS</span>
+    <div class="jlpt-stats-entry">
+      <div class="jlpt-stats-legend status-success"></div>
+      <span>{{totalSuccess}}</span>
     </div>
-  </IndentContainer>
+    <div class="jlpt-stats-entry">
+      <div class="jlpt-stats-legend status-failed"></div>
+      <span>{{totalFailed}}</span>
+    </div>
+    <div class="jlpt-stats-entry">
+      <div class="jlpt-stats-legend status-intermediate"></div>
+      <span>{{totalIntermediate}}</span>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { useStatisticsRecordedStore } from '@/stores/useStatisticsRecordedStore'
 import { useStatisticsEvaluatedStore } from '@/stores/useStatisticsEvaluatedStore'
 import { computed } from 'vue'
-import IndentContainer from '@/components/helpers/IndentContainer.vue';
 
 const statisticsRecordedStore = useStatisticsRecordedStore()
 const statisticsEvaluatedStore = useStatisticsEvaluatedStore()
@@ -52,6 +49,7 @@ const totalIntermediate = computed(() => todaysHistoryIds.value.filter(id => sta
   justify-content: center;
   gap: 8px;
   background: #ffffff0d;
+  flex: 1;
 
   .jlpt-stats-title {
     font-size: 12px;
