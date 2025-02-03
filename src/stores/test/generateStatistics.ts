@@ -10,6 +10,7 @@ export const generateTestData = (): recordedStats => {
 
   const stats = {
     history: {},
+    notes: {},
     language: 'japanese'
   } as recordedStats
 

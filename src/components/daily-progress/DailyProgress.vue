@@ -13,6 +13,10 @@
       <div class="jlpt-stats-legend status-intermediate"></div>
       <span>{{totalIntermediate}}</span>
     </div>
+    <div class="jlpt-stats-entry">
+      <div class="jlpt-stats-legend status-none"></div>
+      <span>{{totalNew}}</span>
+    </div>
   </div>
 </template>
 
@@ -39,6 +43,11 @@ const todaysHistoryIds = computed(() => {
 const totalSuccess = computed(() => todaysHistoryIds.value.filter(id => statisticsEvaluatedStore.stats[id].status === 'success').length)
 const totalFailed = computed(() => todaysHistoryIds.value.filter(id => statisticsEvaluatedStore.stats[id].status === 'failed').length)
 const totalIntermediate = computed(() => todaysHistoryIds.value.filter(id => statisticsEvaluatedStore.stats[id].status === 'intermediate').length)
+const totalNew = computed(() => todaysHistoryIds.value.reduce((acc, id) => {
+    const history = statisticsRecordedStore.stats.history[id]
+    const hasPreviousHistory = history.some(x => !x.isoDate.startsWith(todayDateString))
+    return hasPreviousHistory ? acc : acc + 1
+  }, 0))
 
 </script>
 
