@@ -19,6 +19,11 @@ import {
   BarElement
 } from 'chart.js';
 
+const getRecordsWithConsecutiveSuccesses = () => {
+  const statisticsEvaluatedStore = useStatisticsEvaluatedStore()
+  return Object.values(statisticsEvaluatedStore.stats).map(item => ({ consecutiveSuccess: item.consecutiveSuccess, status: item.status })).filter((y) => y.consecutiveSuccess >= 3 && (y.status === 'intermediate' || y.status === 'success'))
+}
+
 const NumberLabelPlugin = {
     id: 'numberLabelPlugin',
     afterDatasetsDraw(chart: Chart) {
@@ -28,12 +33,19 @@ const NumberLabelPlugin = {
         ctx.textAlign = 'center';
         ctx.textBaseline = 'bottom';
 
+        const data = getRecordsWithConsecutiveSuccesses()
+
         chart.data.datasets.filter(x => x.type === 'bar').forEach((dataset, i) => {
             const meta = chart.getDatasetMeta(i);
             meta.data.forEach((bar, index) => {
                 const value = dataset.data[index];
-                if (value !== null && Number(value) > 0) {
-                    ctx.fillText(String(value), bar.x, bar.y - 2); // Position the text above the bar
+                if (value !== null) {
+                  const datapointsInX = data.filter((y) => y.consecutiveSuccess === index + 3)
+                  if (!datapointsInX.length) {
+                    return null
+                  }
+
+                  ctx.fillText(String(datapointsInX.length), bar.x, bar.y - 1); // Position the text above the bar
                 }
             });
         });
@@ -41,7 +53,6 @@ const NumberLabelPlugin = {
 };
 
 Chart.register(LineController, LineElement, BarController, BarElement, PointElement, LinearScale, CategoryScale, Title, NumberLabelPlugin);
-
 
 import { onMounted, ref } from 'vue';
 import { consecutiveSuccessFormula } from '@/utils/math';
@@ -58,12 +69,11 @@ onMounted(() => {
 })
 
 const setupChart = ($canvas: HTMLCanvasElement) => {
-  const statisticsEvaluatedStore = useStatisticsEvaluatedStore()
-  const datapoints = Object.values(statisticsEvaluatedStore.stats).map(item => ({ consecutiveSuccess: item.consecutiveSuccess, status: item.status })).filter(x => x.consecutiveSuccess > 0)
-  const consecutiveSuccessCount = Math.max(12, Math.max(...datapoints.map(x => x.consecutiveSuccess)))
+  const data = getRecordsWithConsecutiveSuccesses()
+  const consecutiveSuccessCount = Math.max(12, Math.max(...data.map(x => x.consecutiveSuccess)))
 
   const ctx = $canvas.getContext('2d')!
-  const labelsX = Array.from(new Array(consecutiveSuccessCount + 1)).map((x, index) => index)
+  const labelsX = Array.from(new Array(consecutiveSuccessCount + 1)).map((x, index) => index).filter(x => x >= 3)
 
   // console.log(Array.from(new Array(24)).map((_, i) => consecutiveSuccessFormula(i)))
 
@@ -86,7 +96,7 @@ const setupChart = ($canvas: HTMLCanvasElement) => {
         type: 'bar',
         label: 'Data Points',
         data: labelsX.map((x) => {
-          const datapointsInX = datapoints.filter((y) => y.consecutiveSuccess === x)
+          const datapointsInX = data.filter((y) => y.consecutiveSuccess === x)
           if (!datapointsInX.length) {
             return null
           }
@@ -131,7 +141,7 @@ const setupChart = ($canvas: HTMLCanvasElement) => {
           },
           ticks: {
             color: 'rgba(255, 255, 255, 0.6)',
-            stepSize: 2
+            stepSize: 2,
           },
           grid: {
             color: 'rgba(255, 255, 255, 0.05)'
