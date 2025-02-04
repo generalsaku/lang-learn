@@ -10,15 +10,37 @@
 import {
   Chart,
   LineController,
+  BarController,
   LineElement,
   PointElement,
   LinearScale,
   CategoryScale,
   Title,
-  ScatterController
+  BarElement
 } from 'chart.js';
 
-Chart.register(LineController, LineElement, PointElement, LinearScale, CategoryScale, Title, ScatterController);
+const NumberLabelPlugin = {
+    id: 'numberLabelPlugin',
+    afterDatasetsDraw(chart: Chart) {
+        const { ctx } = chart;
+        ctx.font = '9px Arial';
+        ctx.fillStyle = '#f8f6f6';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'bottom';
+
+        chart.data.datasets.filter(x => x.type === 'bar').forEach((dataset, i) => {
+            const meta = chart.getDatasetMeta(i);
+            meta.data.forEach((bar, index) => {
+                const value = dataset.data[index];
+                if (value !== null && Number(value) > 0) {
+                    ctx.fillText(String(value), bar.x, bar.y - 2); // Position the text above the bar
+                }
+            });
+        });
+    }
+};
+
+Chart.register(LineController, LineElement, BarController, BarElement, PointElement, LinearScale, CategoryScale, Title, NumberLabelPlugin);
 
 
 import { onMounted, ref } from 'vue';
@@ -43,15 +65,7 @@ const setupChart = ($canvas: HTMLCanvasElement) => {
   const ctx = $canvas.getContext('2d')!
   const labelsX = Array.from(new Array(consecutiveSuccessCount + 1)).map((x, index) => index)
 
-  const getScatterColor = (status: 'none' | 'failed' | 'success' | 'intermediate') => {
-    if (status === 'success') {
-      return '#39c13d'
-    }
-    if (status === 'intermediate') {
-      return '#fffb25'
-    }
-    return 'red'
-  }
+  // console.log(Array.from(new Array(24)).map((_, i) => consecutiveSuccessFormula(i)))
 
   new Chart(ctx, {
     type: 'line',
@@ -65,10 +79,11 @@ const setupChart = ($canvas: HTMLCanvasElement) => {
         tension: 0.4,
         pointRadius: 0,
         pointHoverRadius: 0,
-        borderWidth: 1
+        borderWidth: 1,
+        borderDash: [5, 5]
       },
       {
-        type: 'scatter',
+        type: 'bar',
         label: 'Data Points',
         data: labelsX.map((x) => {
           const datapointsInX = datapoints.filter((y) => y.consecutiveSuccess === x)
@@ -79,8 +94,7 @@ const setupChart = ($canvas: HTMLCanvasElement) => {
           return consecutiveSuccessFormula(datapointsInX[0].consecutiveSuccess)
         }),
         backgroundColor: 'green',
-        pointRadius: 2,
-        showLine: false
+        maxBarThickness: 14
       }]
     },
     options: {
