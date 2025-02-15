@@ -10,3 +10,9 @@ declare module "@/assets/kana-to-romaji.json" {
   const value: KanaToRomajiMap;
   export default value;
 }
+
+declare module "@/assets/data-additional.json" {
+  import { LLRecordAdditional } from './src/types';
+  const value: LLRecordAdditional[];
+  export default value;
+}

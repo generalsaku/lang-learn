@@ -1,7 +1,7 @@
 <template>
   <div class="card-combined" :class="{ flipped, correct, 'pulsate-outline-success': pulsate, exit }">
-    <CardEnglish :record="currentCard.record" class="front"><slot name="english"></slot></CardEnglish>
-    <CardJapanese :record="currentCard.record" class="back"><slot name="japanese"></slot></CardJapanese>
+    <CardEnglish :record="currentCard.record" :additional="additional" class="front"><slot name="english"></slot></CardEnglish>
+    <CardJapanese :record="currentCard.record" :additional="additional" class="back"><slot name="japanese"></slot></CardJapanese>
   </div>
 </template>
 
@@ -12,6 +12,9 @@ import type { cardStackCard } from '@/stores/useCardStackStore'
 import CardEnglish from '@/components/card/CardEnglish.vue'
 import CardJapanese from '@/components/card/CardJapanese.vue'
 
+import dataAdditional from '@/assets/data-additional.json'
+import type { LLRecordAdditional } from '@/types'
+
 const props = defineProps<{ stackCard: cardStackCard }>()
 
 const currentCard = computed(() => props.stackCard)
@@ -19,6 +22,7 @@ const correct = computed(() => currentCard.value.animateSuccess)
 const flipped = computed(() => !currentCard.value.english)
 const pulsate = computed(() => currentCard.value.animateSuccess)
 const exit = computed(() => currentCard.value.animateExit)
+const additional = computed<LLRecordAdditional>(() => dataAdditional.find(d => d.sort_index === currentCard.value.record.sort_index))
 
 </script>
 

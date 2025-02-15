@@ -1,12 +1,18 @@
 <template>
   <CardDesign class="card">
     <span class="index">{{ record.sort_index + 1 }}</span>
-    <button class="btn edit-note" :class="{ 'has-note': note.length > 0 }" @pointerup.prevent.stop="toggleShowEdit()">
-      <BsPencilSquare style="width: 20px;" />
+    <button class="btn btn-util btn-show-info" @pointerup.prevent.stop="toggleShowInfo()">
+      <BsInfoSquare v-if="!showInfo" style="width: 20px;" />
+      <BsInfoSquareFill v-else style="width: 20px;" />
+    </button>
+
+    <button class="btn btn-util btn-edit-note" :class="{ 'has-note': note.length > 0 }" @pointerup.prevent.stop="toggleShowEdit()">
+      <BsPencil v-if="!showEdit" style="width: 16px;" />
+      <BsPencilFill v-else style="width: 16px;" />
     </button>
     <button class="btn listen" @pointerup.prevent.stop="listen()"><BsSoundwave /></button>
 
-    <div v-if="!showEdit" class="reading">
+    <div v-if="showMode === 'default'" class="reading">
       <template v-for="(reading, index) in readings" :key="`${reading}-${index}`">
         <table>
           <tbody>
@@ -24,8 +30,28 @@
       </template>
     </div>
 
+    <div v-if="showMode === 'info'" class="info">
+      <table>
+        <tr class="explanation"><td colspan="2">{{ additional.explanation }}</td></tr>
+      </table>
+      <table>
+        <tr class="example">
+          <td>English: </td>
+          <td>{{ additional.english }}</td>
+        </tr>
+        <tr class="example">
+          <td>Japanese: </td>
+          <td>{{ additional.japanese }}</td>
+        </tr>
+        <tr class="example">
+          <td>Romaji: </td>
+          <td>{{ additional.romaji }}</td>
+        </tr>
+      </table>
+    </div>
+
     <textarea
-      v-if="showEdit"
+      v-if="showMode === 'edit'"
       v-text="note"
       @input="updateNote"
       @click.prevent.stop
@@ -43,25 +69,42 @@
 
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue'
-import type { LLRecord } from '@/types'
+import type { LLRecord, LLRecordAdditional } from '@/types'
 
 import CardDesign from '@/components/card/CardDesign.vue'
-import { BsPencilSquare, BsSoundwave } from 'vue-icons-plus/bs'
+import { BsPencil, BsPencilFill, BsSoundwave, BsInfoSquare, BsInfoSquareFill } from 'vue-icons-plus/bs'
 import { default as charmap } from '@/assets/kana-to-romaji.json'
 import { useStatisticsRecordedStore } from '@/stores/useStatisticsRecordedStore'
 import { utter } from '@/utils/speech/utter'
 
-const props = defineProps<{ record: LLRecord }>()
+const props = defineProps<{ record: LLRecord, additional: LLRecordAdditional }>()
 
 const readings = computed(() => props.record.reading.split(';'))
 
 const showEdit = ref(false)
+const showInfo = ref(false)
+
+const showMode = computed<'default' | 'edit' | 'info'>(() => {
+  if (showEdit.value) {
+    return 'edit'
+  } else if (showInfo.value) {
+    return 'info'
+  }
+  return 'default'
+})
+
 const note = ref('')
 
 const statisticsRecordedStore = useStatisticsRecordedStore()
 
 const toggleShowEdit = () => {
+  showInfo.value = false
   showEdit.value = !showEdit.value
+}
+
+const toggleShowInfo = () => {
+  showEdit.value = false
+  showInfo.value = !showInfo.value
 }
 
 const updateNote = (e: Event) => {
@@ -84,6 +127,7 @@ watch(() => props.record, () => {
 })
 
 const fetchNote = () => {
+  showInfo.value = false
   showEdit.value = false
   note.value = statisticsRecordedStore.getNote(props.record)
 }
@@ -101,10 +145,11 @@ const fetchNote = () => {
     font-size: 10px;
   }
 
-  .edit-note {
+  .btn-util {
+    width: 12px;
+    height: 12px;
     position: absolute;
-    top: 0;
-    right: 2px;
+    top: 6px;
     width: auto;
     background: transparent;
     box-shadow: none;
@@ -112,13 +157,21 @@ const fetchNote = () => {
     cursor: pointer;
     z-index: 2;
 
-    &.has-note {
-      color: var(--color-green);
-    }
-
     svg {
       width: 16px;
       pointer-events: none;
+    }
+
+    &.btn-edit-note {
+      right: 34px;
+
+      &.has-note {
+        color: var(--color-green);
+      }
+    }
+
+    &.btn-show-info {
+      right: 2px;
     }
   }
 
@@ -183,6 +236,34 @@ const fetchNote = () => {
         padding: 1px;
         text-align: center;
       }
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 12px;
+    overflow: auto;
+    height: calc(100% - 96px);
+    margin-top: 35px;
+    z-index: 2;
+
+    .explanation {
+      font-size: 14px;
+    }
+
+    .example {
+      color: #e0e0e0;
+      font-size: 12px;
+      font-style: italic;
+    }
+
+    table {
+      width: 100%;
+      padding: 0 4px;
     }
   }
 

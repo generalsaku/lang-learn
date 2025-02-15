@@ -10,7 +10,14 @@ export type LLRecord = {
   speech_parts: string[],
   level: number[],
   sort_index: number
-  test: boolean
+}
+
+export type LLRecordAdditional = {
+  sort_index: number
+  english: string
+  japanese: string
+  romaji: string
+  explanation: string
 }
 
 export type KanaToRomajiMap = {
