@@ -146,16 +146,15 @@ const fetchNote = () => {
   }
 
   .btn-util {
-    width: 12px;
-    height: 12px;
     position: absolute;
-    top: 6px;
+    top: 0px;
     width: auto;
     background: transparent;
     box-shadow: none;
     color: var(--color-font);
     cursor: pointer;
     z-index: 2;
+    user-select: none;
 
     svg {
       width: 16px;
