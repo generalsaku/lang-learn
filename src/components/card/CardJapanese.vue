@@ -32,21 +32,25 @@
 
     <div v-if="showMode === 'info'" class="info">
       <table>
-        <tr class="explanation"><td colspan="2">{{ additional.explanation }}</td></tr>
+        <tbody>
+          <tr class="explanation"><td colspan="2">{{ additional.explanation }}</td></tr>
+        </tbody>
       </table>
       <table>
-        <tr class="example">
-          <td>English: </td>
-          <td>{{ additional.english }}</td>
-        </tr>
-        <tr class="example">
-          <td>Japanese: </td>
-          <td>{{ additional.japanese }}</td>
-        </tr>
-        <tr class="example">
-          <td>Romaji: </td>
-          <td>{{ additional.romaji }}</td>
-        </tr>
+        <tbody>
+          <tr class="example">
+            <td>English: </td>
+            <td>{{ additional.english }}</td>
+          </tr>
+          <tr class="example">
+            <td>Japanese: </td>
+            <td>{{ additional.japanese }}</td>
+          </tr>
+          <tr class="example">
+            <td>Romaji: </td>
+            <td>{{ additional.romaji }}</td>
+          </tr>
+        </tbody>
       </table>
     </div>
 
@@ -115,7 +119,7 @@ const updateNote = (e: Event) => {
 }
 
 const listen = () => {
-  utter(props.record.reading)
+  utter(showInfo.value ? props.additional.japanese : props.record.reading)
 }
 
 onMounted(() => {
