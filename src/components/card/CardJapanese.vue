@@ -115,7 +115,6 @@ const updateNote = (e: Event) => {
   const value = (e.target as HTMLTextAreaElement).value
   statisticsRecordedStore.updateNote(props.record, value)
   note.value = value
-  console.log('updated called: ' + value)
 }
 
 const listen = () => {
