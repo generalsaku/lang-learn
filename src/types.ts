@@ -20,6 +20,20 @@ export type LLRecordAdditional = {
   explanation: string
 }
 
+export type LLRecordParticle = {
+  particle: string
+  tagline: string
+  further_explanation: string
+  explanation: string
+  grammar_structure: string
+  examples: ({
+    english: string
+    japanese: string
+    romaji: string
+    grammar_structure_description: string
+  })[]
+}
+
 export type KanaToRomajiMap = {
   [key: string]: string;
 }

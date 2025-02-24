@@ -1,5 +1,5 @@
 <template>
-  <IndentContainer>
+  <IndentContainer class="top">
     <div class="categories">
       <h4 style="margin: 0 auto;">GRAMMAR SELECTION</h4>
       <div v-for="(category) in recordFiltersStore.categories" :key="category.name" class="category">

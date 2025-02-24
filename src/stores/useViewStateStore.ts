@@ -7,6 +7,7 @@ export const useViewStateStore = defineStore('view-state-store', () => {
 
   const showFilters = ref(false)
   const showAnalysis = ref(false)
+  const showParticles = ref(false)
   const showSplash = ref(import.meta.env.PROD)
 
   setTimeout(() => {
@@ -22,6 +23,8 @@ export const useViewStateStore = defineStore('view-state-store', () => {
       return 'filters'
     } else if (showAnalysis.value) {
       return 'analysis'
+    } else if (showParticles.value) {
+      return 'particles'
     }
 
     return 'default'
@@ -30,17 +33,28 @@ export const useViewStateStore = defineStore('view-state-store', () => {
   const goToHome = () => {
     showAnalysis.value = false
     showFilters.value = false
+    showParticles.value = false
     jlptSetsStore.selectedSet = null
+    document.querySelector('.scroll-container')?.scrollTo(0, 0)
   }
 
   const goToFilters = () => {
     showAnalysis.value = false
     showFilters.value = !showFilters.value
     jlptSetsStore.selectedSet = null
+    showParticles.value = false
   }
 
   const goToAnalysis = () => {
     showAnalysis.value = true
+    jlptSetsStore.selectedSet = null
+    showFilters.value = false
+    showParticles.value = false
+  }
+
+  const goToParticles = () => {
+    showParticles.value = true
+    showAnalysis.value = false
     jlptSetsStore.selectedSet = null
     showFilters.value = false
   }
@@ -49,6 +63,6 @@ export const useViewStateStore = defineStore('view-state-store', () => {
     return !jlptSetsStore.selectedSet
   })
 
-  return { showSplash, showFilters, currentPage, goToHome, goToAnalysis, goToFilters, canGoToFilters }
+  return { showSplash, showFilters, currentPage, goToHome, goToAnalysis, goToFilters, goToParticles, canGoToFilters }
 })
 

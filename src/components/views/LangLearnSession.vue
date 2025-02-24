@@ -42,6 +42,7 @@ onMounted(() => {})
   display: flex;
   flex-flow: column nowrap;
   gap: 16px;
+  overflow-x: hidden;
 
   .layout-top {
     padding-top: 16px;

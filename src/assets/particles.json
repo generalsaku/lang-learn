@@ -1,0 +1,548 @@
+[
+  {
+    "particle": "は (wa)",
+    "tagline": "Topic Marker",
+    "further_explanation": "This particle marks the topic of a sentence, indicating what the sentence is about. It introduces the main subject or theme but does not necessarily act as the grammatical subject. It often implies contrast, meaning that what follows applies specifically to the topic while other possible subjects may not share the same characteristics.",
+    "explanation": "Indicates the topic of the sentence.",
+    "grammar_structure": "[Topic] は [Information].",
+    "examples": [
+      {
+        "japanese": "私は日本人です。",
+        "romaji": "Watashi wa Nihonjin desu.",
+        "english": "I am Japanese.",
+        "grammar_structure_description": "'私 (Watashi)' is the topic, and '日本人 (Nihonjin desu)' provides information about it."
+      },
+      {
+        "japanese": "彼は学生です。",
+        "romaji": "Kare wa gakusei desu.",
+        "english": "He is a student.",
+        "grammar_structure_description": "'彼 (Kare)' is the topic, and '学生 (gakusei desu)' tells what he is."
+      },
+      {
+        "japanese": "この本は面白いです。",
+        "romaji": "Kono hon wa omoshiroi desu.",
+        "english": "This book is interesting.",
+        "grammar_structure_description": "'この本 (Kono hon)' is the topic, and '面白いです (omoshiroi desu)' describes it."
+      },
+      {
+        "japanese": "今日は暑いです。",
+        "romaji": "Kyō wa atsui desu.",
+        "english": "Today is hot.",
+        "grammar_structure_description": "'今日 (Kyō)' is the topic, and '暑いです (atsui desu)' describes the weather."
+      },
+      {
+        "japanese": "日本は美しい国です。",
+        "romaji": "Nihon wa utsukushii kuni desu.",
+        "english": "Japan is a beautiful country.",
+        "grammar_structure_description": "'日本 (Nihon)' is the topic, and '美しい国です (utsukushii kuni desu)' describes it."
+      }
+    ]
+  },
+  {
+    "particle": "を (o)",
+    "tagline": "Direct Object Marker",
+    "further_explanation": "Used to indicate the direct object of an action, this particle shows what the verb is acting upon. It identifies the receiver of an action, typically a noun, and is essential for making clear which entity is affected by the verb.",
+    "explanation": "Marks the direct object of a verb.",
+    "grammar_structure": "[Subject] は [Object] を [Verb].",
+    "examples": [
+      {
+        "japanese": "本を読みます。",
+        "romaji": "Hon o yomimasu.",
+        "english": "I read a book.",
+        "grammar_structure_description": "'本 (Hon)' is the object, and '読みます (yomimasu)' is the action."
+      },
+      {
+        "japanese": "コーヒーを飲みます。",
+        "romaji": "Kōhī o nomimasu.",
+        "english": "I drink coffee.",
+        "grammar_structure_description": "'コーヒー (Kōhī)' is the object, and '飲みます (nomimasu)' is the verb."
+      },
+      {
+        "japanese": "映画を見ました。",
+        "romaji": "Eiga o mimashita.",
+        "english": "I watched a movie.",
+        "grammar_structure_description": "'映画 (Eiga)' is the object, and '見ました (mimashita)' is the verb."
+      },
+      {
+        "japanese": "手紙を書きました。",
+        "romaji": "Tegami o kakimashita.",
+        "english": "I wrote a letter.",
+        "grammar_structure_description": "'手紙 (Tegami)' is the object, and '書きました (kakimashita)' is the action."
+      },
+      {
+        "japanese": "リンゴを食べました。",
+        "romaji": "Ringo o tabemashita.",
+        "english": "I ate an apple.",
+        "grammar_structure_description": "'リンゴ (Ringo)' is the object, and '食べました (tabemashita)' is the verb."
+      }
+    ]
+  },
+  {
+    "particle": "も (mo)",
+    "tagline": "Inclusion Marker",
+    "further_explanation": "This particle conveys the meaning of \"also\" or \"too,\" emphasizing that the information given applies not only to one subject but to another as well. It replaces subject or object markers such as は or が when expressing similarity or shared characteristics.",
+    "explanation": "Indicates inclusion or similarity.",
+    "grammar_structure": "[Subject] も [Verb/Noun/Adjective].",
+    "examples": [
+      {
+        "japanese": "私も行きます。",
+        "romaji": "Watashi mo ikimasu.",
+        "english": "I will go too.",
+        "grammar_structure_description": "'私 (Watashi)' is the subject, 'も (mo)' adds inclusion, and '行きます (ikimasu)' is the verb."
+      },
+      {
+        "japanese": "彼女も日本語を話します。",
+        "romaji": "Kanojo mo Nihongo o hanashimasu.",
+        "english": "She also speaks Japanese.",
+        "grammar_structure_description": "'彼女 (Kanojo)' is the subject, 'も (mo)' shows inclusion, and '話します (hanashimasu)' is the verb."
+      },
+      {
+        "japanese": "猫も好きです。",
+        "romaji": "Neko mo suki desu.",
+        "english": "I also like cats.",
+        "grammar_structure_description": "'猫 (Neko)' is the subject, 'も (mo)' adds inclusion, and '好きです (suki desu)' expresses liking."
+      },
+      {
+        "japanese": "彼も学生です。",
+        "romaji": "Kare mo gakusei desu.",
+        "english": "He is also a student.",
+        "grammar_structure_description": "'彼 (Kare)' is the subject, 'も (mo)' adds similarity, and '学生です (gakusei desu)' describes his status."
+      },
+      {
+        "japanese": "これも面白いです。",
+        "romaji": "Kore mo omoshiroi desu.",
+        "english": "This is also interesting.",
+        "grammar_structure_description": "'これ (Kore)' is the subject, 'も (mo)' adds inclusion, and '面白いです (omoshiroi desu)' describes it."
+      }
+    ]
+  },
+  {
+    "particle": "に (ni)",
+    "tagline": "Direction, Time, or Indirect Object Marker",
+    "further_explanation": "This particle serves multiple functions, marking a point in time, direction, or an indirect object. When used with places, it indicates movement toward a location. When used with time, it pinpoints when an event occurs. It can also show the recipient of an action, such as when something is given or directed toward someone.",
+    "explanation": "Used for destinations, times, or indirect objects.",
+    "grammar_structure": "[Subject] は [Location/Time/Receiver] に [Action].",
+    "examples": [
+      {
+        "japanese": "学校に行きます。",
+        "romaji": "Gakkō ni ikimasu.",
+        "english": "I go to school.",
+        "grammar_structure_description": "'学校 (Gakkō)' is the destination, and '行きます (ikimasu)' is the verb."
+      },
+      {
+        "japanese": "7時に起きます。",
+        "romaji": "Shichi-ji ni okimasu.",
+        "english": "I wake up at 7 o’clock.",
+        "grammar_structure_description": "'7時 (Shichi-ji)' is the time, and '起きます (okimasu)' is the verb."
+      },
+      {
+        "japanese": "友達にプレゼントをあげました。",
+        "romaji": "Tomodachi ni purezento o agemashita.",
+        "english": "I gave a present to my friend.",
+        "grammar_structure_description": "'友達 (Tomodachi)' is the recipient, and 'あげました (agemashita)' is the action."
+      },
+      {
+        "japanese": "駅に着きました。",
+        "romaji": "Eki ni tsukimashita.",
+        "english": "I arrived at the station.",
+        "grammar_structure_description": "'駅 (Eki)' is the location, and '着きました (tsukimashita)' is the verb."
+      },
+      {
+        "japanese": "会社に電話をしました。",
+        "romaji": "Kaisha ni denwa o shimashita.",
+        "english": "I called the company.",
+        "grammar_structure_description": "'会社 (Kaisha)' is the recipient, and '電話をしました (denwa o shimashita)' is the action."
+      }
+    ]
+  },
+  {
+    "particle": "へ (e)",
+    "tagline": "Direction Marker",
+    "further_explanation": "This particle specifically indicates direction or movement towards a destination. Unlike に, which can also indicate arrival or a specific point in time, へ emphasizes the movement toward a goal rather than the act of reaching it.",
+    "explanation": "Indicates direction, similar to に but emphasizes movement toward a place.",
+    "grammar_structure": "[Subject] は [Destination] へ [Verb of Movement].",
+    "examples": [
+      {
+        "japanese": "東京へ行きます。",
+        "romaji": "Tōkyō e ikimasu.",
+        "english": "I am going to Tokyo.",
+        "grammar_structure_description": "'東京 (Tōkyō)' is the destination, and '行きます (ikimasu)' is the verb of movement."
+      },
+      {
+        "japanese": "家へ帰ります。",
+        "romaji": "Ie e kaerimasu.",
+        "english": "I am going home.",
+        "grammar_structure_description": "'家 (Ie)' is the destination, and '帰ります (kaerimasu)' is the verb of movement."
+      },
+      {
+        "japanese": "彼へ手紙を書きました。",
+        "romaji": "Kare e tegami o kakimashita.",
+        "english": "I wrote a letter to him.",
+        "grammar_structure_description": "'彼 (Kare)' is the recipient (destination of the letter), and '書きました (kakimashita)' is the action."
+      },
+      {
+        "japanese": "空港へ行きました。",
+        "romaji": "Kūkō e ikimashita.",
+        "english": "I went to the airport.",
+        "grammar_structure_description": "'空港 (Kūkō)' is the destination, and '行きました (ikimashita)' is the verb."
+      },
+      {
+        "japanese": "海外へ旅行します。",
+        "romaji": "Kaigai e ryokō shimasu.",
+        "english": "I will travel abroad.",
+        "grammar_structure_description": "'海外 (Kaigai)' is the destination, and '旅行します (ryokō shimasu)' is the verb of movement."
+      }
+    ]
+  },
+  {
+    "particle": "で (de)",
+    "tagline": "Location, Means, or Method Marker",
+    "further_explanation": "This particle specifies where an action takes place. It is used to describe the location where an event occurs, the tool or method by which an action is performed, and the circumstances in which something happens. It can also be used to indicate a means of transportation or a language used in communication.",
+    "explanation": "Indicates the place where an action happens or the means by which something is done.",
+    "grammar_structure": "[Subject] は [Location/Means] で [Action].",
+    "examples": [
+      {
+        "japanese": "図書館で勉強します。",
+        "romaji": "Toshokan de benkyō shimasu.",
+        "english": "I study at the library.",
+        "grammar_structure_description": "'図書館 (Toshokan)' is the place where the action happens, and '勉強します (benkyō shimasu)' is the verb."
+      },
+      {
+        "japanese": "バスで行きます。",
+        "romaji": "Basu de ikimasu.",
+        "english": "I go by bus.",
+        "grammar_structure_description": "'バス (Basu)' is the means of transportation, and '行きます (ikimasu)' is the action."
+      },
+      {
+        "japanese": "日本で働いています。",
+        "romaji": "Nihon de hataraite imasu.",
+        "english": "I am working in Japan.",
+        "grammar_structure_description": "'日本 (Nihon)' is the place where the action happens, and '働いています (hataraite imasu)' is the verb."
+      },
+      {
+        "japanese": "公園で遊びました。",
+        "romaji": "Kōen de asobimashita.",
+        "english": "I played in the park.",
+        "grammar_structure_description": "'公園 (Kōen)' is the place where the action happens, and '遊びました (asobimashita)' is the verb."
+      },
+      {
+        "japanese": "鉛筆で書きます。",
+        "romaji": "Enpitsu de kakimasu.",
+        "english": "I write with a pencil.",
+        "grammar_structure_description": "'鉛筆 (Enpitsu)' is the means of doing the action, and '書きます (kakimasu)' is the verb."
+      }
+    ]
+  },
+  {
+    "particle": "が (ga)",
+    "tagline": "Subject Marker",
+    "further_explanation": "This particle marks the grammatical subject of a sentence and is often used when introducing new information, emphasizing who or what is performing an action, or when making distinctions. Unlike は, which focuses on the topic, が highlights the specific subject of a sentence.",
+    "explanation": "Marks the subject of a sentence, often used to emphasize or introduce new information.",
+    "grammar_structure": "[Subject] が [State/Feeling/Existence].",
+    "examples": [
+      {
+        "japanese": "犬が好きです。",
+        "romaji": "Inu ga suki desu.",
+        "english": "I like dogs.",
+        "grammar_structure_description": "'犬 (Inu)' is the subject, and '好きです (suki desu)' expresses preference."
+      },
+      {
+        "japanese": "誰が来ましたか？",
+        "romaji": "Dare ga kimashita ka?",
+        "english": "Who came?",
+        "grammar_structure_description": "'誰 (Dare)' is the subject, and '来ました (kimashita)' is the verb."
+      },
+      {
+        "japanese": "この映画が面白いです。",
+        "romaji": "Kono eiga ga omoshiroi desu.",
+        "english": "This movie is interesting.",
+        "grammar_structure_description": "'この映画 (Kono eiga)' is the subject, and '面白いです (omoshiroi desu)' describes it."
+      },
+      {
+        "japanese": "彼が先生です。",
+        "romaji": "Kare ga sensei desu.",
+        "english": "He is the teacher.",
+        "grammar_structure_description": "'彼 (Kare)' is the subject, and '先生です (sensei desu)' states his role."
+      },
+      {
+        "japanese": "猫がいます。",
+        "romaji": "Neko ga imasu.",
+        "english": "There is a cat.",
+        "grammar_structure_description": "'猫 (Neko)' is the subject, and 'います (imasu)' expresses existence."
+      }
+    ]
+  },
+  {
+    "particle": "から (kara)",
+    "tagline": "Starting Point or Cause Marker",
+    "further_explanation": "This particle is used to indicate the starting point of an action, whether in time or space. It can also convey reasoning or causation, meaning that what follows happens as a result of the previous statement. It is often used to explain why something occurs or to describe the origin of something.",
+    "explanation": "Indicates the starting point of an action, time, or reasoning.",
+    "grammar_structure": "[Start Point/Reason] から [Action/Outcome].",
+    "examples": [
+      {
+        "japanese": "朝9時から働きます。",
+        "romaji": "Asa ku-ji kara hatarakimasu.",
+        "english": "I work from 9 AM.",
+        "grammar_structure_description": "'朝9時 (Asa ku-ji)' is the starting time, and '働きます (hatarakimasu)' is the action."
+      },
+      {
+        "japanese": "ここから駅まで歩きます。",
+        "romaji": "Koko kara eki made arukimasu.",
+        "english": "I walk from here to the station.",
+        "grammar_structure_description": "'ここ (Koko)' is the starting point, and '駅まで (eki made)' is the endpoint of the movement."
+      },
+      {
+        "japanese": "雨が降ったから、出かけませんでした。",
+        "romaji": "Ame ga futta kara, dekakemasen deshita.",
+        "english": "Since it rained, I didn’t go out.",
+        "grammar_structure_description": "'雨が降った (Ame ga futta)' is the reason, and '出かけませんでした (dekakemasen deshita)' is the outcome."
+      },
+      {
+        "japanese": "日本から来ました。",
+        "romaji": "Nihon kara kimashita.",
+        "english": "I came from Japan.",
+        "grammar_structure_description": "'日本 (Nihon)' is the starting location, and '来ました (kimashita)' is the action."
+      },
+      {
+        "japanese": "この本は図書館から借りました。",
+        "romaji": "Kono hon wa toshokan kara karimashita.",
+        "english": "I borrowed this book from the library.",
+        "grammar_structure_description": "'図書館 (Toshokan)' is the source, and '借りました (karimashita)' is the action."
+      }
+    ]
+  },
+  {
+    "particle": "まで (made)",
+    "tagline": "Endpoint Marker",
+    "further_explanation": "This particle marks the end of a range, whether it is a physical distance, a time frame, or an action. It can also be used to emphasize that something continues up to a certain point. It is often paired with から to indicate a starting and ending point.",
+    "explanation": "Indicates an endpoint in time or space.",
+    "grammar_structure": "[Action/Movement] [Start Point] から [End Point] まで.",
+    "examples": [
+      {
+        "japanese": "5時まで勉強します。",
+        "romaji": "Go-ji made benkyō shimasu.",
+        "english": "I will study until 5 o’clock.",
+        "grammar_structure_description": "'5時 (Go-ji)' is the endpoint, and '勉強します (benkyō shimasu)' is the action."
+      },
+      {
+        "japanese": "東京まで行きます。",
+        "romaji": "Tōkyō made ikimasu.",
+        "english": "I will go to Tokyo.",
+        "grammar_structure_description": "'東京 (Tōkyō)' is the endpoint, and '行きます (ikimasu)' is the action."
+      },
+      {
+        "japanese": "夏休みまで待ちます。",
+        "romaji": "Natsu yasumi made machimasu.",
+        "english": "I will wait until summer vacation.",
+        "grammar_structure_description": "'夏休み (Natsu yasumi)' is the time endpoint, and '待ちます (machimasu)' is the action."
+      },
+      {
+        "japanese": "夜まで仕事をします。",
+        "romaji": "Yoru made shigoto o shimasu.",
+        "english": "I will work until the evening.",
+        "grammar_structure_description": "'夜 (Yoru)' is the endpoint, and '仕事をします (shigoto o shimasu)' is the action."
+      },
+      {
+        "japanese": "この道は駅まで続きます。",
+        "romaji": "Kono michi wa eki made tsudzukimasu.",
+        "english": "This road continues until the station.",
+        "grammar_structure_description": "'駅 (Eki)' is the endpoint, and '続きます (tsudzukimasu)' is the action."
+      }
+    ]
+  },
+  {
+    "particle": "と (to)",
+    "tagline": "Listing Items or Companion Marker",
+    "further_explanation": "This particle is used for explicitly listing items, indicating that all mentioned elements are included. It also serves as a marker for companionship, showing that an action is performed together with someone else. Additionally, it can introduce direct quotations.",
+    "explanation": "Used to list items specifically or indicate a companion.",
+    "grammar_structure": "[Item A] と [Item B] / [Subject] は [Companion] と [Action].",
+    "examples": [
+      {
+        "japanese": "友達と映画を見ました。",
+        "romaji": "Tomodachi to eiga o mimashita.",
+        "english": "I watched a movie with my friend.",
+        "grammar_structure_description": "'友達 (Tomodachi)' is the companion, and '映画を見ました (eiga o mimashita)' is the action."
+      },
+      {
+        "japanese": "パンと牛乳を買いました。",
+        "romaji": "Pan to gyūnyū o kaimashita.",
+        "english": "I bought bread and milk.",
+        "grammar_structure_description": "'パン (Pan)' and '牛乳 (Gyūnyū)' are listed as the objects, and '買いました (kaimashita)' is the action."
+      },
+      {
+        "japanese": "先生と話しました。",
+        "romaji": "Sensei to hanashimashita.",
+        "english": "I talked with the teacher.",
+        "grammar_structure_description": "'先生 (Sensei)' is the companion, and '話しました (hanashimashita)' is the action."
+      },
+      {
+        "japanese": "猫と犬が好きです。",
+        "romaji": "Neko to inu ga suki desu.",
+        "english": "I like cats and dogs.",
+        "grammar_structure_description": "'猫 (Neko)' and '犬 (Inu)' are listed together as the subject, and '好きです (suki desu)' is the verb."
+      },
+      {
+        "japanese": "家族と旅行します。",
+        "romaji": "Kazoku to ryokō shimasu.",
+        "english": "I will travel with my family.",
+        "grammar_structure_description": "'家族 (Kazoku)' is the companion, and '旅行します (ryokō shimasu)' is the action."
+      }
+    ]
+  },
+  {
+    "particle": "や (ya)",
+    "tagline": "Non-Exhaustive Listing Marker",
+    "further_explanation": "This particle is used when listing examples rather than a complete set of items. It implies that there are other similar things not mentioned in the list. It differs from と, which indicates that all listed items are included.",
+    "explanation": "Used to list items non-exhaustively.",
+    "grammar_structure": "[Item A] や [Item B] や [Etc.].",
+    "examples": [
+      {
+        "japanese": "りんごやバナナを食べました。",
+        "romaji": "Ringo ya banana o tabemashita.",
+        "english": "I ate apples and bananas (among other things).",
+        "grammar_structure_description": "'りんご (Ringo)' and 'バナナ (Banana)' are listed non-exhaustively, and '食べました (tabemashita)' is the action."
+      },
+      {
+        "japanese": "教科書やノートを買いました。",
+        "romaji": "Kyōkasho ya nōto o kaimashita.",
+        "english": "I bought textbooks and notebooks (among other things).",
+        "grammar_structure_description": "'教科書 (Kyōkasho)' and 'ノート (Nōto)' are items being listed non-exhaustively, and '買いました (kaimashita)' is the action."
+      },
+      {
+        "japanese": "部屋には机やいすがあります。",
+        "romaji": "Heya ni wa tsukue ya isu ga arimasu.",
+        "english": "There are desks and chairs (among other things) in the room.",
+        "grammar_structure_description": "'机 (Tsukue)' and 'いす (Isu)' are items that exist in the room non-exhaustively, and 'あります (arimasu)' expresses existence."
+      },
+      {
+        "japanese": "スポーツではサッカーやテニスが好きです。",
+        "romaji": "Supōtsu de wa sakkā ya tenisu ga suki desu.",
+        "english": "As for sports, I like soccer and tennis (among others).",
+        "grammar_structure_description": "'サッカー (Sakkā)' and 'テニス (Tenisu)' are mentioned as examples, and '好きです (suki desu)' is the verb."
+      },
+      {
+        "japanese": "野菜や果物をよく食べます。",
+        "romaji": "Yasai ya kudamono o yoku tabemasu.",
+        "english": "I often eat vegetables and fruits (among other things).",
+        "grammar_structure_description": "'野菜 (Yasai)' and '果物 (Kudamono)' are listed as examples, and '食べます (tabemasu)' is the action."
+      }
+    ]
+  },
+  {
+    "particle": "の (no)",
+    "tagline": "Possessive or Descriptive Marker",
+    "further_explanation": "This particle is used to indicate possession, similar to the English apostrophe-s. It also functions to describe or qualify a noun by linking two nouns together, showing that one belongs to or relates to the other. It can also be used to form noun phrases.",
+    "explanation": "Indicates possession or describes a noun.",
+    "grammar_structure": "[Owner] の [Possession] / [Descriptive Noun] の [Main Noun].",
+    "examples": [
+      {
+        "japanese": "私の本です。",
+        "romaji": "Watashi no hon desu.",
+        "english": "It is my book.",
+        "grammar_structure_description": "'私 (Watashi)' is the owner, 'の (no)' indicates possession, and '本 (hon)' is the possessed object."
+      },
+      {
+        "japanese": "彼の車は新しいです。",
+        "romaji": "Kare no kuruma wa atarashii desu.",
+        "english": "His car is new.",
+        "grammar_structure_description": "'彼 (Kare)' is the owner, 'の (no)' shows possession, and '車 (kuruma)' is the object being described."
+      },
+      {
+        "japanese": "日本の文化に興味があります。",
+        "romaji": "Nihon no bunka ni kyōmi ga arimasu.",
+        "english": "I am interested in Japanese culture.",
+        "grammar_structure_description": "'日本 (Nihon)' describes the noun '文化 (bunka)' using 'の (no)'."
+      },
+      {
+        "japanese": "先生の名前は田中です。",
+        "romaji": "Sensei no namae wa Tanaka desu.",
+        "english": "The teacher's name is Tanaka.",
+        "grammar_structure_description": "'先生 (Sensei)' is the possessor, 'の (no)' indicates possession, and '名前 (namae)' is what is possessed."
+      },
+      {
+        "japanese": "これは父のカメラです。",
+        "romaji": "Kore wa chichi no kamera desu.",
+        "english": "This is my father’s camera.",
+        "grammar_structure_description": "'父 (Chichi)' is the owner, 'の (no)' indicates possession, and 'カメラ (kamera)' is the object."
+      }
+    ]
+  },
+  {
+    "particle": "ね (ne)",
+    "tagline": "Confirmation or Agreement Marker",
+    "further_explanation": "This sentence-ending particle is used to seek agreement or confirmation from the listener. It adds a nuance of expectation that the listener shares the same opinion or knowledge about what is being said. It can also create a friendly, conversational tone.",
+    "explanation": "Used to seek confirmation or express shared understanding.",
+    "grammar_structure": "[Statement] ね?",
+    "examples": [
+      {
+        "japanese": "今日は暑いですね。",
+        "romaji": "Kyō wa atsui desu ne.",
+        "english": "It’s hot today, isn’t it?",
+        "grammar_structure_description": "'今日は暑いです (Kyō wa atsui desu)' is the statement, and 'ね (ne)' seeks agreement."
+      },
+      {
+        "japanese": "この映画は面白かったですね。",
+        "romaji": "Kono eiga wa omoshirokatta desu ne.",
+        "english": "That movie was interesting, wasn't it?",
+        "grammar_structure_description": "'この映画は面白かったです (Kono eiga wa omoshirokatta desu)' is the statement, and 'ね (ne)' invites agreement."
+      },
+      {
+        "japanese": "あなたも来るんですね？",
+        "romaji": "Anata mo kuru n desu ne?",
+        "english": "So you’re coming too, huh?",
+        "grammar_structure_description": "'あなたも来るんです (Anata mo kuru n desu)' is the statement, and 'ね (ne)' confirms expectation."
+      },
+      {
+        "japanese": "このケーキ、美味しいですね。",
+        "romaji": "Kono kēki, oishii desu ne.",
+        "english": "This cake is delicious, isn’t it?",
+        "grammar_structure_description": "'このケーキ、美味しいです (Kono kēki, oishii desu)' is the statement, and 'ね (ne)' invites agreement."
+      },
+      {
+        "japanese": "彼は優しいですね。",
+        "romaji": "Kare wa yasashii desu ne.",
+        "english": "He is kind, isn’t he?",
+        "grammar_structure_description": "'彼は優しいです (Kare wa yasashii desu)' is the statement, and 'ね (ne)' seeks confirmation."
+      }
+    ]
+  },
+  {
+    "particle": "よ (yo)",
+    "tagline": "Emphasis or Assertion Marker",
+    "further_explanation": "This sentence-ending particle is used to emphasize statements, indicating that the speaker is providing new information or asserting a point strongly. It is often used when the speaker wants to make something clear to the listener or express certainty in their statement.",
+    "explanation": "Used to add emphasis or assurance.",
+    "grammar_structure": "[Statement] よ.",
+    "examples": [
+      {
+        "japanese": "これは美味しいよ。",
+        "romaji": "Kore wa oishii yo.",
+        "english": "This is delicious, you know!",
+        "grammar_structure_description": "'これは美味しい (Kore wa oishii)' is the statement, and 'よ (yo)' adds emphasis."
+      },
+      {
+        "japanese": "気をつけてくださいよ。",
+        "romaji": "Ki o tsukete kudasai yo.",
+        "english": "Please be careful!",
+        "grammar_structure_description": "'気をつけてください (Ki o tsukete kudasai)' is the command, and 'よ (yo)' emphasizes urgency."
+      },
+      {
+        "japanese": "明日は早いよ。",
+        "romaji": "Ashita wa hayai yo.",
+        "english": "Tomorrow is early, you know.",
+        "grammar_structure_description": "'明日は早い (Ashita wa hayai)' is the statement, and 'よ (yo)' stresses importance."
+      },
+      {
+        "japanese": "もう終わったよ。",
+        "romaji": "Mō owatta yo.",
+        "english": "It’s already finished!",
+        "grammar_structure_description": "'もう終わった (Mō owatta)' is the statement, and 'よ (yo)' adds emphasis."
+      },
+      {
+        "japanese": "本当だよ！",
+        "romaji": "Hontō da yo!",
+        "english": "It’s true!",
+        "grammar_structure_description": "'本当だ (Hontō da)' is the statement, and 'よ (yo)' stresses certainty."
+      }
+    ]
+  }
+]

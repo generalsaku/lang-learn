@@ -4,7 +4,7 @@
   </transition>
   <div v-if="!viewStateStore.showSplash" class="app-layout">
     <AppHeader></AppHeader>
-    <section class="content">
+    <section class="content scroll-container">
       <RouterView />
     </section>
     <AppFooter></AppFooter>

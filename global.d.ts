@@ -16,3 +16,9 @@ declare module "@/assets/data-additional.json" {
   const value: LLRecordAdditional[];
   export default value;
 }
+
+declare module "@/assets/particles.json" {
+  import { LLRecordParticle } from './src/types';
+  const value: LLRecordParticle[];
+  export default value;
+}
