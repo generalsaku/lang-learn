@@ -1,32 +1,38 @@
 <template>
-  <div class="jlpt-set" :class="{ scrollable: scrollable }">
-    <div class="jlpt-header">
-      <span style="position: relative;">JLPT {{ set.level }} ({{ filteredEntries.length }}) <BsFilter style="position: absolute; top: -2px; right: -20px; width: 16px;" v-if="filtersStore.hasSelectedFilters" /></span>
-      <div class="jlpt-stats">
-        <div class="jlpt-stats-entry">
-          <div class="jlpt-stats-legend status-success"></div>
-          <span>{{totalSuccess}}</span>
-        </div>
-        <div class="jlpt-stats-entry">
-          <div class="jlpt-stats-legend status-failed"></div>
-          <span>{{totalFailed}}</span>
-        </div>
-        <div class="jlpt-stats-entry">
-          <div class="jlpt-stats-legend status-intermediate"></div>
-          <span>{{totalIntermediate}}</span>
-        </div>
-        <div class="jlpt-stats-entry">
-          <div class="jlpt-stats-legend status-none"></div>
-          <span>{{totalNone}}</span>
-        </div>
-      </div>
-    </div>
-    <button class="jlpt-button" @click="() => emit('click')" :class="{ 'disabled': disabled }">
-      <div class="jlpt-records" >
-        <div v-for="(entry) of set.entries" :key="entry.sort_index" :title="`${entry.sort_index + 1}`" class="jlpt-record" :class="['status-' + statisticsEvaluatedStore.stats[entry.original_index].status, !filteredEntries.includes(entry) ? 'is-filtered-away' : null]"></div>
-      </div>
-    </button>
 
+  <div class="jlpt-set" :class="{ scrollable: scrollable }">
+    <CollapseSection :id="`jlpt-${set.level}`">
+      <template v-slot:head>
+        <div class="jlpt-header">
+          <span style="position: relative;">JLPT {{ set.level }} ({{ filteredEntries.length }}) <BsFilter style="position: absolute; top: -2px; right: -20px; width: 16px;" v-if="filtersStore.hasSelectedFilters" /></span>
+          <div class="jlpt-stats">
+            <div class="jlpt-stats-entry">
+              <div class="jlpt-stats-legend status-success"></div>
+              <span>{{totalSuccess}}</span>
+            </div>
+            <div class="jlpt-stats-entry">
+              <div class="jlpt-stats-legend status-failed"></div>
+              <span>{{totalFailed}}</span>
+            </div>
+            <div class="jlpt-stats-entry">
+              <div class="jlpt-stats-legend status-intermediate"></div>
+              <span>{{totalIntermediate}}</span>
+            </div>
+            <div class="jlpt-stats-entry">
+              <div class="jlpt-stats-legend status-none"></div>
+              <span>{{totalNone}}</span>
+            </div>
+          </div>
+        </div>
+      </template>
+      <template v-slot:default>
+        <button class="jlpt-button" @click="() => emit('click')" :class="{ 'disabled': disabled }">
+          <div class="jlpt-records" >
+            <div v-for="(entry) of set.entries" :key="entry.sort_index" :title="`${entry.sort_index + 1}`" class="jlpt-record" :class="['status-' + statisticsEvaluatedStore.stats[entry.original_index].status, !filteredEntries.includes(entry) ? 'is-filtered-away' : null]"></div>
+          </div>
+        </button>
+      </template>
+    </CollapseSection>
   </div>
 </template>
 
@@ -36,6 +42,7 @@ import { useStatisticsEvaluatedStore } from '@/stores/useStatisticsEvaluatedStor
 import { useFiltersStore } from '@/stores/useFiltersStore'
 import { computed } from 'vue'
 import { BsFilter } from 'vue-icons-plus/bs'
+import CollapseSection from '@/components/helpers/CollapseSection.vue'
 
 const statisticsEvaluatedStore = useStatisticsEvaluatedStore()
 const filtersStore = useFiltersStore()
@@ -69,11 +76,10 @@ const totalNone = computed(() => filteredEntries.value.filter(e => statisticsEva
     justify-content: space-between;
     font-weight: 700;
     font-size: 12px;
-    margin-bottom: 2px;
+    width: 100%;
 
     .jlpt-stats {
       display: flex;
-      margin-right: 4px;
       gap: 8px;
 
       .jlpt-stats-entry {
