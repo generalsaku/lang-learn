@@ -3,7 +3,7 @@
     <CollapseSection :id="`learn-particles`">
       <template v-slot:head>
         <div class="header">
-          <span style="position: relative;">LEARN PARTICLES  <BsPuzzleFill style="position: absolute; top: -2px; right: -20px; width: 16px;" /></span>
+          <span style="position: relative;">LEARN PARTICLES  <BsPuzzleFill style="position: absolute; top: 3px; right: -20px; width: 15px; height: 15px;" /></span>
         </div>
       </template>
 
@@ -29,7 +29,6 @@ const viewStateStore = useViewStateStore()
 <style scoped>
   .header {
     display: flex;
-    justify-content: space-between;
     font-weight: 700;
     font-size: 12px;
   }
@@ -38,12 +37,18 @@ const viewStateStore = useViewStateStore()
     font-size: 12px;
     cursor: pointer;
     position: relative;
-    gap: 2px;
-    display: flex;
-    flex-flow: column;
 
     &:hover {
       opacity: 0.6;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: -5px;
+        height: 100%;
+        width: 2px;
+        background-color: var(--color-font);
+      }
     }
   }
 </style>
