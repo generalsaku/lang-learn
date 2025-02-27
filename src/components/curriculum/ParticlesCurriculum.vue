@@ -35,7 +35,6 @@
             </table>
           </template>
         </CollapseSection>
-
       </div>
     </div>
   </IndentContainer>

@@ -1,7 +1,7 @@
 <template>
 
   <div class="jlpt-set" :class="{ scrollable: scrollable }">
-    <CollapseSection :id="`jlpt-${set.level}`">
+    <CollapseSection :id="`jlpt-${set.level}`" :open="set.level === 5">
       <template v-slot:head>
         <div class="jlpt-header">
           <span style="position: relative;">JLPT {{ set.level }} ({{ filteredEntries.length }}) <BsFilter style="position: absolute; top: -2px; right: -20px; width: 16px;" v-if="filtersStore.hasSelectedFilters" /></span>
