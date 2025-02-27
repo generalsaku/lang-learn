@@ -71,7 +71,7 @@ const getStoredState = () => {
     box-sizing: border-box;
     position: relative;
     background: #ffffff0d;
-    padding: 0 4px;
+    padding: 4px 6px;
     border-radius: 2px;
 
     .icon {
