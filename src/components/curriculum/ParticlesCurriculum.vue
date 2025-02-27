@@ -20,7 +20,6 @@
         </div>
       </div>
       <div class="examples">
-        <span class="examples-text">EXAMPLES:</span>
         <CollapseSection :open="false" v-for="(example, exampleIndex) in particle.examples" :key="particle.particle + exampleIndex" class="example">
           <template v-slot:head>
             Example {{exampleIndex + 1}}
@@ -122,9 +121,6 @@ onMounted(() => {
   }
 
   .examples {
-    position: relative;
-    margin-bottom: 4px;
-
     .examples-text {
       display: block;
       font-size: 10px;
