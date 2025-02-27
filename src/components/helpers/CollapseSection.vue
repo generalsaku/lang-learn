@@ -16,7 +16,7 @@
 import { nextTick, onMounted, ref } from 'vue';
 import { BsCaretRightFill } from 'vue-icons-plus/bs'
 
-const { open = true, id } = defineProps<{ open?: boolean, id: string }>()
+const { open = true, id = null } = defineProps<{ open?: boolean, id?: string }>()
 
 const _open = ref(open)
 const _animate = ref(false)
@@ -61,6 +61,11 @@ const getStoredState = () => {
   flex-flow: column;
   width: 100%;
   position: relative;
+  transition: background-color 300ms ease;
+
+  &:not(.open) .collapse-section-head {
+    background-color: #ffffff0d;
+  }
 
   .collapse-section-head {
     display: flex;
@@ -70,7 +75,6 @@ const getStoredState = () => {
     width: 100%;
     box-sizing: border-box;
     position: relative;
-    background: #ffffff0d;
     padding: 4px 6px;
     border-radius: 2px;
 

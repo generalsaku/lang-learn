@@ -4,7 +4,7 @@
     <CollapseSection :id="`jlpt-${set.level}`">
       <template v-slot:head>
         <div class="jlpt-header">
-          <span style="position: relative;">JLPT {{ set.level }} ({{ filteredEntries.length }}) <BsFilter style="position: absolute; top: -2px; right: -20px; width: 16px;" v-if="filtersStore.hasSelectedFilters" /></span>
+          <span style="position: relative;">JLPT {{ set.level }} ({{ filteredEntries.length }}) <BsFilter style="position: absolute; top: -1px; right: -20px; width: 16px;" v-if="filtersStore.hasSelectedFilters" /></span>
           <div class="jlpt-stats">
             <div class="jlpt-stats-entry">
               <div class="jlpt-stats-legend status-success"></div>

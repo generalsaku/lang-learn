@@ -20,7 +20,7 @@
 import IndentContainer from '@/components/helpers/IndentContainer.vue';
 import { useViewStateStore } from '@/stores/useViewStateStore';
 import { BsPuzzleFill } from 'vue-icons-plus/bs'
-import CollapseSection from '../helpers/CollapseSection.vue';
+import CollapseSection from '@/components/helpers/CollapseSection.vue';
 
 const viewStateStore = useViewStateStore()
 

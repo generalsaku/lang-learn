@@ -21,14 +21,22 @@
       </div>
       <div class="examples">
         <span class="examples-text">EXAMPLES:</span>
-        <table v-for="(example, exampleIndex) in particle.examples" :key="particle.particle + exampleIndex" class="example">
-          <tbody>
-            <tr><td>Japanese:</td><td><p class="japanese noto">{{example.japanese}}</p></td></tr>
-            <tr><td>Romaji:</td><td><p class="romaji">{{example.romaji}}</p></td></tr>
-            <tr><td>English:</td><td><p class="english">{{example.english}}</p></td></tr>
-            <tr><td>Grammar:</td><td><p class="grammar">{{example.grammar_structure_description}}</p></td></tr>
-          </tbody>
-        </table>
+        <CollapseSection :open="false" v-for="(example, exampleIndex) in particle.examples" :key="particle.particle + exampleIndex" class="example">
+          <template v-slot:head>
+            Example {{exampleIndex + 1}}
+          </template>
+          <template v-slot:default>
+            <table>
+              <tbody>
+                <tr><td>Japanese:</td><td><p class="japanese noto">{{example.japanese}}</p></td></tr>
+                <tr><td>Romaji:</td><td><p class="romaji">{{example.romaji}}</p></td></tr>
+                <tr><td>English:</td><td><p class="english">{{example.english}}</p></td></tr>
+                <tr><td>Grammar:</td><td><p class="grammar">{{example.grammar_structure_description}}</p></td></tr>
+              </tbody>
+            </table>
+          </template>
+        </CollapseSection>
+
       </div>
     </div>
   </IndentContainer>
@@ -39,6 +47,7 @@ import particles from '@/assets/particles.json'
 import { BsPuzzleFill } from 'vue-icons-plus/bs'
 
 import IndentContainer from '@/components/helpers/IndentContainer.vue';
+import CollapseSection from '@/components/helpers/CollapseSection.vue';
 import { onMounted } from 'vue';
 
 onMounted(() => {
