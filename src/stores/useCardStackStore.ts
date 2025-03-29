@@ -1,120 +1,100 @@
-import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import type { LLRecord } from '@/types'
 
 
 import { useStatisticsRecordedStore } from '@/stores/useStatisticsRecordedStore'
+import { createGenericSessionStackStore, type onChangeHooks } from '@/stores/useSessionStackStore'
+import { computed, ref } from 'vue'
 
 export type cardStackCard = {
   record: LLRecord
-  english: boolean
-  correct: boolean
-  answered: boolean
   animateSuccess: boolean
   animateFlip: boolean
   animateExit: boolean
+  english: boolean
 }
+
+const useSessionStackStore = createGenericSessionStackStore<cardStackCard>()
 
 export const useCardStackStore = defineStore('card-stack-store', () => {
   const audio = new Audio('/lang-learn/success.wav')
 
+  const sessionStackStore = useSessionStackStore()
   const statisticsRecordedStore = useStatisticsRecordedStore()
-
-  const stack = ref<cardStackCard[]>([])
-
-  const currentCard = ref<cardStackCard | null>(null)
 
   const isFinished = ref(false)
 
-  const setCards = (records: LLRecord[]) => {
-    isFinished.value = false
-
-    stack.value = records.map((record) => ({
-      record,
-      english: true,
-      correct: false,
-      answered: false,
-      animateSuccess: false,
-      animateFlip: false,
-      animateExit: false
-    }))
-    currentCard.value = stack.value[0]
-  }
-
-  const answerCorrect = async () => {
-    return new Promise(async (resolve) => {
-      if (!currentCard.value) {
-        return
-      }
-
-      await audio.play()
-
-      statisticsRecordedStore.report(currentCard.value.record, true)
-
-      setTimeout(() => {
-        if (currentCard.value) {
-          currentCard.value.correct = true
-          currentCard.value.answered = true
-          currentCard.value.animateSuccess = true
+  const setCards = async (records: LLRecord[]) => {
+    const hooks: Partial<onChangeHooks> = {
+      async onBeforeStarted() {
+        isFinished.value = false
+      },
+      async onAfterAnswerIncorrect() {
+        const item = sessionStackStore.state.current?.item
+        if (item) {
+          statisticsRecordedStore.report(item.record, false)
+          item.animateSuccess = false
         }
-      }, 50)
-
-      setTimeout(() => {
-        flipCard()
-        resolve(undefined)
-      }, 2000)
-    })
-  }
-
-  const answerIncorrect = () => {
-    if (!currentCard.value) {
-      return
-    }
-
-    statisticsRecordedStore.report(currentCard.value.record, false)
-    currentCard.value.correct = false
-    currentCard.value.answered = true
-    currentCard.value.animateSuccess = false
-  }
-
-  const flipCard = () => {
-    if (!currentCard.value) {
-      return
-    }
-
-    currentCard.value.english = !currentCard.value.english
-    currentCard.value.animateSuccess = false
-    currentCard.value.animateFlip = true
-    setTimeout(() => {
-      if (currentCard.value) {
-        currentCard.value.animateFlip = false
-      }
-    }, 500)
-  }
-
-  const queueNextCard = () => {
-    if (currentCard.value) {
-      if (!currentCard.value.answered) {
-        answerIncorrect()
-      }
-
-      currentCard.value.animateExit = true
-      setTimeout(() => {
-        if (currentCard.value) {
-          currentCard.value.animateExit = false
-
-          const currentIndex = stack.value.indexOf(currentCard.value)
-          const nextCard = stack.value[currentIndex + 1]
-          if (nextCard) {
-            currentCard.value = nextCard
-          } else {
-            isFinished.value = true
-          }
+      },
+      async onBeforeAnswerCorrect() {
+        const item = sessionStackStore.state.current?.item
+        if (item) {
+          statisticsRecordedStore.report(item.record, true)
+          await audio.play()
+          await new Promise((resolve) => setTimeout(resolve, 50))
         }
-      }, 500)
+      },
+      async onAfterAnswerCorrect() {
+        const item = sessionStackStore.state.current?.item
+        if (item) {
+          item.animateSuccess = true
+          await new Promise((resolve) => setTimeout(resolve, 2000))
+          flipCard(item)
+        }
+      },
+      async onBeforeQueue() {
+        const stackItem = sessionStackStore.state.current
+        if (!stackItem) return
 
+        if (!stackItem.answered) {
+          await sessionStackStore.answer(false)
+        }
+        stackItem.item.animateExit = true
+        await new Promise((resolve) => setTimeout(resolve, 500))
+        stackItem.item.animateExit = false
+      },
+      async onAfterFinished() {
+        isFinished.value = true
+      },
     }
+
+    sessionStackStore.initialize(
+      records.map((record) => ({
+        record,
+        animateSuccess: false,
+        animateFlip: false,
+        animateExit: false,
+        english: true
+      })),
+      hooks
+    )
   }
 
-  return { stack, currentCard, setCards, answerCorrect, flipCard, queueNextCard, isFinished }
+  const flipCard = async (card: cardStackCard) => {
+    card.english = !card.english
+    card.animateSuccess = false
+    card.animateFlip = true
+    await new Promise((resolve) => setTimeout(resolve, 500))
+    card.animateFlip = false
+  }
+
+  return {
+    setCards,
+    flipCard,
+    isFinished,
+    stack: computed(() => sessionStackStore.state.stack),
+    current: computed(() => sessionStackStore.state.current),
+    queue: sessionStackStore.queue,
+    answer: sessionStackStore.answer
+  }
 })

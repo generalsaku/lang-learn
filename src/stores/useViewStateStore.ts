@@ -8,6 +8,7 @@ export const useViewStateStore = defineStore('view-state-store', () => {
   const showFilters = ref(false)
   const showAnalysis = ref(false)
   const showParticles = ref(false)
+  const showMeanings = ref(false)
   const showSplash = ref(import.meta.env.PROD)
 
   setTimeout(() => {
@@ -25,6 +26,8 @@ export const useViewStateStore = defineStore('view-state-store', () => {
       return 'analysis'
     } else if (showParticles.value) {
       return 'particles'
+    } else if (showMeanings.value) {
+      return 'meanings'
     }
 
     return 'default'
@@ -35,6 +38,7 @@ export const useViewStateStore = defineStore('view-state-store', () => {
     showFilters.value = false
     showParticles.value = false
     jlptSetsStore.selectedSet = null
+    showMeanings.value = false
     document.querySelector('.scroll-container')?.scrollTo(0, 0)
   }
 
@@ -43,6 +47,7 @@ export const useViewStateStore = defineStore('view-state-store', () => {
     showFilters.value = !showFilters.value
     jlptSetsStore.selectedSet = null
     showParticles.value = false
+    showMeanings.value = false
   }
 
   const goToAnalysis = () => {
@@ -50,10 +55,20 @@ export const useViewStateStore = defineStore('view-state-store', () => {
     jlptSetsStore.selectedSet = null
     showFilters.value = false
     showParticles.value = false
+    showMeanings.value = false
   }
 
   const goToParticles = () => {
     showParticles.value = true
+    showAnalysis.value = false
+    jlptSetsStore.selectedSet = null
+    showFilters.value = false
+    showMeanings.value = false
+  }
+
+  const goToMeanings = () => {
+    showMeanings.value = true
+    showParticles.value = false
     showAnalysis.value = false
     jlptSetsStore.selectedSet = null
     showFilters.value = false
@@ -63,6 +78,6 @@ export const useViewStateStore = defineStore('view-state-store', () => {
     return !jlptSetsStore.selectedSet
   })
 
-  return { showSplash, showFilters, currentPage, goToHome, goToAnalysis, goToFilters, goToParticles, canGoToFilters }
+  return { showSplash, showFilters, currentPage, goToHome, goToAnalysis, goToFilters, goToParticles, goToMeanings, canGoToFilters }
 })
 

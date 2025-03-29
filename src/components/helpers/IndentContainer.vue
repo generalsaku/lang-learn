@@ -1,11 +1,11 @@
 <template>
-  <div class="container">
+  <div class="indent-container">
     <slot></slot>
   </div>
 </template>
 
 <style scoped>
-.container {
+.indent-container {
   display: flex;
   flex-flow: column nowrap;
   gap: 8px;

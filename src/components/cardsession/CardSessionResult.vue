@@ -1,13 +1,13 @@
 <template>
 
   <div class="card-session-result">
-    <CardCombined v-for="(card) of cardStackStore.stack" :key="card.record.sort_index" :stack-card="card" :class="{ 'pulsate-outline-success correct': card.correct && card.english }">
+    <CardCombined v-for="(item) of cardStackStore.stack" :key="item.item.record.sort_index" :stack-card="item.item" :class="{ 'pulsate-outline-success correct': item.correct && item.item.english }">
       <template v-slot:english>
-        <div :class="{ 'card-interface': true }" @pointerup="flip(card)">
+        <div :class="{ 'card-interface': true }" @pointerup="cardStackStore.flipCard(item.item)">
         </div>
       </template>
       <template v-slot:japanese>
-        <div :class="{ 'card-interface': true }" @pointerup="() => flip(card)"></div>
+        <div :class="{ 'card-interface': true }" @pointerup="() => cardStackStore.flipCard(item.item)"></div>
       </template>
     </CardCombined>
     <div style="margin-top: -8px"><span style="text-transform: uppercase; font-weight: 700;">{{cardStackStore.stack.filter(x => x.correct).length}} / {{ cardStackStore.stack.length }} completed</span></div>
@@ -21,21 +21,15 @@
 import { onMounted } from 'vue';
 import { BsFillHouseFill } from 'vue-icons-plus/bs'
 import { useCardStackStore } from '@/stores/useCardStackStore'
-import type { cardStackCard } from '@/stores/useCardStackStore'
 import CardCombined from '@/components/card/CardCombined.vue'
 
 const cardStackStore = useCardStackStore()
 
 onMounted(() => {
-  cardStackStore.stack.forEach((card) => {
-    card.english = true
+  cardStackStore.stack.forEach((item) => {
+    item.item.english = true
   })
 })
-
-const flip = (card: cardStackCard) => {
-  cardStackStore.currentCard = card
-  cardStackStore.flipCard()
-}
 </script>
 
 <style scoped>

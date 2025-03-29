@@ -2,13 +2,13 @@
   <div :class="{'card-session-result': true }">
     <div
       v-for="(card) of cards"
-      :key="card.record.sort_index"
-      :title="`${card.record.sort_index + 1}`"
+      :key="card.item.record.sort_index"
+      :title="`${card.item.record.sort_index + 1}`"
       :class="{
         'card-session-result-record': true,
         'positive': card.answered && card.correct,
         'negative': card.answered && !card.correct,
-        current: cardStackStore.currentCard === card,
+        current: cardStackStore.current === card,
       }"></div>
   </div>
 </template>

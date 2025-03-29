@@ -1,0 +1,16 @@
+[
+    {
+        "sort_index": 2,
+        "english": ["This", "is", "a", "person."],
+        "japanese": ["これ", "は", "人", "です。"],
+        "kana": ["これ", "は", "ひと", "です。"],
+        "explanation": "Short sweet little explanation."
+    },
+    {
+        "sort_index": 3,
+        "english": ["This", "is", "a", "person2."],
+        "japanese": ["これ", "は", "人", "です。"],
+        "kana": ["これ", "は", "ひと", "です。"],
+        "explanation": "Short sweet little explanation."
+    }
+]

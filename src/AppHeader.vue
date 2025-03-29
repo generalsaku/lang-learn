@@ -36,7 +36,7 @@ header {
   background: transparent;
   justify-content: space-between;
   gap: 8px;
-  background: #ffffff0d;
+  background: var(--color-bg-light);
 
   .title {
     font-weight: 500;

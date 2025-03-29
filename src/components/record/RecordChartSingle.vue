@@ -7,29 +7,27 @@
           <span style="position: relative;">JLPT {{ set.level }} ({{ filteredEntries.length }}) <BsFilter style="position: absolute; top: -2px; right: -20px; width: 16px;" v-if="filtersStore.hasSelectedFilters" /></span>
           <div class="jlpt-stats">
             <div class="jlpt-stats-entry">
-              <div class="jlpt-stats-legend status-success"></div>
+              <div class="jlpt-stats-legend legend-success"></div>
               <span>{{totalSuccess}}</span>
             </div>
             <div class="jlpt-stats-entry">
-              <div class="jlpt-stats-legend status-failed"></div>
+              <div class="jlpt-stats-legend legend-failed"></div>
               <span>{{totalFailed}}</span>
             </div>
             <div class="jlpt-stats-entry">
-              <div class="jlpt-stats-legend status-intermediate"></div>
+              <div class="jlpt-stats-legend legend-intermediate"></div>
               <span>{{totalIntermediate}}</span>
             </div>
             <div class="jlpt-stats-entry">
-              <div class="jlpt-stats-legend status-none"></div>
+              <div class="jlpt-stats-legend legend-none"></div>
               <span>{{totalNone}}</span>
             </div>
           </div>
         </div>
       </template>
       <template v-slot:default>
-        <button class="jlpt-button" @click="() => emit('click')" :class="{ 'disabled': disabled }">
-          <div class="jlpt-records" >
-            <div v-for="(entry) of set.entries" :key="entry.sort_index" :title="`${entry.sort_index + 1}`" class="jlpt-record" :class="['status-' + statisticsEvaluatedStore.stats[entry.original_index].status, !filteredEntries.includes(entry) ? 'is-filtered-away' : null]"></div>
-          </div>
+        <button class="container-button" @click="() => emit('click')" :class="{ 'disabled': disabled }">
+          <MindMap :set="mindmapSet"></MindMap>
         </button>
       </template>
     </CollapseSection>
@@ -43,6 +41,7 @@ import { useFiltersStore } from '@/stores/useFiltersStore'
 import { computed } from 'vue'
 import { BsFilter } from 'vue-icons-plus/bs'
 import CollapseSection from '@/components/helpers/CollapseSection.vue'
+import MindMap from '@/components/helpers/MindMap.vue'
 
 const statisticsEvaluatedStore = useStatisticsEvaluatedStore()
 const filtersStore = useFiltersStore()
@@ -50,6 +49,12 @@ const filtersStore = useFiltersStore()
 const emit = defineEmits(['click'])
 
 const props = defineProps<{ set: JLPTSet; disabled: boolean; scrollable: boolean }>()
+
+const mindmapSet = computed(() => props.set.entries.map(entry => ({
+  id: entry.sort_index,
+  status: statisticsEvaluatedStore.stats[entry.original_index].status,
+  visible: filteredEntries.value.includes(entry)
+})))
 
 const filteredEntries = computed(() => filtersStore.filterEntries(props.set.entries))
 const totalSuccess = computed(() => filteredEntries.value.filter(e => statisticsEvaluatedStore.stats[e.original_index].status === 'success').length)
@@ -65,7 +70,8 @@ const totalNone = computed(() => filteredEntries.value.filter(e => statisticsEva
   flex-flow: column nowrap;
 
   &.scrollable {
-    .jlpt-records {
+    .mind-map {
+      height: auto;
       max-height: 96px;
       overflow: auto;
     }
@@ -86,91 +92,6 @@ const totalNone = computed(() => filteredEntries.value.filter(e => statisticsEva
         display: flex;
         align-items: center;
         gap: 4px;
-
-        .jlpt-stats-legend {
-          width: 6px;
-          height: 6px;
-          background-color: var(--color-red);
-
-          &.status-none {
-            background-color: #f8f6f62e;
-            border-radius: 4px;
-          }
-
-          &.status-failed {
-            background-color: var(--color-red);
-          }
-
-          &.status-success {
-            background-color: var(--color-green);
-          }
-
-          &.status-intermediate {
-            background-color: var(--color-yellow);
-          }
-        }
-      }
-    }
-  }
-
-  .jlpt-button {
-    all: unset;
-
-    .jlpt-button.disabled {
-      pointer-events: none;
-    }
-
-    &:not(.disabled) {
-      cursor: pointer;
-
-      &:hover {
-        .jlpt-records {
-          opacity: 0.6;
-
-          &::before {
-            content: '';
-            position: absolute;
-            left: -5px;
-            height: 100%;
-            width: 2px;
-            background-color: var(--color-font);
-          }
-        }
-      }
-    }
-
-    .jlpt-records {
-      display: flex;
-      width: 100%;
-      flex-flow: row wrap;
-      gap: 2px;
-      position: relative;
-
-      .jlpt-record {
-        width: 6px;
-        height: 6px;
-        background-color: var(--color-red);
-
-        &.status-none {
-          background-color: #f8f6f62e;
-          border-radius: 4px;
-        }
-
-        &.status-failed {
-          background-color: var(--color-red);
-        }
-
-        &.status-success {
-          background-color: var(--color-green);
-        }
-
-        &.status-intermediate {
-          background-color: var(--color-yellow);
-        }
-
-        &.is-filtered-away {
-          opacity: 0;
-        }
       }
     }
   }

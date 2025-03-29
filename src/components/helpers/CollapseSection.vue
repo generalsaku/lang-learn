@@ -64,7 +64,7 @@ const getStoredState = () => {
   transition: background-color 300ms ease;
 
   &:not(.open) .collapse-section-head {
-    background-color: #ffffff0d;
+    background-color: var(--color-bg-light);
   }
 
   .collapse-section-head {

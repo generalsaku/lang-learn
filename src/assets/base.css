@@ -5,11 +5,13 @@
 
   --color-bg-1: #1c2c3f;
   --color-bg-2: #3d0f0f;
+  --color-bg-light: #ffffff0d; 
 
   --color-red-hover: #fb6262;
   --color-red: #ff3c3c;
   --color-green: #39c13d;
   --color-yellow: #fffb25;
+  --color-japanese: #4FD1C5;
 
   --color-card-bg: rgb(241 241 241 / 15%);
   --color-card-border: rgba(255, 255, 255, 0.4);
@@ -118,6 +120,61 @@ hr {
   border-bottom: 1px solid var(--color-font);
   margin: 0 auto;
   box-sizing: border-box;
+}
+
+.legend-none {
+  &.is-hidden { opacity: 0; }
+  background-color: #f8f6f62e;
+  border-radius: 4px;
+  width: 6px;
+  height: 6px;
+}
+
+.legend-failed {
+  &.is-hidden { opacity: 0; }
+  background-color: var(--color-red);
+  width: 6px;
+  height: 6px;
+}
+
+.legend-success {
+  &.is-hidden { opacity: 0; }
+  background-color: var(--color-green);
+  width: 6px;
+  height: 6px;
+}
+
+.legend-intermediate {
+  &.is-hidden { opacity: 0; }
+  background-color: var(--color-yellow);
+  width: 6px;
+  height: 6px;
+}
+
+.container-button {
+  all: unset;
+  position: relative;
+
+  display: flex;
+  flex-flow: column;
+  gap: 8px;
+
+  &:not(.disabled) {
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.6;
+      &::before {
+        content: '';
+        position: absolute;
+        left: -5px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background-color: var(--color-font);
+      }
+    }
+  }
 }
 
 @keyframes outline-pulsate-success {

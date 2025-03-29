@@ -8,7 +8,7 @@
       </template>
 
       <template v-slot:default>
-        <div class="description" @click="viewStateStore.goToParticles()">
+        <div class="container-button description" @click="viewStateStore.goToParticles()">
           Particles are small words that define a word’s role in a sentence, marking topics (は), subjects (が), objects (を), locations (で/に), and more. Essential for sentence structure and meaning!
         </div>
       </template>
@@ -35,20 +35,5 @@ const viewStateStore = useViewStateStore()
 
   .description {
     font-size: 12px;
-    cursor: pointer;
-    position: relative;
-
-    &:hover {
-      opacity: 0.6;
-
-      &::before {
-        content: '';
-        position: absolute;
-        left: -5px;
-        height: 100%;
-        width: 2px;
-        background-color: var(--color-font);
-      }
-    }
   }
 </style>
