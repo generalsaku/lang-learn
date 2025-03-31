@@ -12,7 +12,7 @@
       height: meaningPuzzleStateStore.isInitialized ? `${meaningPuzzleStateStore.pieceHeight}px` : undefined
     }">
     <div class="noto">{{ word.replace('。', '') }}</div>
-    <div class="romaji">({{ toRomaji(word.replace('。', '')) }})</div>
+    <div class="romaji">{{ toRomaji(word.replace('。', '')) }}</div>
   </div>
 </template>
 

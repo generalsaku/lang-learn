@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import PuzzlePiece from '@/components/meanings/PuzzlePiece.vue';
+import PuzzlePiece from '@/components/meanings/puzzle/PuzzlePiece.vue';
 import { useMeaningPuzzleStateStore } from '@/stores/useMeaningPuzzleStateStore';
 
 const meaningPuzzleStateStore = useMeaningPuzzleStateStore()

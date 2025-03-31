@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 
 const emit = defineEmits(['selected'])
 
@@ -21,9 +21,26 @@ const props = defineProps<{ count: number, max: number, type: 'cards' | 'meaning
 const value = ref(props.count)
 
 const start = () => {
+  setStoredValue(value.value)
   emit('selected', value.value)
 }
 
+const howManyId = `how-many-state-${props.type ?? 'unknown'}`
+
+onMounted(() => {
+  updateFromStoredValue()
+})
+
+const updateFromStoredValue = () => {
+  const storedCount = Number.parseInt(localStorage.getItem(howManyId) ?? '')
+  if (!isNaN(storedCount)) {
+    value.value = storedCount
+  }
+}
+
+const setStoredValue = (newStoredValue: number) => {
+  localStorage.setItem(howManyId, String(newStoredValue))
+}
 </script>
 
 <style scoped>

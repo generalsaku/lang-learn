@@ -5,24 +5,21 @@
       <AnswerPieces :meaning="meaning"></AnswerPieces>
       <JapanesePieces :meaning="meaning"></JapanesePieces>
     </div>
-    <div v-if="meaningPuzzleStateStore.finished">finished: {{ meaningPuzzleStateStore.correct }}</div>
-    <MeaningsVerify @success="emit('success')" @failure="emit('failure')"></MeaningsVerify>
+    <MeaningsVerify></MeaningsVerify>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted } from 'vue';
 import type { LLMeaning } from '@/types';
-import AnswerPieces from '@/components/meanings/AnswerPieces.vue';
-import JapanesePieces from '@/components/meanings/JapanesePieces.vue';
-import MeaningsVerify from '@/components/meanings/MeaningsVerify.vue';
+import AnswerPieces from '@/components/meanings/puzzle/AnswerPieces.vue';
+import JapanesePieces from '@/components/meanings/puzzle/JapanesePieces.vue';
+import MeaningsVerify from '@/components/meanings/puzzle/MeaningsVerify.vue';
 import { useMeaningPuzzleStateStore } from '@/stores/useMeaningPuzzleStateStore';
 
 const props = defineProps<{ meaning: LLMeaning }>()
 const english = computed(() => props.meaning.english.join(' '))
 const meaningPuzzleStateStore = useMeaningPuzzleStateStore()
-
-const emit = defineEmits(['success', 'failure'])
 
 onMounted(() => {
   meaningPuzzleStateStore.initialize(props.meaning)

@@ -1,7 +1,7 @@
 <template>
 
   <div class="card-session-result">
-    <CardCombined v-for="(item) of cardStackStore.stack" :key="item.item.record.sort_index" :stack-card="item.item" :class="{ 'pulsate-outline-success correct': item.correct && item.item.english }">
+    <CardCombined v-for="(item) of cardStackStore.stack" :key="item.item.record.sort_index" :stack-card="item.item" :class="{ 'pulsate-outline-success correct': item.correct && item.item.english, 'pulsate-outline-failure failure': !item.correct && item.item.english }">
       <template v-slot:english>
         <div :class="{ 'card-interface': true }" @pointerup="cardStackStore.flipCard(item.item)">
         </div>

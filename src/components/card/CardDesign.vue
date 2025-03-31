@@ -21,6 +21,14 @@
   backface-visibility: hidden;
   box-sizing: border-box;
   border-radius: var(--card-border-radius);
+
+  &.correct {
+    background: #345d36 !important;
+  }
+
+  &.failure {
+    background: #5d3434 !important;
+  }
 }
 
 .wrapper {

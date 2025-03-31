@@ -11,10 +11,8 @@ export const useMeaningPuzzleStateStore = defineStore('meaning-puzzle-state-stor
   const selection = ref<number[]>([])
   const canVerify = computed(() => selection.value.length === $zones.value.length && selection.value.every(x => x > -1))
   const $zones = ref<HTMLElement[]>([])
-  const tries = ref(0)
-  const finished = ref(false)
 
-  const correct = computed(() => selection.value.every((value, index) => value === index))
+  const correct = computed(() => selection.value.length > 0 && selection.value.every((value, index) => value === index))
 
   const pieces = ref<{
     originalIndex: number;
@@ -45,8 +43,6 @@ export const useMeaningPuzzleStateStore = defineStore('meaning-puzzle-state-stor
 
   const reset = () => {
     isInitialized.value = false
-    finished.value = false
-    tries.value = 0
     pieceWidth.value = 0
     pieceHeight.value = 0
     answersHeight.value = 0
@@ -64,14 +60,19 @@ export const useMeaningPuzzleStateStore = defineStore('meaning-puzzle-state-stor
     selection.value = newSelection
   }
 
-  const verify = () => {
-    if (correct.value || tries.value === 2) {
-      finished.value = true
-    } else {
-      tries.value++
-    }
+  return {
+    initialize,
+    reset,
+    pieces,
+    pieceWidth,
+    pieceHeight,
+    answersHeight,
+    isInitialized,
+    selection,
+    $zones,
+    canVerify,
+    updateSelection,
+    correct
   }
-
-  return { initialize, reset, pieces, pieceWidth, pieceHeight, answersHeight, isInitialized, selection, $zones, canVerify, updateSelection, verify, correct, finished, tries }
 })
 

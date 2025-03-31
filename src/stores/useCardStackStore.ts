@@ -94,7 +94,9 @@ export const useCardStackStore = defineStore('card-stack-store', () => {
     isFinished,
     stack: computed(() => sessionStackStore.state.stack),
     current: computed(() => sessionStackStore.state.current),
+    occupied: computed(() => sessionStackStore.state.occupied),
     queue: sessionStackStore.queue,
-    answer: sessionStackStore.answer
+    answer: sessionStackStore.answer,
+    reset: sessionStackStore.reset,
   }
 })

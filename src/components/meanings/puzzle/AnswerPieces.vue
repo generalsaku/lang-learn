@@ -1,5 +1,5 @@
 <template>
-  <div class="answer-pieces">
+  <div class="answer-pieces" :class="{ 'pulsate-outline-success': success, 'pulsate-outline-failure': failure || attempt, success }">
     <div
       v-for="({ newIndex }) in meaningPuzzleStateStore.pieces"
       :key="`answer-${newIndex}`"
@@ -7,19 +7,29 @@
       :style="{  width: `${meaningPuzzleStateStore.pieceWidth}px`, height: `${meaningPuzzleStateStore.pieceHeight}px` }"
       :data-drop-zone-index="newIndex">
     </div>
+    <BsFillPatchCheckFill v-if="success" class="icon success" />
+    <BsXCircleFill v-if="failure" class="icon failure" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { useMeaningStackStore } from '@/stores/useMeaningStackStore';
 import { useMeaningPuzzleStateStore } from '@/stores/useMeaningPuzzleStateStore';
+import { BsFillPatchCheckFill, BsXCircleFill } from 'vue-icons-plus/bs'
+import { computed } from 'vue';
 
+const meaningStackStore = useMeaningStackStore()
 const meaningPuzzleStateStore = useMeaningPuzzleStateStore()
 
+const success = computed(() => meaningStackStore.current?.item.animateSuccess ?? false)
+const failure = computed(() => meaningStackStore.current?.item.animateFailure ?? false)
+const attempt = computed(() => meaningStackStore.current?.item.animateAttemptMade ?? false)
 </script>
 
 <style scoped>
   .answer-pieces {
     display: flex;
+    position: relative;
     flex-flow: row wrap;
     gap: 8px;
     margin: 0 auto;
@@ -27,6 +37,27 @@ const meaningPuzzleStateStore = useMeaningPuzzleStateStore()
     justify-content: center;
     padding: 8px 0;
     outline: 1px solid var(--color-bg-light);
+
+    &.success {
+      background: #345d36 !important;
+    }
+
+    &.failure {
+      background: #5d3434 !important;
+    }
+  }
+
+  .icon {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    &.success {
+      color: var(--color-green);
+    }
+
+    &.failure {
+      color: var(--color-red);
+    }
   }
 
   .answer-piece {

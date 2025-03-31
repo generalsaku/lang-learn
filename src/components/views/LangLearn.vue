@@ -11,7 +11,7 @@
       <EvalautedAnalysis></EvalautedAnalysis>
     </div>
     <div v-if="viewStateStore.currentPage === 'meanings'" style="width: 100%;">
-      <MeaningsPlay></MeaningsPlay>
+      <MeaningsSession></MeaningsSession>
     </div>
     <div v-if="viewStateStore.currentPage === 'particles'" style="width: 100%;">
       <ParticlesCurriculum></ParticlesCurriculum>
@@ -20,17 +20,17 @@
 </template>
 
 <script setup lang="ts">
-import { useViewStateStore } from '@/stores/useViewStateStore';
-import LangLearnSession from '@/components/views/LangLearnSession.vue';
-import FilterSelection from '@/components/filters/FilterSelection.vue';
+import { useViewStateStore } from '@/stores/useViewStateStore'
+import LangLearnSession from '@/components/views/LangLearnSession.vue'
+import FilterSelection from '@/components/filters/FilterSelection.vue'
 
-import RecordChartSelection from '@/components/record/RecordChartSelection.vue';
+import RecordChartSelection from '@/components/record/RecordChartSelection.vue'
 
-import EvalautedAnalysis from '@/components/analysis/EvalautedAnalysis.vue';
-import CurriculumSection from '@/components/curriculum/CurriculumSection.vue';
-import ParticlesCurriculum from '@/components/curriculum/ParticlesCurriculum.vue';
-import MeaningsPlay from '@/components/meanings/MeaningsPlay.vue';
-import MeaningsSection from '@/components/meanings/MeaningsSection.vue';
+import EvalautedAnalysis from '@/components/analysis/EvalautedAnalysis.vue'
+import CurriculumSection from '@/components/curriculum/CurriculumSection.vue'
+import ParticlesCurriculum from '@/components/curriculum/ParticlesCurriculum.vue'
+import MeaningsSession from '@/components/meanings/session/MeaningsSession.vue'
+import MeaningsSection from '@/components/meanings/MeaningsSection.vue'
 
 const viewStateStore = useViewStateStore()
 </script>
