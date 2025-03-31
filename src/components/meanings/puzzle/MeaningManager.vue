@@ -1,12 +1,9 @@
 <template>
-  <div class="panel">
-    <span class="tries-left">
-      You have {{ meaningStackStore.current?.triesLeft ?? 0 }} tries left.
-    </span>
+  <div class="manager">
     <div class="splitter">
       <div class="controls">
         <button class="control next" :disabled="occupied" :class="{ disabled: occupied }" @pointerup="next()"><BsArrowRight />NEXT</button>
-        <button class="control verify" :disabled="occupied" :class="{ disabled: occupied }" @pointerup="verify()"><BsCheck />VERIFY</button>
+        <button v-if="triesLeft > 0" class="control verify" :disabled="occupied" :class="{ disabled: occupied }" @pointerup="verify()"><BsCheck />VERIFY</button>
       </div>
     </div>
   </div>
@@ -22,6 +19,7 @@ const meaningPuzzleStateStore = useMeaningPuzzleStateStore()
 const meaningStackStore = useMeaningStackStore()
 
 const occupied = computed(() => meaningStackStore.occupied)
+const triesLeft = computed(() => meaningStackStore.current?.triesLeft ?? 0)
 
 const verify = () => {
   meaningStackStore.answer(meaningPuzzleStateStore.correct)
@@ -31,10 +29,11 @@ const next = () => {
   meaningStackStore.queue()
 }
 
+
 </script>
 
 <style scoped>
-  .panel {
+  .manager {
     display: flex;
     flex-flow: column;
     flex: 1;
@@ -57,6 +56,7 @@ const next = () => {
       box-sizing: border-box;
       border-radius: 4px;
       justify-content: end;
+      padding: 8px 12px;
 
       button.disabled {
         pointer-events: none;

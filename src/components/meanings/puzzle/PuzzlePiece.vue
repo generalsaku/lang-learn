@@ -20,8 +20,8 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 
-import { default as charmap } from '@/assets/kana-to-romaji.json'
 import { useMeaningPuzzleStateStore } from '@/stores/useMeaningPuzzleStateStore'
+import { toRomaji } from '@/components/meanings/utils'
 
 const emit = defineEmits(['placed'])
 
@@ -32,14 +32,6 @@ const $clone = ref<HTMLElement>()
 const isDragging = ref(false)
 const offsetX = ref(0)
 const offsetY = ref(0)
-
-const toRomaji = (word: string) => {
-  let text = ''
-  for (const char of word) {
-    text += charmap[char]
-  }
-  return text
-}
 
 const props = defineProps<{
   orignalIndex: number;

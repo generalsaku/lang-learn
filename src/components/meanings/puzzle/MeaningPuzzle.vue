@@ -2,10 +2,10 @@
   <div ref="$puzzle" class="meaning-puzzle">
     <div class="puzzle">
       <div class="translated-meaning">{{ english }}</div>
-      <AnswerPieces :meaning="meaning"></AnswerPieces>
-      <JapanesePieces :meaning="meaning"></JapanesePieces>
+      <AnswerPieces></AnswerPieces>
+      <JapanesePieces></JapanesePieces>
     </div>
-    <MeaningsVerify></MeaningsVerify>
+    <MeaningManager></MeaningManager>
   </div>
 </template>
 
@@ -14,7 +14,7 @@ import { computed, onBeforeUnmount, onMounted } from 'vue';
 import type { LLMeaning } from '@/types';
 import AnswerPieces from '@/components/meanings/puzzle/AnswerPieces.vue';
 import JapanesePieces from '@/components/meanings/puzzle/JapanesePieces.vue';
-import MeaningsVerify from '@/components/meanings/puzzle/MeaningsVerify.vue';
+import MeaningManager from '@/components/meanings/puzzle/MeaningManager.vue';
 import { useMeaningPuzzleStateStore } from '@/stores/useMeaningPuzzleStateStore';
 
 const props = defineProps<{ meaning: LLMeaning }>()
@@ -37,17 +37,19 @@ onBeforeUnmount(() => {
     display: flex;
     flex-flow: column;
     align-items: center;
+    gap: 16px;
   }
 
   .translated-meaning {
     margin-top: 32px;
+    font-size: 18px;
   }
 
   .puzzle {
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
-    gap: 32px;
+    gap: 24px;
     position: relative;
     text-align: center;
     flex: 1;

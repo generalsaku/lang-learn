@@ -1,5 +1,5 @@
 <template>
-  <div class="japanese-pieces" :style="{ height: `${meaningPuzzleStateStore.answersHeight}px` }">
+  <div class="japanese-pieces" :style="{ 'min-height': `${meaningPuzzleStateStore.pieceHeight}px` }">
     <PuzzlePiece
       v-for="({ originalIndex, newIndex, kana}) in meaningPuzzleStateStore.pieces"
       :key="`japanese-${originalIndex}`"
