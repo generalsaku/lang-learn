@@ -1,5 +1,5 @@
 <template>
-  <div class="japanese-pieces" :style="{ 'min-height': `${meaningPuzzleStateStore.pieceHeight}px` }">
+  <div v-if="!failure && !correct" class="japanese-pieces" :style="{ 'min-height': `${meaningPuzzleStateStore.pieceHeight}px` }">
     <PuzzlePiece
       v-for="({ originalIndex, newIndex, kana}) in meaningPuzzleStateStore.pieces"
       :key="`japanese-${originalIndex}`"
@@ -16,8 +16,14 @@
 <script setup lang="ts">
 import PuzzlePiece from '@/components/meanings/puzzle/PuzzlePiece.vue';
 import { useMeaningPuzzleStateStore } from '@/stores/useMeaningPuzzleStateStore';
+import { useMeaningStackStore } from '@/stores/useMeaningStackStore';
+import { computed } from 'vue';
 
 const meaningPuzzleStateStore = useMeaningPuzzleStateStore()
+const meaningStackStore = useMeaningStackStore()
+
+const failure = computed(() => meaningStackStore.current?.item.animateFailure ?? false)
+const correct = computed(() => meaningStackStore.current?.correct ?? false)
 
 </script>
 

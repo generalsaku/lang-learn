@@ -49,7 +49,9 @@ export const useCardStackStore = defineStore('card-stack-store', () => {
         if (item) {
           item.animateSuccess = true
           await new Promise((resolve) => setTimeout(resolve, 2000))
-          flipCard(item)
+          if (item.english) {
+            await flipCard(item)
+          }
         }
       },
       async onBeforeQueue() {

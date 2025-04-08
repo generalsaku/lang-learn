@@ -3,7 +3,7 @@
     <div class="splitter">
       <div class="controls">
         <button class="control next" :disabled="occupied" :class="{ disabled: occupied }" @pointerup="next()"><BsArrowRight />NEXT</button>
-        <button v-if="triesLeft > 0" class="control verify" :disabled="occupied" :class="{ disabled: occupied }" @pointerup="verify()"><BsCheck />VERIFY</button>
+        <button v-if="triesLeft > 0 && !correct" class="control verify" :disabled="occupied" :class="{ disabled: occupied }" @pointerup="verify()"><BsCheck />VERIFY</button>
       </div>
     </div>
   </div>
@@ -20,6 +20,7 @@ const meaningStackStore = useMeaningStackStore()
 
 const occupied = computed(() => meaningStackStore.occupied)
 const triesLeft = computed(() => meaningStackStore.current?.triesLeft ?? 0)
+const correct = computed(() => meaningStackStore.current?.correct ?? false)
 
 const verify = () => {
   meaningStackStore.answer(meaningPuzzleStateStore.correct)
@@ -29,14 +30,12 @@ const next = () => {
   meaningStackStore.queue()
 }
 
-
 </script>
 
 <style scoped>
   .manager {
     display: flex;
     flex-flow: column;
-    flex: 1;
     width: 100%;
     gap: 8px;
 
@@ -46,6 +45,7 @@ const next = () => {
 
     .splitter {
       border-top: 1px solid var(--color-font);
+      margin-top: auto;
     }
 
     .controls {

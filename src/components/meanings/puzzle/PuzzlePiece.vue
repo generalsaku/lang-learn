@@ -11,8 +11,8 @@
       width: meaningPuzzleStateStore.isInitialized ? `${meaningPuzzleStateStore.pieceWidth}px` : undefined,
       height: meaningPuzzleStateStore.isInitialized ? `${meaningPuzzleStateStore.pieceHeight}px` : undefined
     }">
-    <div class="noto">{{ word.replace('。', '') }}</div>
-    <div class="romaji">{{ toRomaji(word.replace('。', '')) }}</div>
+    <div class="noto">{{ word }}</div>
+    <div class="romaji">{{ toRomaji(word) }}</div>
   </div>
 </template>
 
@@ -172,7 +172,7 @@ const getMouseXY = (event: MouseEvent | TouchEvent) => {
   justify-content: center;
   background: var(--color-bg-light);
   border-radius: 4px;
-  padding: 4px 6px;
+  padding: 4px;
   box-shadow: 0 0px 2px 0px var(--color-shadow);
   text-align: center;
   white-space: nowrap;

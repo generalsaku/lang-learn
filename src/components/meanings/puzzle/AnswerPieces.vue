@@ -1,5 +1,5 @@
 <template>
-  <div class="answer-pieces" :class="{ 'pulsate-outline-success': success, 'pulsate-outline-failure': failure || attempt, success }">
+  <div class="answer-pieces" :class="{ 'pulsate-outline-success': correct, 'pulsate-outline-failure': failure || attempt, success }">
     <div
       v-for="({ newIndex }) in meaningPuzzleStateStore.pieces"
       :key="`answer-${newIndex}`"
@@ -8,12 +8,12 @@
       :data-drop-zone-index="newIndex">
     </div>
     <div class="answer-pieces-info">
-      <span v-if="!failure" class="tries-left">
+      <span v-if="!failure && !correct" class="tries-left">
         You have {{ meaningStackStore.current?.triesLeft ?? 0 }} tries left
       </span>
-      <CorrectAnswer v-if="failure"></CorrectAnswer>
+      <CorrectAnswer v-if="failure || correct"></CorrectAnswer>
     </div>
-    <BsFillPatchCheckFill v-if="success" class="icon success" />
+    <BsFillPatchCheckFill v-if="correct" class="icon success" />
     <BsXCircleFill v-if="failure" class="icon failure" />
 
   </div>
@@ -32,6 +32,7 @@ const meaningPuzzleStateStore = useMeaningPuzzleStateStore()
 const success = computed(() => meaningStackStore.current?.item.animateSuccess ?? false)
 const failure = computed(() => meaningStackStore.current?.item.animateFailure ?? false)
 const attempt = computed(() => meaningStackStore.current?.item.animateAttemptMade ?? false)
+const correct = computed(() => meaningStackStore.current?.correct ?? false)
 </script>
 
 <style scoped>
@@ -50,6 +51,7 @@ const attempt = computed(() => meaningStackStore.current?.item.animateAttemptMad
     .answer-pieces-info {
       display: flex;
       flex-flow: column;
+      width: 100%;
     }
 
     &.success {

@@ -22,10 +22,11 @@ export type LLRecordAdditional = {
 
 export type LLMeaning = {
   sort_index: number
-  english: string[]
+  english: string
   japanese: string[]
   kana: string[]
-  explanation: string
+  explanations: string[]
+  meaning_index: string
 }
 
 export type LLRecordParticle = {

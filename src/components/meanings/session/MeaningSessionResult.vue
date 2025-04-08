@@ -2,7 +2,7 @@
   <div class="meaning-session-result">
     <div v-for="(item) of meaningStackStore.stack" :key="item.item.meaning.sort_index">
       <CardDesign :class="{ 'pulsate-outline-success correct': item.correct, 'pulsate-outline-failure failure': !item.correct }">
-        <div style="width: 100%; padding: 16px; text-align: center;">{{ item.item.meaning.english.join(' ') }}</div>
+        <div style="width: 100%; padding: 16px; text-align: center;">{{ item.item.meaning.english }}</div>
       </CardDesign>
     </div>
     <div style="margin-top: -8px"><span style="text-transform: uppercase; font-weight: 700;">{{meaningStackStore.stack.filter(x => x.correct).length}} / {{ meaningStackStore.stack.length }} completed</span></div>

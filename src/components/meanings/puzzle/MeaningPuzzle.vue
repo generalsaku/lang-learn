@@ -18,7 +18,7 @@ import MeaningManager from '@/components/meanings/puzzle/MeaningManager.vue';
 import { useMeaningPuzzleStateStore } from '@/stores/useMeaningPuzzleStateStore';
 
 const props = defineProps<{ meaning: LLMeaning }>()
-const english = computed(() => props.meaning.english.join(' '))
+const english = computed(() => props.meaning.english)
 const meaningPuzzleStateStore = useMeaningPuzzleStateStore()
 
 onMounted(() => {
@@ -41,7 +41,7 @@ onBeforeUnmount(() => {
   }
 
   .translated-meaning {
-    margin-top: 32px;
+    margin-top: 16px;
     font-size: 18px;
   }
 
@@ -53,6 +53,8 @@ onBeforeUnmount(() => {
     position: relative;
     text-align: center;
     flex: 1;
-    justify-content: stretch;
+    overflow: auto;
+    overflow-x: hidden;
+    padding: 0 100% 1px 100%;
   }
 </style>

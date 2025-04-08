@@ -34,7 +34,7 @@ onMounted(() => {
 const updateFromStoredValue = () => {
   const storedCount = Number.parseInt(localStorage.getItem(howManyId) ?? '')
   if (!isNaN(storedCount)) {
-    value.value = storedCount
+    value.value = Math.min(storedCount, props.max)
   }
 }
 

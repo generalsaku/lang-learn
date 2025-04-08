@@ -1,14 +1,20 @@
 <template>
   <div class="answer">
-    <div>
-      <span style="font-size: 12px;">answer:</span>
+    <div class="answer-head">
+      <span>answer:</span>
+      <button class="btn listen" @pointerup.prevent.stop="listen()"><BsSoundwave /></button>
     </div>
-    <div class="correct-answer-list">
-      <div v-for="word of correctAnswer" :key="word" class="correct-answer-item">
-        <div class="noto">{{ word.replace('。', '') }}</div>
-        <div class="romaji">{{ toRomaji(word.replace('。', '')) }}</div>
-      </div>
-    </div>
+    <table>
+      <tbody>
+        <tr v-for="(word, index) of kana" :key="word" class="correct-answer-items">
+          <td class="word">
+            <div class="noto">{{ word }}</div>
+            <div class="romaji">{{ toRomaji(word) }}</div>
+          </td>
+          <td><span class="explanation">{{ explanations[index] }}</span></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -16,9 +22,19 @@
 import { computed } from 'vue';
 import { useMeaningStackStore } from '@/stores/useMeaningStackStore';
 import { toRomaji } from '@/components/meanings/utils'
+import { utter } from '@/utils/speech/utter';
+import { BsSoundwave } from 'vue-icons-plus/bs'
 
 const meaningStackStore = useMeaningStackStore()
-const correctAnswer = computed(() => meaningStackStore.current?.item.meaning.kana ?? [])
+const japanese = computed(() => meaningStackStore.current?.item.meaning.japanese ?? [])
+const kana = computed(() => meaningStackStore.current?.item.meaning.kana ?? [])
+const explanations = computed(() => meaningStackStore.current?.item.meaning.explanations ?? [])
+
+const listen = () => {
+  const text = japanese.value.join(' ')
+  utter(text)
+}
+
 </script>
 
 <style scoped>
@@ -27,22 +43,26 @@ const correctAnswer = computed(() => meaningStackStore.current?.item.meaning.kan
     flex-flow: column;
   }
 
-  .correct-answer-list {
-    display: flex;
-    gap: 8px;
-    flex-flow: row wrap;
-    padding: 0 4px;
-    justify-content: center;
-    align-items: center;
+  table {
+    border-collapse: collapse;
+    tr:nth-child(odd) {
+      background-color: #ffffff05;
+    }
+
+    tr {
+      td:nth-child(2) {
+        text-align: left;
+      }
+    }
   }
 
-  .correct-answer-item {
-    display: flex;
-    flex-flow: column;
-    padding: 4px 6px;
-    text-align: center;
-    white-space: nowrap;
-    border-bottom: 1px solid #ffffff85;
+  .word {
+    min-width: 116px;
+  }
+
+  .explanation {
+    vertical-align: middle;
+    font-size: 12px;
   }
 
   .noto {
@@ -51,5 +71,33 @@ const correctAnswer = computed(() => meaningStackStore.current?.item.meaning.kan
 
   .romaji {
     font-size: 12px;
+  }
+
+  .answer-head {
+    height: 32px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 50px;
+  }
+
+  .listen {
+    width: auto;
+    background: transparent;
+    box-shadow: none;
+    color: var(--color-font);
+    cursor: pointer;
+    z-index: 2;
+    color: rgb(196, 196, 61);
+    border: 1px solid var(--color-card-border);
+    background-color: rgba(196, 196, 61, 0.05);
+
+    svg {
+      width: 16px;
+      height: 16px;
+      pointer-events: none;
+    }
   }
 </style>
