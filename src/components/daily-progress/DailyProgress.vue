@@ -2,19 +2,19 @@
   <div class="jlpt-stats">
     <span class="jlpt-stats-title">DAILY PROGRESS</span>
     <div class="jlpt-stats-entry">
-      <div class="jlpt-stats-legend status-success"></div>
+      <div class="jlpt-stats-legend legend-success"></div>
       <span>{{totalSuccess}}</span>
     </div>
     <div class="jlpt-stats-entry">
-      <div class="jlpt-stats-legend status-failed"></div>
+      <div class="jlpt-stats-legend legend-failed"></div>
       <span>{{totalFailed}}</span>
     </div>
     <div class="jlpt-stats-entry">
-      <div class="jlpt-stats-legend status-intermediate"></div>
+      <div class="jlpt-stats-legend legend-intermediate"></div>
       <span>{{totalIntermediate}}</span>
     </div>
     <div class="jlpt-stats-entry">
-      <div class="jlpt-stats-legend status-none"></div>
+      <div class="jlpt-stats-legend legend-none"></div>
       <span>{{totalNew}}</span>
     </div>
   </div>
@@ -57,7 +57,7 @@ const totalNew = computed(() => todaysHistoryIds.value.reduce((acc, id) => {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: #ffffff0d;
+  background: var(--color-bg-light);
   flex: 1;
 
   .jlpt-stats-title {
@@ -71,29 +71,6 @@ const totalNew = computed(() => todaysHistoryIds.value.reduce((acc, id) => {
     gap: 4px;
     font-size: 12px;
     font-weight: 700;
-
-    .jlpt-stats-legend {
-      width: 6px;
-      height: 6px;
-      background-color: var(--color-red);
-
-      &.status-none {
-        background-color: #f8f6f62e;
-        border-radius: 4px;
-      }
-
-      &.status-failed {
-        background-color: var(--color-red);
-      }
-
-      &.status-success {
-        background-color: var(--color-green);
-      }
-
-      &.status-intermediate {
-        background-color: var(--color-yellow);
-      }
-    }
   }
 }
 </style>

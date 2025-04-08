@@ -20,6 +20,15 @@ export type LLRecordAdditional = {
   explanation: string
 }
 
+export type LLMeaning = {
+  sort_index: number
+  english: string
+  japanese: string[]
+  kana: string[]
+  explanations: string[]
+  meaning_index: string
+}
+
 export type LLRecordParticle = {
   particle: string
   tagline: string
@@ -49,3 +58,5 @@ export type filterCategory = {
   examples: string,
   speechParts: string[]
 }
+
+export type status = 'failed' | 'success' | 'intermediate' | 'none'

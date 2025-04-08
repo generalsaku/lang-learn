@@ -1,6 +1,6 @@
 <template>
   <div class="card-session" :class="{ 'is-recording': isRecording }">
-    <CardCombined :stack-card="currentCard">
+    <CardCombined :stack-card="currentCard.item">
       <template v-slot:english>
         <div
           :class="{ 'card-interface': true, 'is-recording': isRecording }"
@@ -11,19 +11,19 @@
       </template>
 
       <template v-slot:japanese>
-        <div
+        <div v-if="!isAnimating"
           :class="{ 'card-interface': true }"
-          @pointerup="cardStackStore.queueNextCard()">
+          @pointerup="queue">
         </div>
       </template>
     </CardCombined>
 
-    <div v-if="!currentCard.answered && currentCard.english" class="card-message">(tap card to record)</div>
-    <div v-if="!currentCard.english" class="card-message">(tap for next card)</div>
+    <div v-if="!currentCard.answered && currentCard.item.english" class="card-message">(tap card to record)</div>
+    <div v-if="!currentCard.item.english" class="card-message">(tap for next card)</div>
 
     <div class="controls" :class="{ 'hide-controls': hideControls }">
-      <button class="control flip" @pointerup="cardStackStore.flipCard()"><BsArrowLeftRight />FLIP</button>
-      <button v-if="!currentCard.english && !currentCard.correct" class="control force" @pointerup="() => forceCorrectAnswer()"><BsEmojiDizzyFill /> <span>I WAS CORRECT</span></button>
+      <button class="control flip" @pointerup="flip"><BsArrowLeftRight />FLIP</button>
+      <button v-if="!currentCard.item.english && !currentCard.correct" class="control force" @pointerup="() => forceCorrectAnswer()"><BsEmojiDizzyFill /> <span>I WAS CORRECT</span></button>
     </div>
   </div>
 </template>
@@ -42,23 +42,26 @@ import CardCombined from '@/components/card/CardCombined.vue'
 
 const cardStackStore  = useCardStackStore()
 
-const currentCard = computed(() => cardStackStore.currentCard!)
-const hideControls = computed(() => currentCard.value.animateSuccess || currentCard.value.animateExit || isRecording.value)
-
+const currentCard = computed(() => cardStackStore.current!)
+const hideControls = computed(() => currentCard.value.item.animateSuccess || currentCard.value.item.animateExit || isRecording.value)
+const isAnimating = computed(() => {
+  const item = cardStackStore.current?.item
+  return item ? item.animateExit || item.animateFlip || item.animateSuccess : false
+})
 const isRecording = ref(false)
 
 let currentRecognize: RecognizeSession
 const startInput = async () => {
-  if (isRecording.value || currentCard.value.correct || !currentCard.value.english) {
+  if (isRecording.value || currentCard.value.correct || !currentCard.value.item.english) {
     return
   }
 
-  currentRecognize = new RecognizeSession(currentCard.value.record)
+  currentRecognize = new RecognizeSession(currentCard.value.item.record)
   isRecording.value = true
   await currentRecognize.start(async (results) => {
     if (isTranslationCorrect(results)) {
       currentRecognize.stop()
-      await cardStackStore.answerCorrect()
+      await cardStackStore.answer(true)
     }
   })
   isRecording.value = false
@@ -68,16 +71,27 @@ const isTranslationCorrect = (translations: string[]) => {
   if (!currentCard.value) {
     return
   }
-  return translations.some((t) => isTranslationOK(currentCard.value.record, t))
+  return translations.some((t) => isTranslationOK(currentCard.value.item.record, t))
 }
 
 const forceCorrectAnswer = async () => {
-  await cardStackStore.answerCorrect()
-  setTimeout(async () => {
-    await cardStackStore.queueNextCard()
-  }, 500)
+  if (!isAnimating.value) {
+    await cardStackStore.answer(true)
+    await cardStackStore.queue()
+  }
 }
 
+const queue = async () => {
+  if (!isAnimating.value) {
+    await cardStackStore.queue()
+  }
+}
+
+const flip = async () => {
+  if (!isAnimating.value) {
+    await cardStackStore.flipCard(currentCard.value.item)
+  }
+}
 </script>
 
 <style scoped>

@@ -2,11 +2,11 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import records from '@/assets/data.json'
 import { useStatisticsRecordedStore } from './useStatisticsRecordedStore'
-import type { LLRecord } from '@/types'
+import type { LLRecord, status } from '@/types'
 import { consecutiveSuccessFormula } from '@/utils/math'
 
 type evaluatedStatsRecordItem = {
-  status: 'none' | 'failed' | 'success' | 'intermediate';
+  status: status;
   consecutiveSuccess: number;
   timeSinceLastSuccess: number;
   timeSinceLastSeen: number;
@@ -62,7 +62,18 @@ export const useStatisticsEvaluatedStore = defineStore('statistics-evaluated-sto
     return [...intermediate, ...failed, ...other, ...success]
   }
 
-  return { stats, update, get, getPriority }
+  const getRecordsAvailableForMeanings = () => {
+    return records.filter(record => {
+      const entry = stats.value[record.original_index]
+      if (entry) {
+        return entry.status === 'success'
+      }
+
+      return false
+    })
+  }
+
+  return { stats, update, get, getPriority, getRecordsAvailableForMeanings }
 })
 
 const getEvaluatedStats = () => {

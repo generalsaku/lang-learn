@@ -22,3 +22,9 @@ declare module "@/assets/particles.json" {
   const value: LLRecordParticle[];
   export default value;
 }
+
+declare module "@/assets/meanings.json" {
+  import { LLMeaning } from './src/types';
+  const value: LLMeaning[];
+  export default value;
+}

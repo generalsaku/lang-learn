@@ -41,6 +41,12 @@ const additional = computed<LLRecordAdditional>(() => dataAdditional.find(d => d
     }
   }
 
+  &.failure {
+    &:deep(.card-design)  {
+      background: #5d3434 !important;
+    }
+  }
+
   &:deep(.card-design)  {
     position: absolute;
     animation: fadeIn 0.5s forwards;
@@ -52,10 +58,10 @@ const additional = computed<LLRecordAdditional>(() => dataAdditional.find(d => d
 
   &.exit {
     box-shadow: none;
+    transition: 0.5s;
+    transform: translateX(400px);
 
-    &:deep(.card-design)  {
-      transition: 0.5s;
-      transform: translateX(400px);
+    &:deep(.card-design) {
       animation: fadeOut 0.5s forwards;
     }
   }

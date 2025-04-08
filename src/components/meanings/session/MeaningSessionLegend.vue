@@ -1,28 +1,28 @@
 <template>
-  <div :class="{'card-session-result': true }">
+  <div :class="{'meaning-session-result': true }">
     <div
       v-for="(card) of cards"
-      :key="card.item.record.sort_index"
-      :title="`${card.item.record.sort_index + 1}`"
+      :key="card.item.meaning.sort_index"
+      :title="`${card.item.meaning.sort_index + 1}`"
       :class="{
-        'card-session-result-record': true,
+        'meaning-session-result-record': true,
         'positive': card.answered && card.correct,
         'negative': card.answered && !card.correct,
-        current: cardStackStore.current === card,
+        current: meaningStackStore.current === card,
       }"></div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useCardStackStore } from '@/stores/useCardStackStore'
+import { useMeaningStackStore } from '@/stores/useMeaningStackStore'
 
-const cardStackStore  = useCardStackStore()
-const cards = computed(() => cardStackStore.stack.filter(card => card))
+const meaningStackStore = useMeaningStackStore()
+const cards = computed(() => meaningStackStore.stack.filter(card => card))
 </script>
 
 <style scoped>
-.card-session-result {
+.meaning-session-result {
   --gap-size: 4px;
   --legend-size: 12px;
 
@@ -33,8 +33,9 @@ const cards = computed(() => cardStackStore.stack.filter(card => card))
   position: relative;
   box-sizing: border-box;
   height: 100%;
+  flex: 0;
 
-  .card-session-result-record {
+  .meaning-session-result-record {
     width: var(--legend-size);
     height: var(--legend-size);
     border-radius: 2px;

@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue';
+import { computed, onBeforeUnmount, ref } from 'vue';
 
 import CardSession from '@/components/cardsession/CardSession.vue'
 import CardSessionLegend from '@/components/cardsession/CardSessionLegend.vue'
@@ -34,7 +34,9 @@ const cardStackStore = useCardStackStore()
 const set = computed(() => jlptSetsStore.selectedSet!)
 const askForNumberOfCards = ref(true)
 
-onMounted(() => {})
+onBeforeUnmount(() => {
+  cardStackStore.reset()
+})
 </script>
 
 <style scoped>
