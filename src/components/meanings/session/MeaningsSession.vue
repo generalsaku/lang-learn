@@ -1,8 +1,8 @@
 <template>
   <div class="layout">
-    <div class="layout-span">
+    <div class="layout-span" :class="{ finished }">
       <div v-if="!finished" class="meanings-session">
-        <HowMany v-if="!started" :type="'meanings'" :count="count" :max="maxCount" @selected="start"></HowMany>
+        <HowMany v-if="!started" :type="'sentences'" :count="count" :max="maxCount" @selected="start"></HowMany>
         <template v-else-if="meaningStackStore.current">
           <template v-for="(meaning, index) in meaningStackStore.stack.map(x => x.item.meaning)" :key="index">
             <MeaningPuzzle v-if="meaning === meaningStackStore.current.item.meaning" :meaning="meaning"></MeaningPuzzle>
@@ -11,7 +11,7 @@
       </div>
       <MeaningSessionResult v-else></MeaningSessionResult>
     </div>
-    <div class="layout-bottom">
+    <div v-if="!finished" class="layout-bottom">
       <MeaningSessionLegend></MeaningSessionLegend>
     </div>
   </div>
@@ -109,6 +109,10 @@ const getStatus = (meaning: LLMeaning) => {
     flex: 1;
     padding: 0 16px 0 16px;
     height: 0;
+
+    &.finished {
+      overflow: auto;
+    }
   }
 
   .layout-bottom {

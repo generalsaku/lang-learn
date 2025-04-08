@@ -4,12 +4,12 @@
       <CollapseSection :id="`meanings`">
         <template v-slot:head>
           <div class="header">
-            <span style="position: relative;">MEANINGS ({{availableMeaningsCount}})</span>
+            <span style="position: relative;">SENTENCES ({{availableMeaningsCount}})</span>
           </div>
         </template>
         <template v-slot:default>
           <button :disabled="availableMeaningsCount === 0" class="container-button" @click="() => viewStateStore.goToMeanings()">
-            <span class="meanings-description">You currently have unlocked {{ availableMeaningsCount }} meaning(s), practice more glossary to unlock even more! {{ unavailableText }}</span>
+            <span class="meanings-description">You currently have unlocked {{ availableMeaningsCount }} sentence(s), practice more glossary to unlock even more! {{ unavailableText }}</span>
             <MeaningsChart :scrollable="false"></MeaningsChart>
           </button>
         </template>

@@ -16,7 +16,7 @@ import { onMounted, ref } from 'vue';
 
 const emit = defineEmits(['selected'])
 
-const props = defineProps<{ count: number, max: number, type: 'cards' | 'meanings' }>()
+const props = defineProps<{ count: number, max: number, type: 'cards' | 'sentences' }>()
 
 const value = ref(props.count)
 
