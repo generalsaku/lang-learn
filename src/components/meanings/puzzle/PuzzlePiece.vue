@@ -126,9 +126,23 @@ const stopDrag = () => {
         dragRectY >= dropRect.top &&
         dragRectY <= dropRect.bottom
     ) {
+
+      const $targetZoneChild = $zone.children[0]
       clearDropZone($zone)
+
+      const fromZoneIndex = parseInt($clone.value!.getAttribute('data-drop-zone-index') ?? '-1')
+      if ($targetZoneChild && fromZoneIndex > -1) {
+        const $fromZone = meaningPuzzleStateStore.$zones.find($zone => $zone.getAttribute('data-drop-zone-index') === fromZoneIndex.toString())
+        if ($fromZone) {
+          $targetZoneChild.setAttribute('data-drop-zone-index', fromZoneIndex.toString())
+          $fromZone.appendChild($targetZoneChild)
+        }
+      }
+
+      const newZoneIndex = parseInt($zone.getAttribute('data-drop-zone-index') ?? '-1', 10)
       $zone.appendChild($clone.value!)
-      dropzoneIndex = parseInt($zone.getAttribute('data-drop-zone-index') ?? '-1', 10)
+      $clone.value!.setAttribute('data-drop-zone-index', newZoneIndex.toString())
+      dropzoneIndex = newZoneIndex
       $clone.value!.style.position = 'static'
       $clone.value!.addEventListener('mousedown', startDrag)
       $clone.value!.addEventListener('touchstart', startDrag)
