@@ -9,7 +9,7 @@
         </template>
         <template v-slot:default>
           <button :disabled="availableMeaningsCount === 0" class="container-button" @click="() => viewStateStore.goToMeanings()">
-            <span class="meanings-description">You currently have unlocked {{ availableMeaningsCount }} sentence(s), practice more glossary to unlock even more! {{ unavailableText }}</span>
+            <span class="meanings-description">You have unlocked {{ availableMeaningsCount }} sentence(s). Practice glossary to unlock more! {{ unavailableText }}</span>
             <MeaningsChart :scrollable="false"></MeaningsChart>
           </button>
         </template>

@@ -31,7 +31,7 @@ const kana = computed(() => meaningStackStore.current?.item.meaning.kana ?? [])
 const explanations = computed(() => meaningStackStore.current?.item.meaning.explanations ?? [])
 
 const listen = () => {
-  const text = japanese.value.join(' ')
+  const text = japanese.value.join('')
   utter(text)
 }
 

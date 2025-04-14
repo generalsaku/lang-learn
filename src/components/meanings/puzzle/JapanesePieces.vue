@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!failure && !correct" class="japanese-pieces" :style="{ 'min-height': `${meaningPuzzleStateStore.pieceHeight}px` }">
+  <div v-if="!failure && !correct" v-show="!isDragging" class="japanese-pieces" :style="{ 'min-height': `${meaningPuzzleStateStore.pieceHeight}px` }">
     <PuzzlePiece
       v-for="({ originalIndex, newIndex, kana}) in meaningPuzzleStateStore.pieces"
       :key="`japanese-${originalIndex}`"
@@ -24,6 +24,7 @@ const meaningStackStore = useMeaningStackStore()
 
 const failure = computed(() => meaningStackStore.current?.item.animateFailure ?? false)
 const correct = computed(() => meaningStackStore.current?.correct ?? false)
+const isDragging = computed(() => meaningPuzzleStateStore.isDragging)
 
 </script>
 

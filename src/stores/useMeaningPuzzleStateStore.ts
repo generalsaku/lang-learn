@@ -7,6 +7,7 @@ export const useMeaningPuzzleStateStore = defineStore('meaning-puzzle-state-stor
   const pieceWidth = ref(0)
   const pieceHeight = ref(0)
   const answersHeight = ref(0)
+  const isDragging = ref(false)
   const isInitialized = ref(false)
   const selection = ref<number[]>([])
   const canVerify = computed(() => selection.value.length === $zones.value.length && selection.value.every(x => x > -1))
@@ -42,6 +43,7 @@ export const useMeaningPuzzleStateStore = defineStore('meaning-puzzle-state-stor
   }
 
   const reset = () => {
+    isDragging.value = false
     isInitialized.value = false
     pieceWidth.value = 0
     pieceHeight.value = 0
@@ -67,6 +69,7 @@ export const useMeaningPuzzleStateStore = defineStore('meaning-puzzle-state-stor
     pieceWidth,
     pieceHeight,
     answersHeight,
+    isDragging,
     isInitialized,
     selection,
     $zones,

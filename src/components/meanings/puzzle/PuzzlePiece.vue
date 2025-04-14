@@ -60,6 +60,7 @@ const startDrag = (event: MouseEvent | TouchEvent) => {
   document.querySelector('.puzzle')!.appendChild($clone.value)
 
   isDragging.value = true
+  meaningPuzzleStateStore.isDragging = true
 
   const { width, height, left, top } = $clone.value!.getBoundingClientRect()
   offsetX.value = left + width / 2
@@ -105,6 +106,7 @@ const clearDropZone = ($zone: HTMLElement) => {
 
 const stopDrag = () => {
   isDragging.value = false
+  meaningPuzzleStateStore.isDragging = false
 
   offsetX.value = 0
   offsetY.value = 0
