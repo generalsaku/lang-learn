@@ -9,7 +9,7 @@
         <tr v-for="(word, index) of kana" :key="word" class="correct-answer-items">
           <td class="word">
             <div class="noto">{{ word }}</div>
-            <div class="romaji">{{ toRomaji(word) }}</div>
+            <div class="romaji">{{ toRomaji(word, true) }}</div>
           </td>
           <td><span class="explanation">{{ explanations[index] }}</span></td>
         </tr>
@@ -21,17 +21,16 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useMeaningStackStore } from '@/stores/useMeaningStackStore';
-import { toRomaji } from '@/components/meanings/utils'
+import { toRomaji } from '@/utils/romaji'
 import { utter } from '@/utils/speech/utter';
 import { BsSoundwave } from 'vue-icons-plus/bs'
 
 const meaningStackStore = useMeaningStackStore()
-const japanese = computed(() => meaningStackStore.current?.item.meaning.japanese ?? [])
 const kana = computed(() => meaningStackStore.current?.item.meaning.kana ?? [])
 const explanations = computed(() => meaningStackStore.current?.item.meaning.explanations ?? [])
 
 const listen = () => {
-  const text = japanese.value.join('')
+  const text = kana.value.join('')
   utter(text)
 }
 

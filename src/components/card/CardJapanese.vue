@@ -23,7 +23,7 @@
               <td v-for="(char, index) in reading" :key="`${char}-${index}`" class="kana noto">{{ char }}</td>
             </tr>
             <tr>
-              <td v-for="(char, index) in reading" :key="`${charmap[char]}-${index}`" class="romaji">{{ charmap[char] }}</td>
+              <td v-for="(char, index) in reading" :key="`${toRomaji(char, true)}-${index}`" class="romaji">{{ toRomaji(char, true) }}</td>
             </tr>
           </tbody>
         </table>
@@ -77,9 +77,9 @@ import type { LLRecord, LLRecordAdditional } from '@/types'
 
 import CardDesign from '@/components/card/CardDesign.vue'
 import { BsPencil, BsPencilFill, BsSoundwave, BsInfoSquare, BsInfoSquareFill } from 'vue-icons-plus/bs'
-import { default as charmap } from '@/assets/kana-to-romaji.json'
 import { useStatisticsRecordedStore } from '@/stores/useStatisticsRecordedStore'
 import { utter } from '@/utils/speech/utter'
+import { toRomaji } from '@/utils/romaji'
 
 const props = defineProps<{ record: LLRecord, additional: LLRecordAdditional }>()
 

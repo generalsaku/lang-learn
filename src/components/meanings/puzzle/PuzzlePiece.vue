@@ -12,7 +12,7 @@
       height: meaningPuzzleStateStore.isInitialized ? `${meaningPuzzleStateStore.pieceHeight}px` : undefined
     }">
     <div class="noto">{{ word }}</div>
-    <div class="romaji">{{ toRomaji(word) }}</div>
+    <div class="romaji">{{ toRomaji(word, true) }}</div>
   </div>
 </template>
 
@@ -21,7 +21,7 @@
 import { onMounted, ref } from 'vue'
 
 import { useMeaningPuzzleStateStore } from '@/stores/useMeaningPuzzleStateStore'
-import { toRomaji } from '@/components/meanings/utils'
+import { toRomaji } from '@/utils/romaji'
 
 const emit = defineEmits(['placed'])
 

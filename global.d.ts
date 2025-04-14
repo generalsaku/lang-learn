@@ -11,6 +11,13 @@ declare module "@/assets/kana-to-romaji.json" {
   export default value;
 }
 
+declare module "@/assets/kana-to-romaji-hepburn-modified.json" {
+  import { KanaToRomajiMap } from './src/types';
+  const value: KanaToRomajiMap;
+  export default value;
+}
+
+
 declare module "@/assets/data-additional.json" {
   import { LLRecordAdditional } from './src/types';
   const value: LLRecordAdditional[];
