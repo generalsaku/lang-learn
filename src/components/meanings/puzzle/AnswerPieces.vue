@@ -91,6 +91,7 @@ const correct = computed(() => meaningStackStore.current?.correct ?? false)
     text-align: center;
     white-space: nowrap;
     border-bottom: 1px solid #ffffff66;
+    background-color: #00000030;
 
     & > * {
       display: none;

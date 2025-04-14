@@ -74,7 +74,7 @@ const getShuffledMeanings = () => {
     }
   }
 
-  return [...failed, ...none, ...success]
+  return [...none, ...failed, ...success]
 }
 
 const getStatus = (meaning: LLMeaning) => {
