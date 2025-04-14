@@ -10,10 +10,22 @@ export const useMeaningPuzzleStateStore = defineStore('meaning-puzzle-state-stor
   const isDragging = ref(false)
   const isInitialized = ref(false)
   const selection = ref<number[]>([])
+  const correctAnswer = ref<string[]>([])
   const canVerify = computed(() => selection.value.length === $zones.value.length && selection.value.every(x => x > -1))
   const $zones = ref<HTMLElement[]>([])
 
-  const correct = computed(() => selection.value.length > 0 && selection.value.every((value, index) => value === index))
+  const correct = computed(() => {
+    if (!pieces.value) return false
+
+    const isSameLength = selection.value.length === pieces.value.length
+    if (!isSameLength) return false
+
+    return selection.value.every((value, index) => {
+      const expectedKana = correctAnswer.value[value]
+      const currentKana = correctAnswer.value[index]
+      return expectedKana === currentKana
+    })
+  })
 
   const pieces = ref<{
     originalIndex: number;
@@ -23,6 +35,8 @@ export const useMeaningPuzzleStateStore = defineStore('meaning-puzzle-state-stor
   }[]>()
 
   const initialize = (meaning: LLMeaning) => {
+    correctAnswer.value = meaning.kana
+
     pieces.value = shuffle(meaning.kana).map((k, index) => {
       const originalIndex = meaning.kana.indexOf(k)
       return {
@@ -75,7 +89,8 @@ export const useMeaningPuzzleStateStore = defineStore('meaning-puzzle-state-stor
     $zones,
     canVerify,
     updateSelection,
-    correct
+    correct,
+    correctAnswer
   }
 })
 
