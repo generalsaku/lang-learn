@@ -1422,5 +1422,1775 @@
             "いきました (ikimashita) – The polite past form of the verb いく (iku – to go). It is a **Godan verb (五段動詞)**. To conjugate to the polite past, we use the stem いき (iki) + ました (mashita). Example: いく → いった (plain past), いきました (polite past)."
         ],
         "meaning_index": "16-と"
+    },
+    {
+        "sort_index": 17,
+        "english": "I am strong.",
+        "japanese": [
+            "じぶん",
+            "は",
+            "つよい"
+        ],
+        "kana": [
+            "じぶん",
+            "は",
+            "つよい"
+        ],
+        "explanations": [
+            "じぶん (jibun) – A word often used to refer to oneself; in this case, it functions like 'I' or 'myself'.",
+            "は (wa) – Topic particle. It marks what the sentence is about. Here, it tells us that 'じぶん' is the topic.",
+            "つよい (tsuyoi) – An i-adjective meaning 'strong'. No verb is needed here, as Japanese allows sentences to end with an adjective."
+        ],
+        "meaning_index": "17-は"
+    },
+    {
+        "sort_index": 17,
+        "english": "She looks at herself.",
+        "japanese": [
+            "かのじょ",
+            "は",
+            "じぶん",
+            "を",
+            "みる"
+        ],
+        "kana": [
+            "かのじょ",
+            "は",
+            "じぶん",
+            "を",
+            "みる"
+        ],
+        "explanations": [
+            "かのじょ (kanojo) – A pronoun meaning 'she'.",
+            "は (wa) – Topic particle. It indicates that 'かのじょ' is who the sentence is about.",
+            "じぶん (jibun) – Used reflexively here to mean 'herself'.",
+            "を (o) – Direct object particle. It marks 'じぶん' as the thing being looked at.",
+            "みる (miru) – Dictionary form meaning 'to see' or 'to look at'. It is an Ichidan verb (ru-verb). In this sentence, it is in plain present form. Ichidan verbs in plain form do not change when referring to the present."
+        ],
+        "meaning_index": "17-を"
+    },
+    {
+        "sort_index": 17,
+        "english": "You can do it by yourself!",
+        "japanese": [
+            "じぶん",
+            "で",
+            "できる",
+            "よ"
+        ],
+        "kana": [
+            "じぶん",
+            "で",
+            "できる",
+            "よ"
+        ],
+        "explanations": [
+            "じぶん (jibun) – Used here to mean 'yourself'. In Japanese, context determines who 'じぶん' refers to.",
+            "で (de) – Indicates the means or method. Here it shows 'by oneself'.",
+            "できる (dekiru) – Dictionary form is 'できる' meaning 'can do'. This is the potential form of the irregular verb 'する' (to do). 'する' becomes 'できる' to express ability.",
+            "よ (yo) – Sentence-ending particle used for emphasis or to express certainty. Often adds encouragement or assertiveness."
+        ],
+        "meaning_index": "17-で"
+    },
+    {
+        "sort_index": 18,
+        "english": "Yes, I am fine.",
+        "japanese": [
+            "はい",
+            "わたし",
+            "は",
+            "げんき",
+            "です",
+            "そう"
+        ],
+        "kana": [
+            "はい",
+            "わたし",
+            "は",
+            "げんき",
+            "です",
+            "そう"
+        ],
+        "explanations": [
+            "はい (hai) – A polite way to say 'yes' in Japanese. Often used to affirm a statement.",
+            "わたし (watashi) – A common first-person pronoun meaning 'I'. Gender-neutral and polite.",
+            "は (wa) – Topic particle. Marks the word 'わたし' as the topic of the sentence.",
+            "げんき (genki) – Means 'healthy', 'fine', or 'well'. Common in casual greetings.",
+            "です (desu) – Polite copula used to end a sentence politely. Here, it affirms the adjective 'げんき'.",
+            "そう (sou) – Means 'that’s right' or 'yes, it appears so'. Used here to affirm the whole situation positively."
+        ],
+        "meaning_index": "18-は"
+    },
+    {
+        "sort_index": 18,
+        "english": "It seems she went to school.",
+        "japanese": [
+            "かのじょ",
+            "は",
+            "がっこう",
+            "に",
+            "いきました",
+            "そう"
+        ],
+        "kana": [
+            "かのじょ",
+            "は",
+            "がっこう",
+            "に",
+            "いきました",
+            "そう"
+        ],
+        "explanations": [
+            "かのじょ (kanojo) – Third-person pronoun meaning 'she' or 'her'.",
+            "は (wa) – Topic particle. Marks 'かのじょ' as the topic of the sentence.",
+            "がっこう (gakkou) – Noun meaning 'school'.",
+            "に (ni) – Directional particle indicating movement 'to' a location. Used with motion verbs.",
+            "いきました (ikimashita) – Past polite form of いく (iku - to go). Godan verb. Stem is 'い'; 'く' changes to 'き' and adds 'ました' to make it past polite.",
+            "そう (sou) – Indicates that something seems or appears to be the case based on observation or inference."
+        ],
+        "meaning_index": "18-に"
+    },
+    {
+        "sort_index": 18,
+        "english": "Yes, we talked at school.",
+        "japanese": [
+            "はい",
+            "わたしたち",
+            "は",
+            "がっこう",
+            "で",
+            "はなしました",
+            "そう"
+        ],
+        "kana": [
+            "はい",
+            "わたしたち",
+            "は",
+            "がっこう",
+            "で",
+            "はなしました",
+            "そう"
+        ],
+        "explanations": [
+            "はい (hai) – Polite affirmation meaning 'yes'.",
+            "わたしたち (watashitachi) – Means 'we' or 'us'. 'わたし' (I) plus 'たち' (plural suffix).",
+            "は (wa) – Topic particle. Indicates 'わたしたち' is the topic.",
+            "がっこう (gakkou) – 'School'. A common noun referring to an educational institution.",
+            "で (de) – Particle indicating the place where an action occurs. Here, the action (talking) takes place at school.",
+            "はなしました (hanashimashita) – Past polite form of はなす (hanasu - to speak). Godan verb. Stem is 'はな'; 'す' becomes 'し' + 'ました' to form past polite.",
+            "そう (sou) – Used to express agreement or that something appears to be the case."
+        ],
+        "meaning_index": "18-で"
+    },
+    {
+        "sort_index": 19,
+        "english": "She stood in front of the station.",
+        "japanese": [
+            "かのじょ",
+            "は",
+            "えき",
+            "の",
+            "まえ",
+            "に",
+            "たった"
+        ],
+        "kana": [
+            "かのじょ",
+            "は",
+            "えき",
+            "の",
+            "まえ",
+            "に",
+            "たった"
+        ],
+        "explanations": [
+            "かのじょ (kanojo) - This means 'she'. It is a third-person singular pronoun used for females.",
+            "は (wa) - The topic particle. It marks 'かのじょ' as the topic of the sentence.",
+            "えき (eki) - This means 'station', like a train station.",
+            "の (no) - The possessive or descriptive particle. Here, it connects 'station' to the following word, showing the location in relation to the station.",
+            "まえ (mae) - This refers to the area 'in front' of something. It combines with 'えきの' to mean 'in front of the station'.",
+            "に (ni) - The particle for a specific point in space or time. It indicates the location where someone stands.",
+            "たった (tatta) - This is the past tense of the verb たつ (tatsu - to stand). たつ is a Godan verb (u-verb). To form the past tense, the final つ becomes った. So, たつ → たった."
+        ],
+        "meaning_index": "19-に"
+    },
+    {
+        "sort_index": 19,
+        "english": "I waited in front of the school.",
+        "japanese": [
+            "わたし",
+            "は",
+            "がっこう",
+            "の",
+            "まえ",
+            "で",
+            "まった"
+        ],
+        "kana": [
+            "わたし",
+            "は",
+            "がっこう",
+            "の",
+            "まえ",
+            "で",
+            "まった"
+        ],
+        "explanations": [
+            "わたし (watashi) - This means 'I'. It is a common first-person pronoun.",
+            "は (wa) - The topic particle. It marks 'わたし' as the topic of the sentence.",
+            "がっこう (gakkou) - This means 'school'.",
+            "の (no) - The possessive or descriptive particle, linking 'がっこう' and 'まえ' to form 'in front of the school'.",
+            "まえ (mae) - This means 'in front (of something)'.",
+            "で (de) - The particle used to indicate the place where an action happens. Here, it shows the location of waiting.",
+            "まった (matta) - This is the past tense of まつ (matsu - to wait). まつ is a Godan verb. For past tense, つ becomes った. So, まつ → まった."
+        ],
+        "meaning_index": "19-で"
+    },
+    {
+        "sort_index": 19,
+        "english": "Someone is in front of the house.",
+        "japanese": [
+            "だれか",
+            "が",
+            "いえ",
+            "の",
+            "まえ",
+            "に",
+            "いる"
+        ],
+        "kana": [
+            "だれか",
+            "が",
+            "いえ",
+            "の",
+            "まえ",
+            "に",
+            "いる"
+        ],
+        "explanations": [
+            "だれか (dareka) - This means 'someone'. It is an indefinite pronoun used when the person is unknown.",
+            "が (ga) - The subject particle. It marks 'だれか' as the subject performing the action.",
+            "いえ (ie) - This means 'house' or 'home'.",
+            "の (no) - The possessive/descriptive particle, linking 'house' with 'in front'.",
+            "まえ (mae) - This means 'in front (of something)'.",
+            "に (ni) - The particle for indicating location. It shows where the subject exists.",
+            "いる (iru) - This verb means 'to be' or 'to exist' for living things. It is an Ichidan verb (ru-verb). This is its dictionary form and also used in the non-past form here."
+        ],
+        "meaning_index": "19-が"
+    },
+    {
+        "sort_index": 20,
+        "english": "One person is here.",
+        "japanese": [
+            "一人",
+            "は",
+            "ここ",
+            "に",
+            "います"
+        ],
+        "kana": [
+            "ひとり",
+            "は",
+            "ここ",
+            "に",
+            "います"
+        ],
+        "explanations": [
+            "一人 (hitori) — Means 'one person'. Used as a noun to indicate a single individual.",
+            "は (wa) — Topic particle. Marks '一人' as the topic of the sentence.",
+            "ここ (koko) — Demonstrative pronoun meaning 'here'. Indicates location.",
+            "に (ni) — Particle that marks the destination or place where something exists. Here, it shows the location of the person.",
+            "います (imasu) — Polite present form of the verb いる (iru), which is an Ichidan verb meaning 'to exist' (for animate objects). To form います, the る is removed and ます is added to the stem: い → います."
+        ],
+        "meaning_index": "20-は"
+    },
+    {
+        "sort_index": 20,
+        "english": "I saw one person.",
+        "japanese": [
+            "わたし",
+            "は",
+            "一人",
+            "を",
+            "見ました"
+        ],
+        "kana": [
+            "わたし",
+            "は",
+            "ひとり",
+            "を",
+            "みました"
+        ],
+        "explanations": [
+            "わたし (watashi) — First person pronoun meaning 'I'.",
+            "は (wa) — Topic particle. Marks 'わたし' as the topic of the sentence.",
+            "一人 (hitori) — Means 'one person'. Acts as the direct object of the verb.",
+            "を (wo) — Direct object marker. Indicates what is being seen.",
+            "見ました (mimashita) — Polite past form of the verb 見る (miru), which is an Ichidan verb meaning 'to see'. The る is dropped and ました is added: み → みました."
+        ],
+        "meaning_index": "20-を"
+    },
+    {
+        "sort_index": 20,
+        "english": "One person came.",
+        "japanese": [
+            "一人",
+            "が",
+            "来ました"
+        ],
+        "kana": [
+            "ひとり",
+            "が",
+            "きました"
+        ],
+        "explanations": [
+            "一人 (hitori) — Refers to 'one person'. Functions as the subject of the sentence.",
+            "が (ga) — Subject particle. Emphasizes that 'one person' is the one who performed the action.",
+            "来ました (kimashita) — Polite past form of the verb 来る (kuru), which is an irregular verb meaning 'to come'. The past polite form is created as: 来る → 来ました."
+        ],
+        "meaning_index": "20-が"
+    },
+    {
+        "sort_index": 21,
+        "english": "We studied at that time.",
+        "japanese": [
+            "その",
+            "時間",
+            "で",
+            "べんきょう",
+            "しました"
+        ],
+        "kana": [
+            "その",
+            "じかん",
+            "で",
+            "べんきょう",
+            "しました"
+        ],
+        "explanations": [
+            "その (sono) - a demonstrative adjective meaning 'that', referring to something known to both speaker and listener.",
+            "時間 (jikan) - a noun meaning 'time', used here to indicate a specific time frame.",
+            "で (de) - a particle indicating the place or means of an action. In this case, it's used to mark the time as the context in which the studying happened.",
+            "べんきょう (benkyou) - a noun meaning 'study'; often used with する to form the verb 'to study'.",
+            "しました (shimashita) - the past polite form of the irregular verb する (suru - to do). Irregular Verb. The past form is created by replacing する with した. Since this is polite, we add ます → しました."
+        ],
+        "meaning_index": "21-で"
+    },
+    {
+        "sort_index": 21,
+        "english": "She waited until the time.",
+        "japanese": [
+            "かのじょ",
+            "は",
+            "時間",
+            "まで",
+            "まちました"
+        ],
+        "kana": [
+            "かのじょ",
+            "は",
+            "じかん",
+            "まで",
+            "まちました"
+        ],
+        "explanations": [
+            "かのじょ (kanojo) - pronoun meaning 'she'.",
+            "は (wa) - topic particle. It marks 'she' as the topic of the sentence.",
+            "時間 (jikan) - noun meaning 'time', marking the point up to which she waited.",
+            "まで (made) - a particle that means 'until' or 'up to'. Used to indicate an end point in time or space.",
+            "まちました (machimashita) - past polite form of the verb まつ (matsu - to wait). Godan Verb. To conjugate into past polite: root まち + ました. The root is found by removing ます from まちます."
+        ],
+        "meaning_index": "21-まで"
+    },
+    {
+        "sort_index": 21,
+        "english": "The time is short, right?",
+        "japanese": [
+            "時間",
+            "が",
+            "みじかい",
+            "ね"
+        ],
+        "kana": [
+            "じかん",
+            "が",
+            "みじかい",
+            "ね"
+        ],
+        "explanations": [
+            "時間 (jikan) - noun meaning 'time', which acts as the subject here.",
+            "が (ga) - subject particle. It marks 'time' as the subject experiencing the quality.",
+            "みじかい (mijikai) - an i-adjective meaning 'short'. Used here in its plain present form.",
+            "ね (ne) - sentence-ending particle that seeks confirmation or agreement from the listener, like 'right?' or 'isn’t it?'."
+        ],
+        "meaning_index": "21-が"
+    },
+    {
+        "sort_index": 22,
+        "english": "How is this book?",
+        "japanese": [
+            "この",
+            "本",
+            "は",
+            "どう",
+            "？"
+        ],
+        "kana": [
+            "この",
+            "ほん",
+            "は",
+            "どう",
+            "？"
+        ],
+        "explanations": [
+            "この (kono) — This. A demonstrative adjective used to describe a noun nearby the speaker.",
+            "本 (hon) — Book. A common noun used for books in general.",
+            "は (wa) — Topic particle. Marks 'this book' as the topic of the sentence, telling us what the sentence is about.",
+            "どう (dou) — How. An adverb asking about the condition or quality of something.",
+            "？ — Question mark. Indicates the sentence is a question."
+        ],
+        "meaning_index": "22-は"
+    },
+    {
+        "sort_index": 22,
+        "english": "How do you go to school?",
+        "japanese": [
+            "あなた",
+            "は",
+            "学校",
+            "へ",
+            "どう",
+            "行き",
+            "ます",
+            "か",
+            "？"
+        ],
+        "kana": [
+            "あなた",
+            "は",
+            "がっこう",
+            "へ",
+            "どう",
+            "いき",
+            "ます",
+            "か",
+            "？"
+        ],
+        "explanations": [
+            "あなた (anata) — You. A common second-person pronoun.",
+            "は (wa) — Topic particle. Marks 'you' as the topic of the sentence.",
+            "学校 (gakkou) — School. A common noun for educational institutions.",
+            "へ (e) — Directional particle. Indicates the direction or destination of movement (to school).",
+            "どう (dou) — In what way. Asks about the method or means of doing something.",
+            "行き (iki) — Stem form of 行く (iku), a Godan verb meaning 'to go'. In this sentence, it's paired with ます for polite form.",
+            "ます (masu) — Polite suffix. Used to make the verb more formal. For Godan verbs like 行く, remove the final う and add きます for polite present/future.",
+            "か (ka) — Question particle. Used to indicate a question in formal Japanese.",
+            "？ — Question mark. Clarifies the sentence is interrogative."
+        ],
+        "meaning_index": "22-で"
+    },
+    {
+        "sort_index": 22,
+        "english": "How did she get up?",
+        "japanese": [
+            "かのじょ",
+            "が",
+            "どう",
+            "起き",
+            "ました",
+            "か",
+            "？"
+        ],
+        "kana": [
+            "かのじょ",
+            "が",
+            "どう",
+            "おき",
+            "ました",
+            "か",
+            "？"
+        ],
+        "explanations": [
+            "かのじょ (kanojo) — She. A third-person singular female pronoun.",
+            "が (ga) — Subject particle. Marks 'she' as the grammatical subject of the verb.",
+            "どう (dou) — How. Asks about the manner in which something was done.",
+            "起き (oki) — Stem form of 起きる (okiru), an Ichidan verb meaning 'to get up'.",
+            "ました (mashita) — Polite past form. For Ichidan verbs, remove る and add ました. 起きる → 起き → 起きました.",
+            "か (ka) — Question particle. Signals that the sentence is a question.",
+            "？ — Question mark. Indicates an interrogative tone."
+        ],
+        "meaning_index": "22-が"
+    },
+    {
+        "sort_index": 23,
+        "english": "She is kind, and also strong.",
+        "japanese": [
+            "かのじょ",
+            "は",
+            "やさしい",
+            "、",
+            "また",
+            "つよい"
+        ],
+        "kana": [
+            "かのじょ",
+            "は",
+            "やさしい",
+            "、",
+            "また",
+            "つよい"
+        ],
+        "explanations": [
+            "かのじょ (kanojo) - 'She'. A common pronoun for referring to a female person.",
+            "は (wa) - Topic particle. Marks the subject 'she' as the topic of the sentence.",
+            "やさしい (yasashii) - 'Kind' or 'gentle'. An i-adjective describing personality or behavior.",
+            "、 - Japanese comma, used just like in English for separating parts of a sentence.",
+            "また (mata) - 'Also' or 'furthermore', used to add another quality or statement.",
+            "つよい (tsuyoi) - 'Strong'. An i-adjective used to describe physical or mental strength."
+        ],
+        "meaning_index": "23-は"
+    },
+    {
+        "sort_index": 23,
+        "english": "I read a book, and also a magazine.",
+        "japanese": [
+            "わたし",
+            "は",
+            "ほん",
+            "を",
+            "よんだ",
+            "、",
+            "また",
+            "ざっし",
+            "を",
+            "よんだ"
+        ],
+        "kana": [
+            "わたし",
+            "は",
+            "ほん",
+            "を",
+            "よんだ",
+            "、",
+            "また",
+            "ざっし",
+            "を",
+            "よんだ"
+        ],
+        "explanations": [
+            "わたし (watashi) - 'I'. A standard first-person pronoun.",
+            "は (wa) - Topic particle. Indicates that 'I' is the topic.",
+            "ほん (hon) - 'Book'. A common noun referring to books.",
+            "を (o) - Direct object particle. Marks 'book' as the object of the verb.",
+            "よんだ (yonda) - Past tense of よむ (yomu - to read). Godan verb. To form past tense, change the final 'mu' to 'nda': よむ → よんだ.",
+            "、 - Comma, separating the first and second clause.",
+            "また (mata) - 'Also', connecting the two clauses smoothly.",
+            "ざっし (zasshi) - 'Magazine'. A noun referring to magazines.",
+            "を (o) - Direct object particle again, this time marking 'magazine' as the object.",
+            "よんだ (yonda) - Past tense of よむ (yomu - to read), same verb as earlier, repeated for the second object."
+        ],
+        "meaning_index": "23-を"
+    },
+    {
+        "sort_index": 23,
+        "english": "We played at the park, and also at school.",
+        "japanese": [
+            "わたしたち",
+            "は",
+            "こうえん",
+            "で",
+            "あそんだ",
+            "、",
+            "また",
+            "がっこう",
+            "で",
+            "あそんだ"
+        ],
+        "kana": [
+            "わたしたち",
+            "は",
+            "こうえん",
+            "で",
+            "あそんだ",
+            "、",
+            "また",
+            "がっこう",
+            "で",
+            "あそんだ"
+        ],
+        "explanations": [
+            "わたしたち (watashitachi) - 'We'. A plural form of 'I'.",
+            "は (wa) - Topic particle. Indicates 'we' as the topic.",
+            "こうえん (kouen) - 'Park'. A location where the action took place.",
+            "で (de) - Location particle. Marks where the action of the verb occurs.",
+            "あそんだ (asonda) - Past tense of あそぶ (asobu - to play/hang out). Godan verb. For past tense, 'bu' becomes 'nda': あそぶ → あそんだ.",
+            "、 - Comma separating clauses.",
+            "また (mata) - 'Also' or 'additionally'. Used to add another location/action.",
+            "がっこう (gakkou) - 'School'. A noun representing another location.",
+            "で (de) - Again, location particle, marking the place where the second instance of the verb happened.",
+            "あそんだ (asonda) - Past tense of あそぶ (asobu - to play), repeated to maintain sentence structure."
+        ],
+        "meaning_index": "23-で"
+    },
+    {
+        "sort_index": 24,
+        "english": "She already ate lunch.",
+        "japanese": [
+            "かのじょ",
+            "は",
+            "もう",
+            "ひるごはん",
+            "を",
+            "たべました"
+        ],
+        "kana": [
+            "かのじょ",
+            "は",
+            "もう",
+            "ひるごはん",
+            "を",
+            "たべました"
+        ],
+        "explanations": [
+            "かのじょ (kanojo) - She. A third-person pronoun referring to a female.",
+            "は (wa) - Topic particle. Marks 'she' as the topic of the sentence.",
+            "もう (mou) - Indicates that something has already occurred.",
+            "ひるごはん (hirugohan) - Lunch. Literally 'midday meal'.",
+            "を (o) - Object particle. Marks 'lunch' as the object being eaten.",
+            "たべました (tabemashita) - Ate. This is the polite past form of the verb たべる (taberu - to eat), which is an Ichidan verb. The root is たべ (tabe). To make the polite past form, we change the -る to -ました: たべる → たべました."
+        ],
+        "meaning_index": "24-は"
+    },
+    {
+        "sort_index": 24,
+        "english": "I already studied at school.",
+        "japanese": [
+            "わたし",
+            "は",
+            "もう",
+            "がっこう",
+            "で",
+            "べんきょうしました"
+        ],
+        "kana": [
+            "わたし",
+            "は",
+            "もう",
+            "がっこう",
+            "で",
+            "べんきょうしました"
+        ],
+        "explanations": [
+            "わたし (watashi) - I. A common first-person pronoun.",
+            "は (wa) - Topic particle. Indicates that 'I' is the topic of the sentence.",
+            "もう (mou) - Used here to show that the action of studying is already completed.",
+            "がっこう (gakkou) - School. The place where the action occurs.",
+            "で (de) - Location particle. Indicates the place where an action takes place.",
+            "べんきょうしました (benkyou shimashita) - Studied. Comes from the irregular verb する (suru - to do) combined with べんきょう (benkyou - study). する is irregular: the polite past form is しました."
+        ],
+        "meaning_index": "24-で"
+    },
+    {
+        "sort_index": 24,
+        "english": "Will you come again tomorrow?",
+        "japanese": [
+            "あなた",
+            "は",
+            "あした",
+            "に",
+            "また",
+            "きます",
+            "か"
+        ],
+        "kana": [
+            "あなた",
+            "は",
+            "あした",
+            "に",
+            "また",
+            "きます",
+            "か"
+        ],
+        "explanations": [
+            "あなた (anata) - You. A second-person pronoun.",
+            "は (wa) - Topic particle. Marks 'you' as the topic of the question.",
+            "あした (ashita) - Tomorrow. Indicates the time of the action.",
+            "に (ni) - Time particle. Used here to indicate when the action will happen.",
+            "また (mata) - Again. Suggests repetition of an action.",
+            "きます (kimasu) - Will come. This is the polite non-past form of くる (kuru - to come), which is an irregular verb. The polite form is きます.",
+            "か (ka) - Question particle. Turns the sentence into a polite question."
+        ],
+        "meaning_index": "24-に"
+    },
+    {
+        "sort_index": 25,
+        "english": "My eyes are tired.",
+        "japanese": [
+            "わたし",
+            "の",
+            "目",
+            "は",
+            "つかれました"
+        ],
+        "kana": [
+            "わたし",
+            "の",
+            "め",
+            "は",
+            "つかれました"
+        ],
+        "explanations": [
+            "わたし (watashi) - A common pronoun meaning 'I' or 'me', often used formally or politely.",
+            "の (no) - Possessive particle, used to show ownership or relationship. Here, it connects 'I' to 'eyes', meaning 'my eyes'.",
+            "目 (me) - Refers to the physical eyes on the face.",
+            "は (wa) - Topic particle, marking what the sentence is about. In this case, it's 'my eyes'.",
+            "つかれました (tsukaremashita) - This is the past polite form of the Ichidan verb つかれる (tsukareru - to become tired). Since it's an Ichidan verb, we remove る and add ました to make it polite past: つかれる → つかれ → つかれました."
+        ],
+        "meaning_index": "25-は"
+    },
+    {
+        "sort_index": 25,
+        "english": "She opened her eyes.",
+        "japanese": [
+            "かのじょ",
+            "は",
+            "目",
+            "を",
+            "あけました"
+        ],
+        "kana": [
+            "かのじょ",
+            "は",
+            "め",
+            "を",
+            "あけました"
+        ],
+        "explanations": [
+            "かのじょ (kanojo) - A third-person pronoun meaning 'she' or 'her'.",
+            "は (wa) - Topic particle marking 'she' as the topic of the sentence.",
+            "目 (me) - Refers to the eyes. In this sentence, it's the object of the action.",
+            "を (wo) - Object particle, used to mark what is being acted upon—in this case, the eyes.",
+            "あけました (akemashita) - Polite past form of the Ichidan verb あける (akeru - to open). To form the polite past tense, drop る and add ました: あける → あけ → あけました."
+        ],
+        "meaning_index": "25-を"
+    },
+    {
+        "sort_index": 25,
+        "english": "Did something go into your eye?",
+        "japanese": [
+            "目",
+            "に",
+            "なにか",
+            "はいりました",
+            "か"
+        ],
+        "kana": [
+            "め",
+            "に",
+            "なにか",
+            "はいりました",
+            "か"
+        ],
+        "explanations": [
+            "目 (me) - The eye; used here as the location where something went.",
+            "に (ni) - Direction or location particle. It marks the destination or target of an action. Here, it shows where something entered: 'into the eye'.",
+            "なにか (nanika) - An indefinite pronoun meaning 'something'.",
+            "はいりました (hairimashita) - Polite past form of the Godan verb はいる (hairu - to enter). For past tense of Godan verbs, change the final う-sound to the い-sound and add りました. はいる → はいり → はいりました.",
+            "か (ka) - Question particle placed at the end of a sentence to turn it into a question."
+        ],
+        "meaning_index": "25-に"
+    },
+    {
+        "sort_index": 26,
+        "english": "I rested for one day.",
+        "japanese": [
+            "わたし",
+            "は",
+            "一日",
+            "に",
+            "やすみました"
+        ],
+        "kana": [
+            "わたし",
+            "は",
+            "いちにち",
+            "に",
+            "やすみました"
+        ],
+        "explanations": [
+            "わたし (watashi) - A pronoun meaning 'I' or 'me', commonly used in polite or neutral speech.",
+            "は (wa) - Topic particle, marking 'わたし' as the topic of the sentence.",
+            "いちにち (ichinichi) - Refers to a duration of one day.",
+            "に (ni) - Time or direction particle; here it indicates the time span during which the action took place.",
+            "やすみました (yasumimashita) - Polite past form of やすむ (yasumu - to rest). やすむ is a Godan verb. To form the polite past tense: やすむ → やすみ → やすみました."
+        ],
+        "meaning_index": "26-に"
+    },
+    {
+        "sort_index": 26,
+        "english": "He was tired from one day.",
+        "japanese": [
+            "かれ",
+            "は",
+            "一日",
+            "から",
+            "つかれました"
+        ],
+        "kana": [
+            "かれ",
+            "は",
+            "いちにち",
+            "から",
+            "つかれました"
+        ],
+        "explanations": [
+            "かれ (kare) - A pronoun meaning 'he' or 'him'.",
+            "は (wa) - Topic particle, marking 'かれ' as the topic of the sentence.",
+            "いちにち (ichinichi) - Refers to the duration of one day.",
+            "から (kara) - A particle that shows the source or cause; here it means 'because of' or 'from'.",
+            "つかれました (tsukaremashita) - Polite past form of つかれる (tsukareru - to become tired). つかれる is an Ichidan verb. To form the polite past: つかれる → つかれ → つかれました."
+        ],
+        "meaning_index": "26-から"
+    },
+    {
+        "sort_index": 26,
+        "english": "She traveled in one day!",
+        "japanese": [
+            "かのじょ",
+            "は",
+            "一日",
+            "で",
+            "りょこうしました"
+        ],
+        "kana": [
+            "かのじょ",
+            "は",
+            "いちにち",
+            "で",
+            "りょこうしました"
+        ],
+        "explanations": [
+            "かのじょ (kanojo) - A pronoun meaning 'she' or 'her'.",
+            "は (wa) - Topic particle, marking 'かのじょ' as the topic of the sentence.",
+            "いちにち (ichinichi) - Refers to a single day in which something was completed.",
+            "で (de) - A particle indicating the means or condition; here, it marks the time frame in which the action occurred.",
+            "りょこうしました (ryokou shimashita) - Polite past form of りょこうする (ryokou suru - to travel). This is an Irregular verb (する). The polite past is formed: する → しました → りょこうしました."
+        ],
+        "meaning_index": "26-で"
+    },
+    {
+        "sort_index": 27,
+        "english": "Today is the first.",
+        "japanese": [
+            "きょう",
+            "は",
+            "ついたち",
+            "です"
+        ],
+        "kana": [
+            "きょう",
+            "は",
+            "ついたち",
+            "です"
+        ],
+        "explanations": [
+            "きょう (kyou) - This means 'today'. It's used to talk about the current day.",
+            "は (wa) - This is the topic particle. It marks 'きょう' (today) as the topic of the sentence.",
+            "ついたち (tsuitachi) - This means 'the first day of the month'.",
+            "です (desu) - This is the polite copula, often translated as 'is'. It is used to end a sentence politely and link the subject and predicate."
+        ],
+        "meaning_index": "27-は"
+    },
+    {
+        "sort_index": 27,
+        "english": "I will go on the first.",
+        "japanese": [
+            "わたし",
+            "は",
+            "ついたち",
+            "に",
+            "いきます"
+        ],
+        "kana": [
+            "わたし",
+            "は",
+            "ついたち",
+            "に",
+            "いきます"
+        ],
+        "explanations": [
+            "わたし (watashi) - This means 'I'. It's a common first-person pronoun.",
+            "は (wa) - This topic particle marks 'わたし' (I) as the topic of the sentence.",
+            "ついたち (tsuitachi) - This refers to 'the first day of the month'.",
+            "に (ni) - This particle indicates the specific time something happens. Here, it marks the day the action takes place.",
+            "いきます (ikimasu) - This is the polite form of the verb いく (iku), meaning 'to go'. いく is a Godan (u-verb). In its polite present/future form, the stem 'いき' is combined with 'ます'."
+        ],
+        "meaning_index": "27-に"
+    },
+    {
+        "sort_index": 27,
+        "english": "She studies from the first.",
+        "japanese": [
+            "かのじょ",
+            "は",
+            "ついたち",
+            "から",
+            "べんきょう",
+            "します"
+        ],
+        "kana": [
+            "かのじょ",
+            "は",
+            "ついたち",
+            "から",
+            "べんきょう",
+            "します"
+        ],
+        "explanations": [
+            "かのじょ (kanojo) - This means 'she'. It's a common third-person feminine pronoun.",
+            "は (wa) - The topic particle marks 'かのじょ' (she) as the subject of the sentence.",
+            "ついたち (tsuitachi) - This refers to 'the first day of the month'.",
+            "から (kara) - This particle means 'from'. It indicates the starting point in time or place.",
+            "べんきょう (benkyou) - This means 'study'. It's a noun but often used with する to express the verb 'to study'.",
+            "します (shimasu) - This is the polite present form of する (suru), an irregular verb meaning 'to do'. The stem doesn't change; it becomes 'します' in polite form."
+        ],
+        "meaning_index": "27-から"
+    },
+    {
+        "sort_index": 28,
+        "english": "He can swim.",
+        "japanese": [
+            "かれ",
+            "が",
+            "およげる"
+        ],
+        "kana": [
+            "かれ",
+            "が",
+            "およげる"
+        ],
+        "explanations": [
+            "かれ (kare) - This means 'he'. It's a third-person singular pronoun used to refer to a male subject.",
+            "が (ga) - This is the subject marker particle. It emphasizes who or what is performing the action, in this case, 'he'.",
+            "およげる (oyogeru) - This is the potential form of the verb およぐ (oyogu - to swim), which is a Godan verb. To make the potential form for Godan verbs, change the final 'u' sound to the corresponding 'e' sound and add る. So, およぐ becomes およげる, meaning 'can swim'."
+        ],
+        "meaning_index": "28-が"
+    },
+    {
+        "sort_index": 28,
+        "english": "We can meet at school.",
+        "japanese": [
+            "わたしたち",
+            "は",
+            "がっこう",
+            "で",
+            "あえる"
+        ],
+        "kana": [
+            "わたしたち",
+            "は",
+            "がっこう",
+            "で",
+            "あえる"
+        ],
+        "explanations": [
+            "わたしたち (watashitachi) - This means 'we'. わたし (watashi) means 'I', and the suffix たち makes it plural.",
+            "は (wa) - This is the topic marker. It indicates that 'we' is the topic of the sentence.",
+            "がっこう (gakkou) - This means 'school'. It’s a common location noun.",
+            "で (de) - This particle marks the location where an action takes place. Here, it shows that the meeting will happen at school.",
+            "あえる (aeru) - This is the potential form of the verb あう (au - to meet), which is a Godan verb. The potential form is made by changing the final 'u' to 'e' and adding る. So, あう becomes あえる, meaning 'can meet'."
+        ],
+        "meaning_index": "28-で"
+    },
+    {
+        "sort_index": 28,
+        "english": "She can't play the piano.",
+        "japanese": [
+            "かのじょ",
+            "は",
+            "ピアノ",
+            "を",
+            "ひけない"
+        ],
+        "kana": [
+            "かのじょ",
+            "は",
+            "ぴあの",
+            "を",
+            "ひけない"
+        ],
+        "explanations": [
+            "かのじょ (kanojo) - This means 'she'. It’s used to refer to a female subject.",
+            "は (wa) - This particle marks the topic of the sentence, which is 'she'.",
+            "ピアノ (piano) - This means 'piano'. It's a borrowed word from English.",
+            "を (wo) - This is the direct object particle. It indicates that the piano is the object being played.",
+            "ひけない (hikenai) - This is the negative potential form of the verb ひく (hiku - to play an instrument), a Godan verb. First, make the potential form: ひく → ひける (can play), then apply the negative form: ひける → ひけない (can't play)."
+        ],
+        "meaning_index": "28-を"
+    },
+    {
+        "sort_index": 29,
+        "english": "We talked at school.",
+        "japanese": [
+            "わたしたち",
+            "は",
+            "がっこう",
+            "で",
+            "はなしました"
+        ],
+        "kana": [
+            "わたしたち",
+            "は",
+            "がっこう",
+            "で",
+            "はなしました"
+        ],
+        "explanations": [
+            "わたしたち (watashitachi) - 'We'. This is the plural form of わたし (watashi), meaning 'I'. Adding たち (tachi) makes it plural.",
+            "は (wa) - Topic particle. It marks 'わたしたち' as the topic of the sentence.",
+            "がっこう (gakkou) - 'School'. A common JLPT N5 location word.",
+            "で (de) - Location particle used to indicate the place where an action occurs. Here, it shows that the action happened at school.",
+            "はなしました (hanashimashita) - Polite past form of the verb はなす (hanasu - to speak or to talk). It's a Godan verb. To form the past polite tense, change the final す to しました (from the ます-form: はなします)."
+        ],
+        "meaning_index": "29-で"
+    },
+    {
+        "sort_index": 29,
+        "english": "He didn’t hear the story.",
+        "japanese": [
+            "かれ",
+            "は",
+            "はなし",
+            "を",
+            "ききませんでした"
+        ],
+        "kana": [
+            "かれ",
+            "は",
+            "はなし",
+            "を",
+            "ききませんでした"
+        ],
+        "explanations": [
+            "かれ (kare) - 'He'. A third-person singular pronoun.",
+            "は (wa) - Topic particle, marking 'かれ' as the topic.",
+            "はなし (hanashi) - 'Story' or 'talk'. The object of the verb in this sentence.",
+            "を (o) - Object particle, used to indicate the direct object of an action.",
+            "ききませんでした (kikimasen deshita) - Negative past polite form of the verb きく (kiku - to hear or listen). It's a Godan verb. For the negative past polite form: きく → ききません (negative polite) → ききませんでした (negative past polite)."
+        ],
+        "meaning_index": "29-を"
+    },
+    {
+        "sort_index": 29,
+        "english": "Did you talk with her?",
+        "japanese": [
+            "あなた",
+            "は",
+            "かのじょ",
+            "と",
+            "はなしました",
+            "か"
+        ],
+        "kana": [
+            "あなた",
+            "は",
+            "かのじょ",
+            "と",
+            "はなしました",
+            "か"
+        ],
+        "explanations": [
+            "あなた (anata) - 'You'. A second-person singular pronoun.",
+            "は (wa) - Topic particle, marking 'あなた' as the topic.",
+            "かのじょ (kanojo) - 'She' or 'her'. Refers to a female person.",
+            "と (to) - Companion particle, meaning 'with' when referring to doing something with someone.",
+            "はなしました (hanashimashita) - Polite past form of はなす (hanasu - to speak). Godan verb. The ます-form is はなします, and the polite past is formed by replacing ます with ました.",
+            "か (ka) - Question particle placed at the end of the sentence to indicate a question."
+        ],
+        "meaning_index": "29-と"
+    },
+    {
+        "sort_index": 30,
+        "english": "My house is big.",
+        "japanese": [
+            "わたし",
+            "の",
+            "いえ",
+            "は",
+            "おおきい",
+            "です"
+        ],
+        "kana": [
+            "わたし",
+            "の",
+            "いえ",
+            "は",
+            "おおきい",
+            "です"
+        ],
+        "explanations": [
+            "わたし (watashi) - This is a first-person pronoun meaning 'I' or 'me'. It's often used to express possession when paired with の (no).",
+            "の (no) - This is a possessive particle, used here to indicate that the house belongs to 'watashi' (me).",
+            "いえ (ie) - A noun meaning 'house' or 'home'.",
+            "は (wa) - The topic particle. It tells us that 'my house' is what this sentence is about.",
+            "おおきい (ookii) - An i-adjective meaning 'big'.",
+            "です (desu) - A polite sentence-ending copula used to state something formally. It works like the verb 'to be' in English."
+        ],
+        "meaning_index": "30-は"
+    },
+    {
+        "sort_index": 30,
+        "english": "She went to the house.",
+        "japanese": [
+            "かのじょ",
+            "は",
+            "いえ",
+            "へ",
+            "いきました"
+        ],
+        "kana": [
+            "かのじょ",
+            "は",
+            "いえ",
+            "へ",
+            "いきました"
+        ],
+        "explanations": [
+            "かのじょ (kanojo) - A third-person singular pronoun meaning 'she' or 'her'.",
+            "は (wa) - The topic particle. It sets 'she' as the topic of the sentence.",
+            "いえ (ie) - A noun meaning 'house' or 'home'.",
+            "へ (e) - A directional particle indicating movement toward a location.",
+            "いきました (ikimashita) - This is the polite past form of the verb いく (iku - to go). It is a Godan (u-verb). The verb stem is いき (iki), and the past polite form adds ました (mashita), forming いきました."
+        ],
+        "meaning_index": "30-へ"
+    },
+    {
+        "sort_index": 30,
+        "english": "They played at the house.",
+        "japanese": [
+            "かれら",
+            "は",
+            "いえ",
+            "で",
+            "あそびました"
+        ],
+        "kana": [
+            "かれら",
+            "は",
+            "いえ",
+            "で",
+            "あそびました"
+        ],
+        "explanations": [
+            "かれら (karera) - A third-person plural pronoun meaning 'they' (used for a group of males or mixed gender).",
+            "は (wa) - The topic particle marking 'they' as the topic of the sentence.",
+            "いえ (ie) - A noun meaning 'house' or 'home'.",
+            "で (de) - A location particle used to indicate where an action takes place.",
+            "あそびました (asobimashita) - The polite past form of the verb あそぶ (asobu - to play). It is a Godan (u-verb). The verb stem is あそび (asobi), and the polite past form adds ました (mashita), making あそびました."
+        ],
+        "meaning_index": "30-で"
+    },
+    {
+        "sort_index": 31,
+        "english": "She will go home later.",
+        "japanese": [
+            "かのじょ",
+            "は",
+            "いえ",
+            "に",
+            "かえります",
+            "あと"
+        ],
+        "kana": [
+            "かのじょ",
+            "は",
+            "いえ",
+            "に",
+            "かえります",
+            "あと"
+        ],
+        "explanations": [
+            "かのじょ (kanojo) - 'She'; a third-person singular pronoun used to refer to a female.",
+            "は (wa) - Topic particle; marks かのじょ as the topic of the sentence.",
+            "いえ (ie) - 'Home' or 'house'; used here to mean the destination.",
+            "に (ni) - Direction particle; used to indicate the destination someone is going to.",
+            "かえります (kaerimasu) - Polite form of かえる (kaeru - to return/go home); Godan verb. The dictionary form is かえる. As a Godan verb, to create the polite form, the stem changes by removing る and adding ります → かえります.",
+            "あと (ato) - 'Later' or 'afterwards'; indicates the action will happen after the current moment or another event."
+        ],
+        "meaning_index": "31-に"
+    },
+    {
+        "sort_index": 31,
+        "english": "We met after school.",
+        "japanese": [
+            "わたしたち",
+            "は",
+            "がっこう",
+            "で",
+            "あいました",
+            "あと"
+        ],
+        "kana": [
+            "わたしたち",
+            "は",
+            "がっこう",
+            "で",
+            "あいました",
+            "あと"
+        ],
+        "explanations": [
+            "わたしたち (watashitachi) - 'We'; the plural form of わたし (I).",
+            "は (wa) - Topic particle; marks わたしたち as the topic of the sentence.",
+            "がっこう (gakkou) - 'School'; place where the meeting occurred.",
+            "で (de) - Location particle; indicates where the action took place.",
+            "あいました (aimashita) - Past polite form of あう (au - to meet); Godan verb. The dictionary form is あう. For the past polite form: あう → あった (past casual), then add ました for politeness → あいました.",
+            "あと (ato) - 'Afterwards'; implies the meeting occurred after the school day ended."
+        ],
+        "meaning_index": "31-で"
+    },
+    {
+        "sort_index": 31,
+        "english": "I talked with him after that.",
+        "japanese": [
+            "わたし",
+            "は",
+            "かれ",
+            "と",
+            "はなしました",
+            "あと"
+        ],
+        "kana": [
+            "わたし",
+            "は",
+            "かれ",
+            "と",
+            "はなしました",
+            "あと"
+        ],
+        "explanations": [
+            "わたし (watashi) - 'I'; first-person singular pronoun.",
+            "は (wa) - Topic particle; marks わたし as the topic of the sentence.",
+            "かれ (kare) - 'He' or 'him'; third-person male pronoun.",
+            "と (to) - 'With'; a particle that indicates accompaniment or a partner in an action.",
+            "はなしました (hanashimashita) - Past polite form of はなす (hanasu - to speak); Godan verb. The dictionary form is はなす. To conjugate: はなす → はなした (past casual), then add ました → はなしました.",
+            "あと (ato) - 'Afterwards'; indicates the conversation took place later in time."
+        ],
+        "meaning_index": "31-と"
+    },
+    {
+        "sort_index": 32,
+        "english": "I like cats.",
+        "japanese": [
+            "わたし",
+            "は",
+            "ねこ",
+            "が",
+            "好き",
+            "です"
+        ],
+        "kana": [
+            "わたし",
+            "は",
+            "ねこ",
+            "が",
+            "すき",
+            "です"
+        ],
+        "explanations": [
+            "わたし (watashi) – Pronoun meaning 'I' or 'me'. Commonly used for self-reference, polite and gender-neutral.",
+            "は (wa) – Topic particle, used to indicate the topic of the sentence. Here, it sets 'I' as the topic.",
+            "ねこ (neko) – Noun meaning 'cat'.",
+            "が (ga) – Subject particle, used to mark the subject that is liked in this context.",
+            "好き (suki) – Na-adjective meaning 'fondness' or 'liking'. Used here to express affection for cats.",
+            "です (desu) – Copula used to make the sentence polite. Functions like 'is/are' in English."
+        ],
+        "meaning_index": "32-は"
+    },
+    {
+        "sort_index": 32,
+        "english": "She loves music.",
+        "japanese": [
+            "かのじょ",
+            "は",
+            "おんがく",
+            "を",
+            "好き",
+            "です"
+        ],
+        "kana": [
+            "かのじょ",
+            "は",
+            "おんがく",
+            "を",
+            "すき",
+            "です"
+        ],
+        "explanations": [
+            "かのじょ (kanojo) – Pronoun meaning 'she' or 'her'.",
+            "は (wa) – Topic particle, indicating that 'she' is the topic of the sentence.",
+            "おんがく (ongaku) – Noun meaning 'music'.",
+            "を (wo) – Object particle, used to mark the direct object being liked.",
+            "好き (suki) – Na-adjective meaning 'liking' or 'fondness'. Describes her feelings toward music.",
+            "です (desu) – Polite copula, used to make the sentence formal and complete."
+        ],
+        "meaning_index": "32-を"
+    },
+    {
+        "sort_index": 32,
+        "english": "You also like sushi?",
+        "japanese": [
+            "あなた",
+            "も",
+            "すし",
+            "が",
+            "好き",
+            "です",
+            "か"
+        ],
+        "kana": [
+            "あなた",
+            "も",
+            "すし",
+            "が",
+            "すき",
+            "です",
+            "か"
+        ],
+        "explanations": [
+            "あなた (anata) – Pronoun meaning 'you'.",
+            "も (mo) – Particle meaning 'also' or 'too'. Shows that the speaker is asking if the person also likes sushi.",
+            "すし (sushi) – Noun meaning 'sushi'. A well-known Japanese dish.",
+            "が (ga) – Subject particle, marking sushi as the subject being liked.",
+            "好き (suki) – Na-adjective meaning 'liking'. Describes the person's preference for sushi.",
+            "です (desu) – Polite copula, used for formality.",
+            "か (ka) – Question particle, added at the end to indicate the sentence is a question."
+        ],
+        "meaning_index": "32-も"
+    },
+    {
+        "sort_index": 33,
+        "english": "I ate two apples.",
+        "japanese": [
+            "わたし",
+            "は",
+            "りんご",
+            "を",
+            "二",
+            "たべました"
+        ],
+        "kana": [
+            "わたし",
+            "は",
+            "りんご",
+            "を",
+            "に",
+            "たべました"
+        ],
+        "explanations": [
+            "わたし (watashi) means 'I' or 'me' and is a common pronoun used in polite speech.",
+            "は (wa) is the topic particle. It marks わたし as the topic of the sentence.",
+            "りんご (ringo) means 'apple'. It's a noun and the direct object of the verb.",
+            "を (wo) is the object particle. It shows that りんご is the object being eaten.",
+            "に (ni) here means 'two' and indicates the quantity of apples.",
+            "たべました (tabemashita) is the polite past form of the verb たべる (taberu), meaning 'to eat'. たべる is an Ichidan verb. To make the polite past form, replace る with ました."
+        ],
+        "meaning_index": "33-を"
+    },
+    {
+        "sort_index": 33,
+        "english": "He went to two schools.",
+        "japanese": [
+            "かれ",
+            "は",
+            "二",
+            "がっこう",
+            "へ",
+            "いきました"
+        ],
+        "kana": [
+            "かれ",
+            "は",
+            "に",
+            "がっこう",
+            "へ",
+            "いきました"
+        ],
+        "explanations": [
+            "かれ (kare) means 'he' and is used to refer to a male third person.",
+            "は (wa) marks かれ as the topic of the sentence.",
+            "に (ni) means 'two' and tells us the number of schools.",
+            "がっこう (gakkou) means 'school'. It's the destination in this sentence.",
+            "へ (e) is the direction particle. It shows that the action of going is directed toward the schools.",
+            "いきました (ikimashita) is the polite past form of the verb いく (iku), which means 'to go'. いく is a Godan verb. The polite past form is created by replacing the dictionary form with いき and adding ました."
+        ],
+        "meaning_index": "33-へ"
+    },
+    {
+        "sort_index": 33,
+        "english": "She has two dogs too.",
+        "japanese": [
+            "かのじょ",
+            "も",
+            "いぬ",
+            "が",
+            "二",
+            "います"
+        ],
+        "kana": [
+            "かのじょ",
+            "も",
+            "いぬ",
+            "が",
+            "に",
+            "います"
+        ],
+        "explanations": [
+            "かのじょ (kanojo) means 'she' or 'her' and is used for female third person.",
+            "も (mo) is the inclusion particle. It means 'also' or 'too', indicating that she, like someone else, has dogs.",
+            "いぬ (inu) means 'dog'. It's a noun and the subject of the verb.",
+            "が (ga) is the subject particle. It marks いぬ as the subject of the sentence.",
+            "に (ni) means 'two' and indicates the number of dogs.",
+            "います (imasu) is the polite non-past form of the verb いる (iru), meaning 'to exist' for animate objects like people and animals. いる is an Ichidan verb. The polite non-past form is made by removing る and adding ます."
+        ],
+        "meaning_index": "33-も"
+    },
+    {
+        "sort_index": 34,
+        "english": "She studies here.",
+        "japanese": [
+            "かのじょ",
+            "は",
+            "ここ",
+            "で",
+            "べんきょう",
+            "します"
+        ],
+        "kana": [
+            "かのじょ",
+            "は",
+            "ここ",
+            "で",
+            "べんきょう",
+            "します"
+        ],
+        "explanations": [
+            "かのじょ (kanojo) - She. A third-person singular pronoun used for females.",
+            "は (wa) - Topic particle. Marks 'she' as the topic of the sentence.",
+            "ここ (koko) - Here. Refers to the speaker's current location.",
+            "で (de) - Location particle used to indicate where an action takes place.",
+            "べんきょう (benkyou) - Study. This is a noun, but when paired with する (to do), it becomes a verb.",
+            "します (shimasu) - Polite present form of する (suru - to do). Irregular verb. Conjugation: する → します in the polite form."
+        ],
+        "meaning_index": "34-で"
+    },
+    {
+        "sort_index": 34,
+        "english": "I walked from here.",
+        "japanese": [
+            "わたし",
+            "は",
+            "ここ",
+            "から",
+            "あるきました"
+        ],
+        "kana": [
+            "わたし",
+            "は",
+            "ここ",
+            "から",
+            "あるきました"
+        ],
+        "explanations": [
+            "わたし (watashi) - I. A neutral first-person pronoun.",
+            "は (wa) - Topic particle. Marks 'I' as the topic.",
+            "ここ (koko) - Here. Indicates the starting point in this sentence.",
+            "から (kara) - Starting point particle. Indicates the origin of movement or action.",
+            "あるきました (arukimashita) - Polite past form of あるく (aruku - to walk). Godan verb. Conjugation: あるく → root あるき + ました to make the polite past tense."
+        ],
+        "meaning_index": "34-から"
+    },
+    {
+        "sort_index": 34,
+        "english": "Is your bag here?",
+        "japanese": [
+            "あなた",
+            "の",
+            "かばん",
+            "は",
+            "ここ",
+            "に",
+            "あります",
+            "か"
+        ],
+        "kana": [
+            "あなた",
+            "の",
+            "かばん",
+            "は",
+            "ここ",
+            "に",
+            "あります",
+            "か"
+        ],
+        "explanations": [
+            "あなた (anata) - You. A polite second-person pronoun.",
+            "の (no) - Possessive particle. Connects 'you' and 'bag', showing ownership.",
+            "かばん (kaban) - Bag. A common noun for bag or briefcase.",
+            "は (wa) - Topic particle. Marks 'your bag' as the topic.",
+            "ここ (koko) - Here. Indicates the location being questioned.",
+            "に (ni) - Location particle. Indicates the destination or existence of something.",
+            "あります (arimasu) - Polite present form of ある (aru - to exist for inanimate things). Godan verb. Conjugation: ある → root あり + ます.",
+            "か (ka) - Question particle. Marks the sentence as a question."
+        ],
+        "meaning_index": "34-に"
+    },
+    {
+        "sort_index": 35,
+        "english": "The cat is on the table.",
+        "japanese": [
+            "ねこ",
+            "は",
+            "テーブル",
+            "の",
+            "うえ",
+            "で",
+            "ねている"
+        ],
+        "kana": [
+            "ねこ",
+            "は",
+            "てーぶる",
+            "の",
+            "うえ",
+            "で",
+            "ねている"
+        ],
+        "explanations": [
+            "ねこ (neko) - 'cat'. A basic noun used to refer to a domestic cat.",
+            "は (wa) - topic particle. It marks 'ねこ' (the cat) as the topic of the sentence.",
+            "テーブル (teeburu) - 'table'. A loanword from English, used as a noun.",
+            "の (no) - possessive/connecting particle. Links 'テーブル' and 'うえ', indicating the position relative to the table.",
+            "うえ (ue) - 'top' or 'on'. Indicates a higher position relative to another object.",
+            "で (de) - location particle. Used with action verbs to show where an action occurs.",
+            "ねている (neteiru) - 'is sleeping'. This is the **te-iru form** of the verb ねる (neru - to sleep), which is an **Ichidan verb**. The te-form is ねて, and adding いる shows a continuous action. So, ねる → ねて → ねている."
+        ],
+        "meaning_index": "35-で"
+    },
+    {
+        "sort_index": 35,
+        "english": "A ball fell from the shelf.",
+        "japanese": [
+            "ボール",
+            "が",
+            "たな",
+            "の",
+            "うえ",
+            "から",
+            "おちた"
+        ],
+        "kana": [
+            "ぼーる",
+            "が",
+            "たな",
+            "の",
+            "うえ",
+            "から",
+            "おちた"
+        ],
+        "explanations": [
+            "ボール (booru) - 'ball'. A loanword from English, used as a noun.",
+            "が (ga) - subject particle. It identifies 'ボール' as the subject performing the action.",
+            "たな (tana) - 'shelf'. A noun referring to a flat surface for storing things.",
+            "の (no) - possessive/connecting particle. Connects 'たな' and 'うえ' to indicate location.",
+            "うえ (ue) - 'top' or 'above'. Indicates the upper surface or part of the shelf.",
+            "から (kara) - source particle. Indicates the starting point or origin of an action — here, the ball fell *from* the top.",
+            "おちた (ochita) - 'fell'. This is the past tense of おちる (ochiru - to fall), an **Ichidan verb**. For past tense, drop る and add た: おちる → おちた."
+        ],
+        "meaning_index": "35-から"
+    },
+    {
+        "sort_index": 35,
+        "english": "Did you put it on top?",
+        "japanese": [
+            "あなた",
+            "は",
+            "うえ",
+            "に",
+            "おいた",
+            "の？"
+        ],
+        "kana": [
+            "あなた",
+            "は",
+            "うえ",
+            "に",
+            "おいた",
+            "の？"
+        ],
+        "explanations": [
+            "あなた (anata) - 'you'. A polite second-person pronoun.",
+            "は (wa) - topic particle. It marks 'あなた' as the topic of the sentence.",
+            "うえ (ue) - 'top' or 'on'. Refers to a position above or on something.",
+            "に (ni) - direction/location particle. Indicates the target or destination of an action — in this case, the top surface.",
+            "おいた (oita) - 'placed/put'. This is the past tense of おく (oku - to put/place), a **Godan verb**. To form the past tense: おく → おいた. The final 'ku' changes to 'ita'.",
+            "の？ (no?) - sentence-ending particle indicating a question or seeking confirmation, especially in casual or soft inquiry."
+        ],
+        "meaning_index": "35-に"
+    },
+    {
+        "sort_index": 36,
+        "english": "I have ten thousand yen.",
+        "japanese": [
+            "わたし",
+            "は",
+            "一万",
+            "えん",
+            "あります"
+        ],
+        "kana": [
+            "わたし",
+            "は",
+            "いちまん",
+            "えん",
+            "あります"
+        ],
+        "explanations": [
+            "わたし (watashi) - A pronoun meaning 'I' or 'me'. Commonly used by both men and women in formal or polite situations.",
+            "は (wa) - The topic particle. It marks 'わたし' as the topic of the sentence and is pronounced 'wa' even though written as 'は'.",
+            "一万 (ichiman) - A combination of 一 (ichi - one) and 万 (man - ten thousand), meaning 'ten thousand'. Together, this means 'ten thousand'.",
+            "えん (en) - The Japanese currency unit, yen. Placed after numbers to indicate money.",
+            "あります (arimasu) - The polite present form of the verb ある (aru - to exist/have for inanimate objects). It is a Godan verb. The ます-form 'あります' is used for politeness. The root is 'あり'."
+        ],
+        "meaning_index": "36-は"
+    },
+    {
+        "sort_index": 36,
+        "english": "They bought it for ten thousand yen.",
+        "japanese": [
+            "かれら",
+            "は",
+            "一万",
+            "えん",
+            "で",
+            "かいました"
+        ],
+        "kana": [
+            "かれら",
+            "は",
+            "いちまん",
+            "えん",
+            "で",
+            "かいました"
+        ],
+        "explanations": [
+            "かれら (karera) - A pronoun meaning 'they' (male or mixed gender group). Formed by adding the plural suffix 'ら' to 'かれ' (he).",
+            "は (wa) - The topic particle, marking 'かれら' as the topic.",
+            "一万 (ichiman) - 'Ten thousand', from 一 (one) and 万 (ten thousand).",
+            "えん (en) - Japanese yen, the currency unit.",
+            "で (de) - The particle that marks the means, method, or context of an action. Here it shows the amount paid as the means of purchase.",
+            "かいました (kaimashita) - The polite past form of the verb かう (kau - to buy). It is a Godan verb. To conjugate into the past tense, change the final う to い and add ました: かう → かい → かいました."
+        ],
+        "meaning_index": "36-で"
+    },
+    {
+        "sort_index": 36,
+        "english": "Ten thousand is a lot, right?",
+        "japanese": [
+            "一万",
+            "は",
+            "おおい",
+            "ですね"
+        ],
+        "kana": [
+            "いちまん",
+            "は",
+            "おおい",
+            "ですね"
+        ],
+        "explanations": [
+            "一万 (ichiman) - A number meaning 'ten thousand'. It is made by combining 一 (one) and 万 (ten thousand).",
+            "は (wa) - Topic particle marking '一万' as the topic of the sentence.",
+            "おおい (ooi) - An i-adjective meaning 'many' or 'a lot'. Often used for quantities.",
+            "ですね (desu ne) - A polite sentence ending that adds confirmation or seeks agreement. 'です' is the copula (to be), and 'ね' seeks the listener’s agreement, similar to saying 'isn't it?' or 'right?' in English."
+        ],
+        "meaning_index": "36-ね"
+    },
+    {
+        "sort_index": 37,
+        "english": "Who is at the door?",
+        "japanese": [
+            "ドア",
+            "が",
+            "だれ",
+            "です",
+            "か"
+        ],
+        "kana": [
+            "ドア",
+            "が",
+            "だれ",
+            "です",
+            "か"
+        ],
+        "explanations": [
+            "ドア (doa) – This means 'door'. It's a loanword from English and written in katakana.",
+            "が (ga) – This is the subject marker particle. It highlights what or who is performing the action or being described. Here, it emphasizes 'door' as the subject of the clause.",
+            "だれ (dare) – This is an interrogative pronoun meaning 'who'. It is used to ask about an unknown person.",
+            "です (desu) – This is the polite copula, used to state something politely. It follows the structure 'AはBです' or in this case helps with the question format.",
+            "か (ka) – This particle turns the sentence into a question. It's placed at the end of a polite question in Japanese."
+        ],
+        "meaning_index": "37-が"
+    },
+    {
+        "sort_index": 37,
+        "english": "Who went to the school?",
+        "japanese": [
+            "だれ",
+            "が",
+            "がっこう",
+            "に",
+            "いきました",
+            "か"
+        ],
+        "kana": [
+            "だれ",
+            "が",
+            "がっこう",
+            "に",
+            "いきました",
+            "か"
+        ],
+        "explanations": [
+            "だれ (dare) – This pronoun means 'who' and is used when asking about a person not yet identified.",
+            "が (ga) – Subject particle indicating that 'who' is the one doing the action (in this case, going).",
+            "がっこう (gakkou) – This means 'school'. It's a basic noun from JLPT N5 vocabulary.",
+            "に (ni) – Directional or goal particle. It shows the destination or target of a motion verb, like 'to' in English.",
+            "いきました (ikimashita) – This is the past polite form of the verb いく (iku – to go). いく is a Godan verb. The root is いき, and for past polite form: いき + ました = いきました.",
+            "か (ka) – Question marker used at the end of polite sentences to form a question."
+        ],
+        "meaning_index": "37-に"
+    },
+    {
+        "sort_index": 37,
+        "english": "Who else came?",
+        "japanese": [
+            "だれ",
+            "も",
+            "きました",
+            "か"
+        ],
+        "kana": [
+            "だれ",
+            "も",
+            "きました",
+            "か"
+        ],
+        "explanations": [
+            "だれ (dare) – This means 'who'. It is used in questions to ask about an unidentified person.",
+            "も (mo) – This particle means 'also' or 'too'. It is used to indicate inclusion of another person or thing, depending on context. Here, it implies 'in addition to someone else'.",
+            "きました (kimashita) – This is the past polite form of the irregular verb くる (kuru – to come). Since it's irregular, くる becomes き for the stem and attaches ました for the past polite form.",
+            "か (ka) – Question particle that signals the sentence is a question."
+        ],
+        "meaning_index": "37-も"
     }
 ]
