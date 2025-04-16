@@ -26,11 +26,17 @@ import MeaningsChart from '@/components/meanings/MeaningsChart.vue'
 import { useViewStateStore } from '@/stores/useViewStateStore'
 import { computed } from 'vue'
 import { useStatisticsEvaluatedStore } from '@/stores/useStatisticsEvaluatedStore'
+import meanings from '@/assets/meanings.json'
+import type { LLMeaning, LLRecord } from '@/types'
 
 const viewStateStore = useViewStateStore()
 const statisticsEvaluatedStore = useStatisticsEvaluatedStore()
 
-const availableMeaningsCount = computed(() => statisticsEvaluatedStore.getRecordsAvailableForMeanings().length)
+const availableMeaningsCount = computed(() => {
+  const validIds = statisticsEvaluatedStore.getRecordsAvailableForMeanings().map((x: LLRecord) => x.sort_index)
+  return meanings.filter((meaning: LLMeaning) => validIds.includes(meaning.sort_index)).length
+})
+
 const unavailableText = computed(() => {
   if (availableMeaningsCount.value > 0) return ''
 
