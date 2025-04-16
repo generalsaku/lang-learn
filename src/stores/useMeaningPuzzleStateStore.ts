@@ -37,8 +37,9 @@ export const useMeaningPuzzleStateStore = defineStore('meaning-puzzle-state-stor
   const initialize = (meaning: LLMeaning) => {
     correctAnswer.value = meaning.kana
 
-    pieces.value = shuffle(meaning.kana).map((k, index) => {
-      const originalIndex = meaning.kana.indexOf(k)
+    const uniqueKana = meaning.kana.map((word, i) => `${word}-${i}`)
+    pieces.value = shuffle(uniqueKana).map((k, index) => {
+      const originalIndex = uniqueKana.indexOf(k)
       return {
         originalIndex,
         newIndex: index,

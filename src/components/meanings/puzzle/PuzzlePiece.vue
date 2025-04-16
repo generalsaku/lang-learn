@@ -63,8 +63,10 @@ const startDrag = (event: MouseEvent | TouchEvent) => {
   meaningPuzzleStateStore.isDragging = true
 
   const { width, height, left, top } = $clone.value!.getBoundingClientRect()
+
+  const scrollOffset = document.querySelector('.puzzle')?.scrollTop ?? 0
   offsetX.value = left + width / 2
-  offsetY.value = top + height / 2
+  offsetY.value = (top + scrollOffset) + height / 2
 
   // Handle touch events separately
   const { clientX, clientY } = getMouseXY(event)

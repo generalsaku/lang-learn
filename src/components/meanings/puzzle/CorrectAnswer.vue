@@ -7,7 +7,7 @@
     <table>
       <tbody>
         <tr v-for="(word, index) of kana" :key="word" class="correct-answer-items">
-          <td class="word">
+          <td class="word" @click="utter(word)">
             <div class="noto">{{ word }}</div>
             <div class="romaji">{{ toRomaji(word, true) }}</div>
           </td>
@@ -53,14 +53,19 @@ const listen = () => {
         text-align: left;
       }
     }
+
+    td {
+      padding: 4px;
+    }
   }
 
   .word {
     min-width: 116px;
+    vertical-align: top;
   }
 
   .explanation {
-    vertical-align: middle;
+    vertical-align: top;
     font-size: 12px;
   }
 
