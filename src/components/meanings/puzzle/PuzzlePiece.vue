@@ -11,8 +11,16 @@
       width: meaningPuzzleStateStore.isInitialized ? `${meaningPuzzleStateStore.pieceWidth}px` : undefined,
       height: meaningPuzzleStateStore.isInitialized ? `${meaningPuzzleStateStore.pieceHeight}px` : undefined
     }">
-    <div class="noto">{{ word }}</div>
-    <div class="romaji">{{ toRomaji(word, true) }}</div>
+    <table class="table-word">
+      <tbody>
+        <tr>
+          <td v-for="(char, index) in word" :key="`${char}-${index}`" class="kana noto">{{ char }}</td>
+        </tr>
+        <tr>
+          <td v-for="(char, index) in word" :key="`${toRomaji(char)}-${index}`" class="romaji">{{ toRomaji(char) }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -212,5 +220,18 @@ const getMouseXY = (event: MouseEvent | TouchEvent) => {
 
 .romaji {
   font-size: 12px;
+}
+
+.table-word {
+  border-collapse: collapse;
+  tr {
+    td {
+      padding: 0;
+    }
+
+    td:not(:last-child) {
+      padding-right: 1px;
+    }
+  }
 }
 </style>

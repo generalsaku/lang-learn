@@ -4,12 +4,20 @@
       <span>answer:</span>
       <button class="btn listen" @pointerup.prevent.stop="listen()"><BsSoundwave /></button>
     </div>
-    <table>
+    <table class="table-answer">
       <tbody>
-        <tr v-for="(word, index) of kana" :key="word" class="correct-answer-items">
+        <tr v-for="(word, index) of kana" :key="word" class="table-answer-row">
           <td class="word" @click="utter(word)">
-            <div class="noto">{{ word }}</div>
-            <div class="romaji">{{ toRomaji(word, true) }}</div>
+            <table class="table-word">
+              <tbody>
+                <tr>
+                  <td v-for="(char, index) in word" :key="`${char}-${index}`" class="kana noto">{{ char }}</td>
+                </tr>
+                <tr>
+                  <td v-for="(char, index) in word" :key="`${toRomaji(char)}-${index}`" class="romaji">{{ toRomaji(char) }}</td>
+                </tr>
+              </tbody>
+            </table>
           </td>
           <td><span class="explanation">{{ explanations[index] }}</span></td>
         </tr>
@@ -42,20 +50,35 @@ const listen = () => {
     flex-flow: column;
   }
 
-  table {
+  .table-answer {
     border-collapse: collapse;
-    tr:nth-child(odd) {
+
+    .table-answer-row:nth-child(odd) {
       background-color: #ffffff05;
     }
 
-    tr {
-      td:nth-child(2) {
+    .table-answer-row {
+      & > td:nth-child(2) {
         text-align: left;
       }
-    }
 
-    td {
-      padding: 4px;
+      & > td {
+        padding: 4px;
+      }
+    }
+  }
+
+  .table-word {
+    margin: 0 auto;
+    border-collapse: collapse;
+    tr {
+      td {
+        padding: 0;
+      }
+
+      td:not(:last-child) {
+        padding-right: 1px;
+      }
     }
   }
 

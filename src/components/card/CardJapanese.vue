@@ -23,7 +23,7 @@
               <td v-for="(char, index) in reading" :key="`${char}-${index}`" class="kana noto">{{ char }}</td>
             </tr>
             <tr>
-              <td v-for="(char, index) in reading" :key="`${toRomaji(char, true)}-${index}`" class="romaji">{{ toRomaji(char, true) }}</td>
+              <td v-for="(char, index) in reading" :key="`${toRomaji(char)}-${index}`" class="romaji">{{ toRomaji(char) }}</td>
             </tr>
           </tbody>
         </table>
