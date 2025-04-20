@@ -130,6 +130,8 @@ const pressKana = async (pressedKana: string) => {
   const currentKana = sessionKana.value[sessionIndex.value]
   isSuccess.value = currentKana === pressedKana
   if (isSuccess.value) {
+    audio.pause()
+    audio.currentTime = 0
     await audio.play()
   }
   sessionResult.value.push(isSuccess.value)
