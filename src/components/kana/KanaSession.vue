@@ -5,9 +5,11 @@
       <span v-else>GO!</span>
     </div>
     <div v-if="state === 'started'" class="game" @click="continueGame">
-      <KanaSessionLegend :session-kana="sessionKana" :session-result="sessionResult" :session-index="sessionIndex"></KanaSessionLegend>
+      <KanaSessionLegend :session-kana="sessionKana" :session-result="sessionResult" :session-index="sessionIndex">
+      </KanaSessionLegend>
       <div class="kana-current">
-        <div class="kana-char noto" :class="{ 'pulsate-outline-success': isValidating && isSuccess, 'pulsate-outline-failure': isValidating && !isSuccess }">
+        <div class="kana-char noto"
+          :class="{ 'pulsate-outline-success': isValidating && isSuccess, 'pulsate-outline-failure': isValidating && !isSuccess }">
           {{ sessionKana[sessionIndex] }}
         </div>
       </div>
@@ -15,25 +17,31 @@
         <div v-if="isValidating" class="kana-table-description">tap above to continue</div>
         <div v-else class="kana-table-description">tap the correct sound</div>
         <div class="kana-table">
-          <button :disabled="isValidating && char !== sessionKana[sessionIndex]" :class="{ 'kana-char': true, 'pulsate-outline-success': isValidating && char === sessionKana[sessionIndex] }" v-for="char of charset" :key="char" @click.stop.prevent="() => pressKana(char)">
-            {{ toRomaji(char) }}
-            <BsSoundwave v-if="isValidating && char === sessionKana[sessionIndex]" />
+          <button :disabled="isValidating && char !== toRomaji(sessionKana[sessionIndex])"
+            :class="{ 'kana-char': true, 'pulsate-outline-success': isValidating && char === toRomaji(sessionKana[sessionIndex]) }"
+            v-for="char of charsetRomaji" :key="char" @click.stop.prevent="() => pressKana(char)">
+            {{ char }}
+            <BsSoundwave v-if="isValidating && char === toRomaji(sessionKana[sessionIndex])" />
           </button>
         </div>
       </div>
-      <div class="home" v-if="isLast"><span style="text-transform: uppercase;">Press the <BsFillHouseFill style="width: 16px; vertical-align: middle; margin-top: -4px;" /> button to go back.</span></div>
+      <div class="home" v-if="isLast"><span style="text-transform: uppercase;">Press the
+          <BsFillHouseFill style="width: 16px; vertical-align: middle; margin-top: -4px;" /> button to go back.
+        </span></div>
       <div class="timer">
         <table>
           <tbody>
             <tr v-if="bestScore">
               <td>Best:</td>
-              <td><span>{{ bestScore.successCount }} / {{ bestScore.charsetCount }} ({{ Math.floor(bestScore.successCount / bestScore.charsetCount * 100) }}%)</span></td>
+              <td><span>{{ bestScore.successCount }} / {{ bestScore.charsetCount }} ({{
+                Math.floor(bestScore.successCount / bestScore.charsetCount * 100) }}%)</span></td>
               <td><span>Time: {{ format(bestScore.successTime) }}</span></td>
             </tr>
 
             <tr>
               <td>Current:</td>
-              <td><span>{{ currentSuccessCount }} / {{ charset.length }} ({{ Math.floor(currentSuccessCount / charset.length * 100) }}%)</span></td>
+              <td><span>{{ currentSuccessCount }} / {{ charset.length }} ({{ Math.floor(currentSuccessCount /
+                charset.length * 100) }}%)</span></td>
               <td><span>Time: {{ currentTime }}</span></td>
             </tr>
           </tbody>
@@ -62,8 +70,8 @@ const state: Ref<'startup' | 'starting' | 'started' | 'finished'> = ref('startup
 
 const countdown = ref(3)
 
-const hiragana = ['あ', 'い', 'う', 'え', 'お', 'か', 'き', 'く', 'け', 'こ', 'さ', 'し', 'す', 'せ', 'そ', 'た', 'ち', 'つ', 'て', 'と', 'な', 'に', 'ぬ', 'ね', 'の', 'は', 'ひ', 'ふ', 'へ', 'ほ', 'ま', 'み', 'む', 'め', 'も', 'や', 'ゆ', 'よ', 'ら', 'り', 'る', 'れ', 'ろ', 'わ', 'を', 'ん'].sort((a, b) => toRomaji(a).localeCompare(toRomaji(b)))
-const katakana = ['ア', 'イ', 'ウ', 'エ', 'オ', 'カ', 'キ', 'ク', 'ケ', 'コ', 'サ', 'シ', 'ス', 'セ', 'ソ', 'タ', 'チ', 'ツ', 'テ', 'ト', 'ナ', 'ニ', 'ヌ', 'ネ', 'ノ', 'ハ', 'ヒ', 'フ', 'ヘ', 'ホ', 'マ', 'ミ', 'ム', 'メ', 'モ', 'ヤ', 'ユ', 'ヨ', 'ラ', 'リ', 'ル', 'レ', 'ロ', 'ワ', 'ヲ', 'ン'].sort((a, b) => toRomaji(a).localeCompare(toRomaji(b)))
+const hiragana = ['あ', 'い', 'う', 'え', 'お', 'か', 'き', 'く', 'け', 'こ', 'が', 'ぎ', 'ぐ', 'げ', 'ご', 'さ', 'し', 'す', 'せ', 'そ', 'ざ', 'じ', 'ず', 'ぜ', 'ぞ', 'た', 'ち', 'つ', 'て', 'と', 'だ', 'ぢ', 'づ', 'で', 'ど', 'な', 'に', 'ぬ', 'ね', 'の', 'は', 'ひ', 'ふ', 'へ', 'ほ', 'ば', 'び', 'ぶ', 'べ', 'ぼ', 'ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ', 'ま', 'み', 'む', 'め', 'も', 'や', 'ゆ', 'よ', 'ら', 'り', 'る', 'れ', 'ろ', 'わ', 'を', 'ん'].sort((a, b) => toRomaji(a).localeCompare(toRomaji(b)))
+const katakana = ['ア', 'イ', 'ウ', 'エ', 'オ', 'カ', 'キ', 'ク', 'ケ', 'コ', 'ガ', 'ギ', 'グ', 'ゲ', 'ゴ', 'サ', 'シ', 'ス', 'セ', 'ソ', 'ザ', 'ジ', 'ズ', 'ゼ', 'ゾ', 'タ', 'チ', 'ツ', 'テ', 'ト', 'ダ', 'ヂ', 'ヅ', 'デ', 'ド', 'ナ', 'ニ', 'ヌ', 'ネ', 'ノ', 'ハ', 'ヒ', 'フ', 'ヘ', 'ホ', 'バ', 'ビ', 'ブ', 'ベ', 'ボ', 'パ', 'ピ', 'プ', 'ペ', 'ポ', 'マ', 'ミ', 'ム', 'メ', 'モ', 'ヤ', 'ユ', 'ヨ', 'ラ', 'リ', 'ル', 'レ', 'ロ', 'ワ', 'ヲ', 'ン'].sort((a, b) => toRomaji(a).localeCompare(toRomaji(b)))
 
 const sessionKana = ref<string[]>([])
 const sessionResult = ref<boolean[]>([])
@@ -75,6 +83,7 @@ const hasReported = ref(false)
 
 const isLast = computed(() => sessionResult.value.length === sessionKana.value.length)
 const charset = computed(() => props.mode === 'hiragana' ? hiragana : katakana)
+const charsetRomaji = computed(() => [...new Set(charset.value.map(c => toRomaji(c)))])
 const bestScore = computed(() => statisticsRecordedKanaStore.gestBestScore(props.mode))
 
 const currentSuccessCount = computed(() => sessionResult.value.filter(x => x === true).length)
@@ -99,9 +108,9 @@ const report = () => {
   statisticsRecordedKanaStore.report(props.mode, getTotalElapsedTime(), sessionResult.value.filter(x => x === true).length, charset.value.length)
 }
 
-const start = async() => {
+const start = async () => {
   state.value = 'starting'
-  while(countdown.value >= 0) {
+  while (countdown.value >= 0) {
     await new Promise((resolve) => {
       setTimeout(() => {
         --countdown.value
@@ -117,9 +126,12 @@ const start = async() => {
   startTimer()
 }
 
-const pressKana = async (pressedKana: string) => {
-  if (isValidating.value && pressedKana === sessionKana.value[sessionIndex.value]) {
-    utter(pressedKana)
+const pressKana = async (pressedRomaji: string) => {
+  const currentKana = sessionKana.value[sessionIndex.value]
+  const pressedCorrect = pressedRomaji === toRomaji(currentKana)
+
+  if (isValidating.value && pressedCorrect) {
+    utter(currentKana)
     return
   }
 
@@ -127,8 +139,7 @@ const pressKana = async (pressedKana: string) => {
     return
   }
 
-  const currentKana = sessionKana.value[sessionIndex.value]
-  isSuccess.value = currentKana === pressedKana
+  isSuccess.value = pressedCorrect
   if (isSuccess.value) {
     audio.pause()
     audio.currentTime = 0
@@ -196,11 +207,10 @@ const continueGame = () => {
   .kana-current {
     display: flex;
     gap: 16px;
-    height: 30%;
 
     display: flex;
     align-items: center;
-    height: 124px;
+    margin: 8px 0;
 
     .kana-char {
       width: 74px;
