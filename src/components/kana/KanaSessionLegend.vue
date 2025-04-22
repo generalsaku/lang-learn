@@ -1,15 +1,11 @@
 <template>
-  <div :class="{'kana-session-result': true }">
-    <div
-      v-for="(char, charIndex) of kana"
-      :key="char"
-      :title="`${char}`"
-      :class="{
-        'kana-session-result-record': true,
-        'positive': isAnswered(charIndex) && result[charIndex],
-        'negative': isAnswered(charIndex) && !result[charIndex],
-        current: charIndex === index,
-      }"></div>
+  <div :class="{ 'kana-session-result': true }">
+    <div v-for="(char, charIndex) of kana" :key="char" :title="`${char}`" :class="{
+      'kana-session-result-record': true,
+      'positive': isAnswered(charIndex) && result[charIndex],
+      'negative': isAnswered(charIndex) && !result[charIndex],
+      current: charIndex === index,
+    }"></div>
   </div>
 </template>
 
@@ -30,17 +26,16 @@ const isAnswered = (index: number) => result.value[index] !== undefined
 <style scoped>
 .kana-session-result {
   --gap-size: 4px;
-  --legend-size: 12px;
-
-  padding: 8px;
+  --legend-size: 8px;
 
   display: inline-flex;
   flex-flow: row wrap;
-  align-items: end;
+  align-items: start;
+  justify-content: start;
   gap: var(--gap-size);
   position: relative;
   box-sizing: border-box;
-  height: 100%;
+  height: max-content;
   flex: 0;
 
   .kana-session-result-record {

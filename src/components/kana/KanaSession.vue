@@ -5,12 +5,14 @@
       <span v-else>GO!</span>
     </div>
     <div v-if="state === 'started'" class="game" @click="continueGame">
-      <KanaSessionLegend :session-kana="sessionKana" :session-result="sessionResult" :session-index="sessionIndex">
-      </KanaSessionLegend>
-      <div class="kana-current">
-        <div class="kana-char noto"
-          :class="{ 'pulsate-outline-success': isValidating && isSuccess, 'pulsate-outline-failure': isValidating && !isSuccess }">
-          {{ sessionKana[sessionIndex] }}
+      <div class="game-top">
+        <KanaSessionLegend :session-kana="sessionKana" :session-result="sessionResult" :session-index="sessionIndex">
+        </KanaSessionLegend>
+        <div class="kana-current">
+          <div class="kana-char noto"
+            :class="{ 'pulsate-outline-success': isValidating && isSuccess, 'pulsate-outline-failure': isValidating && !isSuccess }">
+            {{ sessionKana[sessionIndex] }}
+          </div>
         </div>
       </div>
       <div>
@@ -204,13 +206,22 @@ const continueGame = () => {
     height: 100%;
   }
 
+  .game-top {
+    display: flex;
+    gap: 4px;
+    margin: 8px;
+
+    .kana-session-result {
+      flex: 1;
+    }
+  }
+
   .kana-current {
     display: flex;
     gap: 16px;
 
     display: flex;
     align-items: center;
-    margin: 8px 0;
 
     .kana-char {
       width: 74px;
