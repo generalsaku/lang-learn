@@ -209,7 +209,7 @@ const continueGame = () => {
   .game-top {
     display: flex;
     gap: 4px;
-    margin: 8px;
+    margin: 8px 8px 0 8px;
 
     .kana-session-result {
       flex: 1;
@@ -277,7 +277,7 @@ const continueGame = () => {
   .kana-table-description {
     font-size: 12px;
     text-align: center;
-    margin: 4px 0;
+    margin: 0 0 4px 0;
   }
 
   .home {
@@ -296,6 +296,7 @@ const continueGame = () => {
     table {
       width: calc(100% - 16px);
       margin: 0 auto 4px auto;
+      border-collapse: collapse;
 
       td {
         vertical-align: middle;
